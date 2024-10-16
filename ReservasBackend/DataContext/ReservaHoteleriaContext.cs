@@ -7,9 +7,9 @@ namespace ReservasBackend.DataContext
 {
     public class ReservaHoteleriaContext : DbContext
     {
-        public ReservaHoteleriaContext()
-        {
-        }
+        //public ReservaHoteleriaContext()
+        //{
+        //}
 
         public ReservaHoteleriaContext(DbContextOptions<ReservaHoteleriaContext> options) : base(options)
         {
@@ -23,19 +23,19 @@ namespace ReservasBackend.DataContext
         public virtual DbSet<RH_Servicio> RH_Servicios { get; set; }
         public virtual DbSet<RH_Empleado> RH_Empleados { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                var configuration = new ConfigurationBuilder()
-                                   // .SetBasePath(Directory.GetCurrentDirectory()) // Si es para un escritorio
-                                    .AddJsonFile("appsettings.json")
-                                    .Build();
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    if (!optionsBuilder.IsConfigured)
+        //    {
+        //        var configuration = new ConfigurationBuilder()
+        //                           // .SetBasePath(Directory.GetCurrentDirectory()) // Si es para un escritorio
+        //                            .AddJsonFile("appsettings.json")
+        //                            .Build();
 
-                string? cadenaConexion = configuration.GetConnectionString("mysqlRemoto");
-                optionsBuilder.UseMySql(cadenaConexion, ServerVersion.AutoDetect(cadenaConexion));
-            }
-        }
+        //        string? cadenaConexion = configuration.GetConnectionString("mysqlRemoto");
+        //        optionsBuilder.UseMySql(cadenaConexion, ServerVersion.AutoDetect(cadenaConexion));
+        //    }
+        //}
 
         #region Datos Semilla Usuarios
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -108,7 +108,7 @@ namespace ReservasBackend.DataContext
                 {
                     ID = 1,
                     Monto = 50000,
-                    FechaPago = new DateTime (15/09/2024),
+                    FechaPago = new DateTime (2024/09/15),
                     ReservaID = 1
 
                 },
@@ -116,7 +116,7 @@ namespace ReservasBackend.DataContext
                 {
                     ID = 2,
                     Monto = 30000,
-                    FechaPago = new DateTime(13 / 08 / 2024),
+                    FechaPago = new DateTime(2024 / 08 / 13),
                     ReservaID = 2
                 }
             );
@@ -125,9 +125,9 @@ namespace ReservasBackend.DataContext
                 new RH_Reserva
                 {
                     ID = 1,
-                    FechaReserva = new DateTime(05/09/2024),
-                    FechaCheckIn = new DateTime(10/09/2024),
-                    FechaCheckOut = new DateTime(15/09/2024),
+                    FechaReserva = new DateTime(2024/09/05),
+                    FechaCheckIn = new DateTime(2024 / 09 / 10),
+                    FechaCheckOut = new DateTime(2024 / 09 / 15),
                     EstadoReserva = "Activa",
                     UsuarioID = 1,
                     HabitacionID = 1,
@@ -136,9 +136,9 @@ namespace ReservasBackend.DataContext
                 new RH_Reserva
                 {
                     ID = 2,
-                    FechaReserva = new DateTime(03 / 08 / 2024),
+                    FechaReserva = new DateTime(2024 / 08 / 03),
                     FechaCheckIn = new DateTime(10 / 08 / 2024),
-                    FechaCheckOut = new DateTime(13 / 08 / 2024),
+                    FechaCheckOut = new DateTime(2024 / 08 / 13),
                     EstadoReserva = "Cancelada",
                     UsuarioID = 2,
                     HabitacionID = 2,
@@ -168,14 +168,14 @@ namespace ReservasBackend.DataContext
                {
                     ID = 1,
                     TipoServicio = "Servicio de Habitacion",
-                    FechaSolicitud = new DateTime(11/09/2024),
+                    FechaSolicitud = new DateTime(2024 / 09 / 11),
                     ReservaID = 1
                },
                new RH_ServicioAdicional
                {
                    ID = 2,
                    TipoServicio = "Servicio de Lavanderia",
-                   FechaSolicitud = new DateTime(12 / 08 / 2024),
+                   FechaSolicitud = new DateTime(2024 / 08 / 12),
                    ReservaID = 2
                }
             );    

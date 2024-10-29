@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ReservaHoteleriaApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ReservaHoteleriaApp"
+    Shell.FlyoutBehavior="Disabled"
+    Title="ReservaHoteleriaApp">
+
+    <ShellContent Title="inicio" ContentTemplate="{DataTemplate views:InicioView}" />
+    <ShellContent Title="Reservas" Route="ReservasPage" ContentTemplate="{DataTemplate views:ReservasView}" />
+    <ShellContent Title="Servicios" Route="ServiciosPage" ContentTemplate="{DataTemplate views:ServiciosView}" />
+    <ShellContent Title="Perfil" Route="PerfilPage" ContentTemplate="{DataTemplate views:PerfilView}" />
+      
+</Shell>

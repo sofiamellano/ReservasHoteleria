@@ -37,7 +37,7 @@ namespace ReservasBackend.DataContext
         //    }
         //}
 
-        #region Datos Semilla Usuarios
+       
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Configuración de la relación uno a uno entre RH_Reserva y RH_Pago
@@ -45,6 +45,8 @@ namespace ReservasBackend.DataContext
                 .HasOne(r => r.Pago)
                 .WithOne(p => p.Reserva)
                 .HasForeignKey<RH_Pago>(p => p.ReservaID);
+
+            #region Datos Semilla 
 
             modelBuilder.Entity<RH_Usuario>().HasData(
                 new RH_Usuario
@@ -64,7 +66,7 @@ namespace ReservasBackend.DataContext
                     Telefono = "222222"
                 }
             );
- 
+
             modelBuilder.Entity<RH_Empleado>().HasData(
                 new RH_Empleado
                 {
@@ -108,7 +110,7 @@ namespace ReservasBackend.DataContext
                 {
                     ID = 1,
                     Monto = 50000,
-                    FechaPago = new DateTime (2024/09/15),
+                    FechaPago = new DateTime(2024, 09, 15),
                     ReservaID = 1
 
                 },
@@ -116,7 +118,7 @@ namespace ReservasBackend.DataContext
                 {
                     ID = 2,
                     Monto = 30000,
-                    FechaPago = new DateTime(2024 / 08 / 13),
+                    FechaPago = new DateTime(2024, 08, 13),
                     ReservaID = 2
                 }
             );
@@ -125,9 +127,9 @@ namespace ReservasBackend.DataContext
                 new RH_Reserva
                 {
                     ID = 1,
-                    FechaReserva = new DateTime(2024/09/05),
-                    FechaCheckIn = new DateTime(2024 / 09 / 10),
-                    FechaCheckOut = new DateTime(2024 / 09 / 15),
+                    FechaReserva = new DateTime(2024, 09, 05),
+                    FechaCheckIn = new DateTime(2024, 09, 10),
+                    FechaCheckOut = new DateTime(2024, 09, 15),
                     EstadoReserva = "Activa",
                     UsuarioID = 1,
                     HabitacionID = 1,
@@ -136,9 +138,9 @@ namespace ReservasBackend.DataContext
                 new RH_Reserva
                 {
                     ID = 2,
-                    FechaReserva = new DateTime(2024 / 08 / 03),
-                    FechaCheckIn = new DateTime(10 / 08 / 2024),
-                    FechaCheckOut = new DateTime(2024 / 08 / 13),
+                    FechaReserva = new DateTime(2024, 08, 03),
+                    FechaCheckIn = new DateTime(2024, 08, 10),
+                    FechaCheckOut = new DateTime(2024, 08, 13),
                     EstadoReserva = "Cancelada",
                     UsuarioID = 2,
                     HabitacionID = 2,
@@ -162,39 +164,44 @@ namespace ReservasBackend.DataContext
                      Descripcion = "Almuerzo completo"
                  }
             );
-        
+
             modelBuilder.Entity<RH_ServicioAdicional>().HasData(
                new RH_ServicioAdicional
                {
-                    ID = 1,
-                    TipoServicio = "Servicio de Habitacion",
-                    FechaSolicitud = new DateTime(2024 / 09 / 11),
-                    ReservaID = 1
+                   ID = 1,
+                   TipoServicio = "Servicio de Habitacion",
+                   FechaSolicitud = new DateTime(2024, 09, 11),
+                   ReservaID = 1
                },
                new RH_ServicioAdicional
                {
                    ID = 2,
                    TipoServicio = "Servicio de Lavanderia",
-                   FechaSolicitud = new DateTime(2024 / 08 / 12),
+                   FechaSolicitud = new DateTime(2024, 08, 12),
                    ReservaID = 2
                }
-            );    
-        }
-        #endregion
+            );
+            #endregion
 
-        //#region Definición de filtros de eliminación
-        //// (este código no lo habilitamos todavía porque es cuando agregamos un campo Eliminado a las tablas y modificamos los
-        //// ApiControllers para que al mandar a eliminar solo cambien este campo y lo pongan en verdadero, esta configuración de
-        //// eliminación hace que el sistema ignore los registros que tengan el eliminado en verdadero, así que hace que en
-        //// apariencia y funcionalidad esté "eliminado", pero van a seguir estando ahí para que podamos observar las eliminaciones que hubo)
-        //modelBuilder.Entity<RH_Empleado>().HasQueryFilter(m => !m.Eliminado);
-        //modelBuilder.Entity<RH_Habitacion>().HasQueryFilter(m => !m.Eliminado);
-        //modelBuilder.Entity<RH_Pago>().HasQueryFilter(m => !m.Eliminado);
-        //modelBuilder.Entity<RH_Reserva>().HasQueryFilter(m => !m.Eliminado);
-        //modelBuilder.Entity<RH_Servicio>().HasQueryFilter(m => !m.Eliminado);
-        //modelBuilder.Entity<RH_ServicioAdicional>().HasQueryFilter(m => !m.Eliminado);
-        //modelBuilder.Entity<RH_Usuario>().HasQueryFilter(m => !m.Eliminado);
-        //#endregion
+            #region Definición de filtros de eliminación
+            // (este código no lo habilitamos todavía porque es cuando agregamos un campo Eliminado a las tablas y modificamos los
+            // ApiControllers para que al mandar a eliminar solo cambien este campo y lo pongan en verdadero, esta configuración de
+            // eliminación hace que el sistema ignore los registros que tengan el eliminado en verdadero, así que hace que en
+            // apariencia y funcionalidad esté "eliminado", pero van a seguir estando ahí para que podamos observar las eliminaciones que hubo)
+
+            modelBuilder.Entity<RH_Empleado>().HasQueryFilter(m => !m.Eliminado);
+            modelBuilder.Entity<RH_Habitacion>().HasQueryFilter(m => !m.Eliminado);
+            modelBuilder.Entity<RH_Pago>().HasQueryFilter(m => !m.Eliminado);
+            modelBuilder.Entity<RH_Reserva>().HasQueryFilter(m => !m.Eliminado);
+            modelBuilder.Entity<RH_Servicio>().HasQueryFilter(m => !m.Eliminado);
+            modelBuilder.Entity<RH_ServicioAdicional>().HasQueryFilter(m => !m.Eliminado);
+            modelBuilder.Entity<RH_Usuario>().HasQueryFilter(m => !m.Eliminado);
+
+            #endregion
+        }
+        
+
+
 
     }
 }

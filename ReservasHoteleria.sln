@@ -5,9 +5,11 @@ VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReservasBackend", "ReservasBackend\ReservasBackend.csproj", "{AAA0292F-73F2-4B60-A490-FD40765084F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservasHoteleriaServices", "ReservasHoteleriaServices\ReservasHoteleriaServices.csproj", "{2763DAB0-7932-43D6-AFAE-C8D4E0D03F54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReservasHoteleriaServices", "ReservasHoteleriaServices\ReservasHoteleriaServices.csproj", "{2763DAB0-7932-43D6-AFAE-C8D4E0D03F54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservasHotelDesktop", "ReservasHotelDesktop\ReservasHotelDesktop.csproj", "{3D04622C-A3CA-4876-AD76-2F9A97EAE40F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReservasHotelDesktop", "ReservasHotelDesktop\ReservasHotelDesktop.csproj", "{3D04622C-A3CA-4876-AD76-2F9A97EAE40F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservaHoteleriaApp", "ReservaHoteleriaApp\ReservaHoteleriaApp.csproj", "{F15F503F-3054-415B-9DAF-2BAC0233E01D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,12 @@ Global
 		{3D04622C-A3CA-4876-AD76-2F9A97EAE40F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D04622C-A3CA-4876-AD76-2F9A97EAE40F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D04622C-A3CA-4876-AD76-2F9A97EAE40F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F15F503F-3054-415B-9DAF-2BAC0233E01D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F15F503F-3054-415B-9DAF-2BAC0233E01D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F15F503F-3054-415B-9DAF-2BAC0233E01D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F15F503F-3054-415B-9DAF-2BAC0233E01D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F15F503F-3054-415B-9DAF-2BAC0233E01D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F15F503F-3054-415B-9DAF-2BAC0233E01D}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

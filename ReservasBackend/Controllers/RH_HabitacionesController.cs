@@ -23,8 +23,12 @@ namespace ReservasBackend.Controllers
 
         // GET: api/RH_Habitaciones
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<RH_Habitacion>>> GetRH_Habitaciones()
+        public async Task<ActionResult<IEnumerable<RH_Habitacion>>> GetRH_Habitaciones([FromQuery] string? filtro)
         {
+            if (filtro != null)
+            {
+                return await _context.RH_Habitaciones.Where(h => h.TipoHabitacion.Contains(filtro)).ToListAsync();
+            }
             return await _context.RH_Habitaciones.ToListAsync();
         }
 

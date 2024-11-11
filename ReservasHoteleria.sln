@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReservasBackend", "Reservas
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReservasHoteleriaServices", "ReservasHoteleriaServices\ReservasHoteleriaServices.csproj", "{2763DAB0-7932-43D6-AFAE-C8D4E0D03F54}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReservasHotelDesktop", "ReservasHotelDesktop\ReservasHotelDesktop.csproj", "{3D04622C-A3CA-4876-AD76-2F9A97EAE40F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReservaHoteleriaApp", "ReservaHoteleriaApp\ReservaHoteleriaApp.csproj", "{F15F503F-3054-415B-9DAF-2BAC0233E01D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservaHoteleriaApp", "ReservaHoteleriaApp\ReservaHoteleriaApp.csproj", "{F15F503F-3054-415B-9DAF-2BAC0233E01D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReservasHoteleriaDesktop", "ReservasHoteleriaDesktop\ReservasHoteleriaDesktop.csproj", "{4864B936-B35C-4917-B3FF-68C6ED1A2760}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,16 +25,16 @@ Global
 		{2763DAB0-7932-43D6-AFAE-C8D4E0D03F54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2763DAB0-7932-43D6-AFAE-C8D4E0D03F54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2763DAB0-7932-43D6-AFAE-C8D4E0D03F54}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3D04622C-A3CA-4876-AD76-2F9A97EAE40F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3D04622C-A3CA-4876-AD76-2F9A97EAE40F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3D04622C-A3CA-4876-AD76-2F9A97EAE40F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3D04622C-A3CA-4876-AD76-2F9A97EAE40F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F15F503F-3054-415B-9DAF-2BAC0233E01D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F15F503F-3054-415B-9DAF-2BAC0233E01D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F15F503F-3054-415B-9DAF-2BAC0233E01D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{F15F503F-3054-415B-9DAF-2BAC0233E01D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F15F503F-3054-415B-9DAF-2BAC0233E01D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F15F503F-3054-415B-9DAF-2BAC0233E01D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{4864B936-B35C-4917-B3FF-68C6ED1A2760}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4864B936-B35C-4917-B3FF-68C6ED1A2760}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4864B936-B35C-4917-B3FF-68C6ED1A2760}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4864B936-B35C-4917-B3FF-68C6ED1A2760}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

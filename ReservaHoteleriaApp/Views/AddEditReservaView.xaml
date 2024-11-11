@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:ReservaHoteleriaApp.ViewModels"
+             x:Class="ReservaHoteleriaApp.Views.AddEditReservaView"
+             Title="EDITAR / AGREGAR RESERVA">
+    <ContentPage.BindingContext>
+        <viewModels:AddEditReservaViewModel/>
+    </ContentPage.BindingContext>
+    <VerticalStackLayout>
+        <Label Text="Agregar o editar reserva"
+               FontSize="Header"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+        <DatePicker Date="{Binding FechaReserva}"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"/>
+        <DatePicker Date="{Binding FechaCheckIn}"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+        <DatePicker Date="{Binding FechaCheckOut}"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+        <Entry Placeholder="Estado de la Reserva"
+               Text="{Binding EstadoReserva}"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+        <Button Text="Guardar"
+                Command="{Binding SaveReservaCommand}"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
+    </VerticalStackLayout>
+</ContentPage>

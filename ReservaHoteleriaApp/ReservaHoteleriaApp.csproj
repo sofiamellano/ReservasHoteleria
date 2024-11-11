@@ -57,13 +57,55 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
+		<PackageReference Include="FontAwesome" Version="4.7.0" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.92" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.92" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="View\InicioView.xaml">
+	  <ProjectReference Include="..\ReservasHoteleriaServices\ReservasHoteleriaServices.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="ReservaShell.xaml.cs">
+	    <DependentUpon>ReservaShell.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\AddEditServicioAdicionalView.xaml.cs">
+	    <DependentUpon>AddEditServicioAdicionalView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\AddEditReservaView.xaml.cs">
+	    <DependentUpon>AddEditReservaView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\ServiciosAdicionalesView.xaml.cs">
+	    <DependentUpon>ServiciosAdicionalesView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\ReservasView.xaml.cs">
+	    <DependentUpon>ReservasView.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="ContentViews\FlyoutFooter.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="ContentViews\FlyoutHeader.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\AddEditServicioAdicionalView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\AddEditReservaView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\IniciarSesionView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ServiciosAdicionalesView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ReservasView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

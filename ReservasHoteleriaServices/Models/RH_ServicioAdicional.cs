@@ -15,6 +15,6 @@ namespace ReservasHoteleriaServices.Models
 
         // Clave foránea
         public int? ReservaID { get; set; }
-        public  RH_Reserva? Reserva { get; set; }
+        public RH_Reserva? Reserva { get; set; }
     }
 }

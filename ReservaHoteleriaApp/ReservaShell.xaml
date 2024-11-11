@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ReservaHoteleriaApp.ReservaShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:contentviews="clr-namespace:ReservaHoteleriaApp.ContentViews"
+    xmlns:local="clr-namespace:ReservaHoteleriaApp"
+    xmlns:viewmodels="clr-namespace:ReservaHoteleriaApp.ViewModels"
+    xmlns:views="clr-namespace:ReservaHoteleriaApp.Views"
+    Shell.FlyoutBehavior="Disabled"
+    Title="ReservaHoteleriaApp"
+     FlyoutBackgroundImage="photo.jpg"
+     FlyoutBackgroundImageAspect="AspectFill"
+     FlyoutHeaderBehavior="CollapseOnScroll">
+
+    <Shell.BindingContext>
+        <viewmodels:ReservaShellViewModel />
+    </Shell.BindingContext>
+
+    <Shell.FlyoutHeader>
+        <contentviews:FlyoutHeader />
+    </Shell.FlyoutHeader>
+
+    <Shell.FlyoutFooter>
+        <contentviews:FlyoutFooter />
+    </Shell.FlyoutFooter>
+
+    <FlyoutItem Route="ReservasApp"
+             FlyoutDisplayOptions="AsMultipleItems"
+                x:Name="FlyoutItemsPrincipal">
+
+        <ShellContent Title="Inicio" ContentTemplate="{DataTemplate local:MainPage}" />
+
+        <Tab Title="Reservas"
+             Icon="reservas.png">
+
+            <ShellContent 
+                Title="Agregar Reserva"
+                ContentTemplate="{DataTemplate views:AddEditReservaView}"
+                Route="AddEditReserva"/>
+
+            <ShellContent 
+                Title="Editar Reserva"
+                ContentTemplate="{DataTemplate views:ReservasView}"
+                Route="Reservas"/>
+        </Tab>
+
+        <Tab Title="Servicios Adicionales"
+                Icon="serviciosadicionales.png">
+            <ShellContent Title="Agregar Servicio Adicional"
+                          ContentTemplate="{DataTemplate views:AddEditServicioAdicionalView}"
+                Route="AddEditServicioAdicional"/>
+
+            <ShellContent Title="Editar Servicio Adicional"
+                            ContentTemplate="{DataTemplate views:ServiciosAdicionalesView}"
+                    Route="ServiciosAdicionales"/>
+
+        </Tab>
+
+        <ShellContent 
+            Title="Servicios Adicionales"
+            ContentTemplate="{DataTemplate views:ServiciosAdicionalesView}"
+            Route="ServiciosAdicionales"/>
+
+    </FlyoutItem>
+
+    <MenuItem Text="Cerrar Sesion"
+          IconImageSource="random.png"
+              Command="{Binding LogoutCommand}"/>
+
+    <ShellContent
+         Title="Iniciar Sesion"
+         Icon="dog.png"
+         ContentTemplate="{DataTemplate views:IniciarSesionView}"
+         Route="Login"
+        IsVisible="{Binding IsUserLogout}"/>
+
+</Shell>

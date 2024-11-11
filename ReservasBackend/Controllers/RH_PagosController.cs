@@ -23,8 +23,12 @@ namespace ReservasBackend.Controllers
 
         // GET: api/RH_Pagos
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<RH_Pago>>> GetRH_Pagos()
+        public async Task<ActionResult<IEnumerable<RH_Pago>>> GetRH_Pagos([FromQuery] string? filtro)
         {
+            if (filtro != null)
+            {
+                return await _context.RH_Pagos.Where(p => p.FechaPago.Equals(filtro)).ToListAsync();
+            }
             return await _context.RH_Pagos.ToListAsync();
         }
 

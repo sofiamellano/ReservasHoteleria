@@ -1,6 +1,4 @@
-﻿using ReservaHoteleriaApp.View;
-
-namespace ReservaHoteleriaApp
+﻿namespace ReservaHoteleriaApp
 {
     public partial class App : Application
     {
@@ -8,7 +6,7 @@ namespace ReservaHoteleriaApp
         {
             InitializeComponent();
 
-            MainPage = new InicioView();
+            MainPage = new ReservaShell();
         }
     }
 }

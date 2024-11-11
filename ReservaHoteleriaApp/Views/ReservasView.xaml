@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:ReservaHoteleriaApp.ViewModels"
+             x:Class="KioscoInformaticoApp.Views.ProductosView"
+             Title="RESERVAS"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <viewModels:ReservasViewModel/>
+    </ContentPage.BindingContext>
+    <Grid RowDefinitions="Auto, *, Auto, Auto">
+        <HorizontalStackLayout Grid.Row="0">
+            <Label 
+                Text="Buscar:"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                FontSize="Header" />
+
+            <Entry Placeholder="Buscar reservas..." Text="{Binding FilterReservas}"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Margin="0,10,0,10" 
+                   Grid.Row="0"/>
+        </HorizontalStackLayout>
+        <ScrollView Grid.Row="1">
+        <ListView Grid.Row="1"
+                   ItemsSource="{Binding Reservas}"
+                   SelectedItem="{Binding SelectedReserva}"
+                   SelectionMode="Single"
+                   IsPullToRefreshEnabled="True"
+                   RefreshCommand="{Binding ObtenerReservasCommand}">
+                    <!--IsRefreshing="{Binding IsRefreshing}"-->
+                    <!-- Enlaza IsRefreshing aquí -->
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame BorderColor="LightGray" CornerRadius="5" Padding="10" Margin="5">
+                                    <StackLayout>
+                                        <Label Text="{Binding FechaReserva}" FontSize="Medium" />
+                                        <Label Text="{Binding FechaCheckIn}" FontSize="Small" TextColor="Gray" />
+                                    <Label Text="{Binding FechaCheckOut}"  FontSize="Small" TextColor="Gray" />
+                                    <Label Text="{Binding EstadoReserva}"  FontSize="Small" TextColor="Gray" />
+                                </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+        </ScrollView>
+        <Button Text="Agregar Reservas"
+                        Command="{Binding AgregarReservasCommand}"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Margin="0,10,0,10"
+                        Grid.Row="2"/>
+                <Button Text="Editar producto"
+                    Command="{Binding EditarReservasCommand}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Margin="0,10,0,10"
+                    Grid.Row="3"/>
+            </Grid>
+</ContentPage>

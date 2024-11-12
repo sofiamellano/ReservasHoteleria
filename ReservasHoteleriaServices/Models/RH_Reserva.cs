@@ -17,13 +17,8 @@ namespace ReservasHoteleriaServices.Models
 
         // Claves foráneas
         public int? UsuarioID { get; set; }
-        public  RH_Usuario? Usuario { get; set; }
 
         public int? HabitacionID { get; set; }
-        public  RH_Habitacion? Habitacion { get; set; }
-
-        // Relación con RH_Pago
-        public int? PagoID { get; set; }
-        public virtual RH_Pago? Pago { get; set; }
+    
     }
 }

@@ -10,7 +10,6 @@ namespace ReservasHoteleriaServices.Models
     {
         public int ID { get; set; }
         public string TipoHabitacion { get; set; } // (Individual, Doble, Suite, etc.)
-        public int Capacidad { get; set; }
         public decimal PrecioPorNoche { get; set; }
         public bool Disponible { get; set; }
         public bool Eliminado { get; set; } = false;

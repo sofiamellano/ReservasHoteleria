@@ -1,7 +1,7 @@
 ﻿using ReservaHoteleriaApp;
 using ReservaHoteleriaApp.Class;
 
-namespace KioscoInformaticoApp.ViewModels
+namespace ReservaHoteleriaApp.ViewModels
 {
     public class IniciarSesionViewModel : ObjectNotification
     {

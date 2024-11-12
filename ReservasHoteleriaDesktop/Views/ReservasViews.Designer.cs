@@ -40,7 +40,6 @@
             btnAgregar = new FontAwesome.Sharp.IconButton();
             dataGridReservas = new DataGridView();
             tabPageAgregarEditar = new TabPage();
-            textBox1 = new TextBox();
             txtUsuario = new TextBox();
             label9 = new Label();
             label8 = new Label();
@@ -51,6 +50,10 @@
             iconButton3 = new FontAwesome.Sharp.IconButton();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             label3 = new Label();
+            comboHabitacion = new ComboBox();
+            comboPago = new ComboBox();
+            comboUsuario = new ComboBox();
+            dateTimePicker1 = new DateTimePicker();
             panel1.SuspendLayout();
             tabControl.SuspendLayout();
             tabPageLista.SuspendLayout();
@@ -208,7 +211,10 @@
             // 
             // tabPageAgregarEditar
             // 
-            tabPageAgregarEditar.Controls.Add(textBox1);
+            tabPageAgregarEditar.Controls.Add(dateTimePicker1);
+            tabPageAgregarEditar.Controls.Add(comboUsuario);
+            tabPageAgregarEditar.Controls.Add(comboPago);
+            tabPageAgregarEditar.Controls.Add(comboHabitacion);
             tabPageAgregarEditar.Controls.Add(txtUsuario);
             tabPageAgregarEditar.Controls.Add(label9);
             tabPageAgregarEditar.Controls.Add(label8);
@@ -227,16 +233,9 @@
             tabPageAgregarEditar.Text = "Agregar/Editar";
             tabPageAgregarEditar.UseVisualStyleBackColor = true;
             // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(408, 46);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(231, 23);
-            textBox1.TabIndex = 18;
-            // 
             // txtUsuario
             // 
-            txtUsuario.Location = new Point(408, 17);
+            txtUsuario.Location = new Point(408, 207);
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(231, 23);
             txtUsuario.TabIndex = 17;
@@ -320,7 +319,7 @@
             iconButton1.IconColor = Color.White;
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton1.IconSize = 27;
-            iconButton1.Location = new Point(540, 348);
+            iconButton1.Location = new Point(531, 327);
             iconButton1.Name = "iconButton1";
             iconButton1.Size = new Size(90, 64);
             iconButton1.TabIndex = 9;
@@ -337,6 +336,40 @@
             label3.Size = new Size(50, 15);
             label3.TabIndex = 0;
             label3.Text = "Usuario:";
+            // 
+            // comboHabitacion
+            // 
+            comboHabitacion.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboHabitacion.FormattingEnabled = true;
+            comboHabitacion.Location = new Point(408, 50);
+            comboHabitacion.Name = "comboHabitacion";
+            comboHabitacion.Size = new Size(231, 23);
+            comboHabitacion.TabIndex = 19;
+            // 
+            // comboPago
+            // 
+            comboPago.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboPago.FormattingEnabled = true;
+            comboPago.Location = new Point(408, 244);
+            comboPago.Name = "comboPago";
+            comboPago.Size = new Size(231, 23);
+            comboPago.TabIndex = 20;
+            // 
+            // comboUsuario
+            // 
+            comboUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboUsuario.FormattingEnabled = true;
+            comboUsuario.Location = new Point(408, 17);
+            comboUsuario.Name = "comboUsuario";
+            comboUsuario.Size = new Size(231, 23);
+            comboUsuario.TabIndex = 21;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(408, 89);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(231, 23);
+            dateTimePicker1.TabIndex = 22;
             // 
             // ReservasViews
             // 
@@ -382,7 +415,10 @@
         private FontAwesome.Sharp.IconButton iconButton3;
         private FontAwesome.Sharp.IconButton iconButton1;
         private Label label3;
-        private TextBox textBox1;
         private TextBox txtUsuario;
+        private DateTimePicker dateTimePicker1;
+        private ComboBox comboUsuario;
+        private ComboBox comboPago;
+        private ComboBox comboHabitacion;
     }
 }

@@ -10,9 +10,7 @@ namespace ReservasHoteleriaServices.Models
     {
         public int ID { get; set; }
         public string Nombre { get; set; }
-        public string Apellido { get; set; }
         public string Cargo { get; set; }
-        public string Telefono { get; set; }
         public bool Eliminado { get; set; } = false;
     }
 }

@@ -6,7 +6,7 @@ namespace ReservaHoteleriaApp.ViewModels
 {
     public class AddEditReservaViewModel : ObjectNotification
     {
-        GenericService<RH_Reserva> reservaService = new GenericService<RH_Reserva>();
+        ReservaService reservaService = new ReservaService();
 
         private RH_Reserva editReserva;
         public RH_Reserva EditReserva
@@ -76,26 +76,39 @@ namespace ReservaHoteleriaApp.ViewModels
 
         private async Task SaveReserva()
         {
-            if (editReserva != null)
+            try
             {
-                editReserva.FechaReserva = FechaReserva;
-                editReserva.FechaCheckIn = FechaCheckIn;
-                editReserva.FechaCheckOut = FechaCheckOut;
-                editReserva.EstadoReserva = EstadoReserva;
-                await reservaService.UpdateAsync(editReserva);
-            }
-            else
-            {
-                var reserva = new RH_Reserva()
+                if (editReserva != null)
                 {
-                    FechaReserva = FechaReserva,
-                    FechaCheckIn = FechaCheckIn,
-                    FechaCheckOut = FechaCheckOut,
-                    EstadoReserva = EstadoReserva
-                };
-                await reservaService.AddAsync(reserva);
+                    editReserva.FechaReserva = FechaReserva;
+                    editReserva.FechaCheckIn = FechaCheckIn;
+                    editReserva.FechaCheckOut = FechaCheckOut;
+                    editReserva.EstadoReserva = EstadoReserva;
+                    await reservaService.UpdateAsync(editReserva);
+                }
+                else
+                {
+                    var reserva = new RH_Reserva()
+                    {
+                        FechaReserva = FechaReserva,
+                        FechaCheckIn = FechaCheckIn,
+                        FechaCheckOut = FechaCheckOut,
+                        EstadoReserva = EstadoReserva,
+                        UsuarioID = 1,
+                        HabitacionID = 1,
+                        PagoID = 1
+                    };
+                    await reservaService.AddAsync(reserva);
+                }
+                await Shell.Current.GoToAsync("//ListaReservas");
             }
-            await Shell.Current.GoToAsync("//ListaReservas");
+            catch (Exception ex)
+            {
+                // Aquí puedes registrar el mensaje de error para diagnosticar el problema
+                Console.WriteLine(ex.Message);
+                // O mostrarlo en una alerta en la UI para verificar en tiempo de ejecución
+            }
         }
+
     }
 }

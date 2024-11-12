@@ -1,4 +1,3 @@
-using KioscoInformaticoApp.ViewModels;
 using ReservaHoteleriaApp.ViewModels;
 
 namespace ReservaHoteleriaApp.Views;

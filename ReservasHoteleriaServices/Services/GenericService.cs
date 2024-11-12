@@ -49,13 +49,14 @@ namespace ReservasHoteleriaServices.Services
         public async Task<T?> AddAsync(T? entity)
         {
             var response = await client.PostAsJsonAsync(_endpoint, entity);
-            var content = await response.Content.ReadAsStreamAsync();
+            var content = await response.Content.ReadAsStringAsync();
             if (!response.IsSuccessStatusCode)
             {
-                throw new ApplicationException(content?.ToString());
+                throw new ApplicationException($"Error al hacer la solicitud: {response.StatusCode} - {content}");
             }
             return JsonSerializer.Deserialize<T>(content, options);
         }
+
 
         public async Task UpdateAsync(T? entity)
         {

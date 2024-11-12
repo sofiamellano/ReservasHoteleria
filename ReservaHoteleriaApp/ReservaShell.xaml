@@ -35,32 +35,29 @@
              Icon="reservas.png">
 
             <ShellContent 
-                Title="Agregar Reserva"
-                ContentTemplate="{DataTemplate views:AddEditReservaView}"
-                Route="AddEditReserva"/>
+                Title="Lista de Reservas"
+                ContentTemplate="{DataTemplate views:ReservasView}"
+                Route="ListaReservas"/>
 
             <ShellContent 
-                Title="Editar Reserva"
-                ContentTemplate="{DataTemplate views:ReservasView}"
-                Route="Reservas"/>
+                Title="Agregar Reserva"
+                ContentTemplate="{DataTemplate views:AddEditReservaView}"
+                Route="AgregarEditarReserva"/>
         </Tab>
 
         <Tab Title="Servicios Adicionales"
-                Icon="serviciosadicionales.png">
+             Icon="serviciosadicionales.png">
+
+            <ShellContent Title="Lista Servicio Adicional"
+                 ContentTemplate="{DataTemplate views:ServiciosAdicionalesView}"
+                 Route="ListaServiciosAdicionales"/>
+
+
             <ShellContent Title="Agregar Servicio Adicional"
                           ContentTemplate="{DataTemplate views:AddEditServicioAdicionalView}"
-                Route="AddEditServicioAdicional"/>
-
-            <ShellContent Title="Editar Servicio Adicional"
-                            ContentTemplate="{DataTemplate views:ServiciosAdicionalesView}"
-                    Route="ServiciosAdicionales"/>
+                Route="AgregarEditarServicioAdicional"/>
 
         </Tab>
-
-        <ShellContent 
-            Title="Servicios Adicionales"
-            ContentTemplate="{DataTemplate views:ServiciosAdicionalesView}"
-            Route="ServiciosAdicionales"/>
 
     </FlyoutItem>
 

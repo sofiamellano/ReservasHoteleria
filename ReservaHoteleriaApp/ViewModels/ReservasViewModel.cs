@@ -15,7 +15,7 @@ namespace ReservaHoteleriaApp.ViewModels
             get { return filterreservas; }
             set
             {
-                FilterReservas = value;
+                filterreservas = value;
                 OnPropertyChanged();
                 _ = FiltarReservas();
             }

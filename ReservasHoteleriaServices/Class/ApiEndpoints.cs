@@ -21,13 +21,13 @@ namespace ReservasHoteleriaServices.Class
         {
             return name switch
             {
-                "RH_Empleado" => RH_Empleado,
-                "RH_Habitacion" => RH_Habitacion,
-                "RH_Pago" => RH_Pago,
-                "RH_Reserva" => RH_Reserva,
-                "RH_Servicio" => RH_Servicio,
-                "RH_ServicioAdicional" => RH_ServicioAdicional,
-                "RH_Usuario" => RH_Usuario,
+                "RH_Empleado" => "api/RH_Empleado",
+                "RH_Habitacion" => "api/RH_Habitacion",
+                "RH_Pago" => "api/RH_Pago",
+                "RH_Reserva" => "api/RH_Reserva",
+                "RH_Servicio" => "api/RH_Servicio",
+                "RH_ServicioAdicional" => "api/RH_ServicioAdicional",
+                "RH_Usuario" => "api/RH_Usuario",
                 _ => throw new ArgumentException($"Endpoint '{name}' no está definido."),
             };
         }

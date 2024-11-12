@@ -61,7 +61,7 @@ namespace ReservasHoteleriaServices.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a https://reservashoteleria.azurewebsites.net.
+        ///   Busca una cadena traducida similar a https://reservashoteleria.azurewebsites.net/.
         /// </summary>
         internal static string UrlApi {
             get {

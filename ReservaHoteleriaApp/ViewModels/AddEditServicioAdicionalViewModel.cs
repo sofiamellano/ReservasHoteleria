@@ -6,7 +6,7 @@ namespace ReservaHoteleriaApp.ViewModels
 {
     public class AddEditServicioAdicionalViewModel : ObjectNotification
     {
-        GenericService<RH_ServicioAdicional> servicioAdicionalService = new GenericService<RH_ServicioAdicional>();
+        ServicioAdicionalService servicioAdicionalService = new ServicioAdicionalService();
         private RH_ServicioAdicional editServicioAdicional;
         public RH_ServicioAdicional EditServicioAdicional
         {

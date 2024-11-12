@@ -1,10 +1,10 @@
-using KioscoInformaticoApp.ViewModels;
+using ReservaHoteleriaApp.ViewModels;
 
-namespace KioscoInformaticoApp.Views;
+namespace ReservaHoteleriaApp.Views;
 
-public partial class ProductosView : ContentPage
+public partial class ReservasView : ContentPage
 {
-	public ProductosView()
+	public ReservasView()
 	{
 		InitializeComponent();
 	}

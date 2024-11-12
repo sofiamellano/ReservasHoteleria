@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:ReservaHoteleriaApp.ViewModels"
-             x:Class="KioscoInformaticoApp.Views.ProductosView"
+             x:Class="ReservaHoteleriaApp.Views.ReservasView" 
              Title="RESERVAS"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.BindingContext>

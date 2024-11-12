@@ -19,7 +19,6 @@ namespace ReservasBackend.DataContext
         public virtual DbSet<RH_Habitacion> RH_Habitaciones { get; set; }
         public virtual DbSet<RH_Reserva> RH_Reservas { get; set; }
         public virtual DbSet<RH_ServicioAdicional> RH_ServiciosAdicionales { get; set; }
-        public virtual DbSet<RH_Pago> RH_Pagos { get; set; }
         public virtual DbSet<RH_Servicio> RH_Servicios { get; set; }
         public virtual DbSet<RH_Empleado> RH_Empleados { get; set; }
 
@@ -39,12 +38,7 @@ namespace ReservasBackend.DataContext
 
        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            // Configuración de la relación uno a uno entre RH_Reserva y RH_Pago
-            modelBuilder.Entity<RH_Reserva>()
-                .HasOne(r => r.Pago)
-                .WithOne(p => p.Reserva)
-                .HasForeignKey<RH_Pago>(p => p.ReservaID);
+        {   
 
             #region Datos Semilla 
 
@@ -53,17 +47,19 @@ namespace ReservasBackend.DataContext
                 {
                     ID = 1,
                     Nombre = "Juan",
-                    Apellido = "Perez",
-                    Email = "juancito@gmail.com",
-                    Telefono = "123456789"
+                    Telefono = "1145678901"
                 },
                 new RH_Usuario
                 {
                     ID = 2,
-                    Nombre = "Maria",
-                    Apellido = "Gomez",
-                    Email = "gomezmaria@gmail.com",
-                    Telefono = "222222"
+                    Nombre = "María",
+                    Telefono = "1146543210"
+                },
+                new RH_Usuario
+                {
+                    ID = 3,
+                    Nombre = "Carlos",
+                    Telefono = "1167890123"
                 }
             );
 
@@ -71,18 +67,20 @@ namespace ReservasBackend.DataContext
                 new RH_Empleado
                 {
                     ID = 1,
-                    Nombre = "Empleado1",
-                    Apellido = "Apellido1",
-                    Cargo = "Mucama",
-                    Telefono = "111111"
+                    Nombre = "Sofía",
+                    Cargo = "Recepcionista",
                 },
                 new RH_Empleado
                 {
                     ID = 2,
-                    Nombre = "Empleado2",
-                    Apellido = "Apellido2",
-                    Cargo = "Limpieza",
-                    Telefono = "333333"
+                    Nombre = "Miguel",
+                    Cargo = "Conserje",
+                },
+                new RH_Empleado
+                {
+                    ID = 3,
+                    Nombre = "Ana",
+                    Cargo = "Mucama",
                 }
             );
 
@@ -90,61 +88,57 @@ namespace ReservasBackend.DataContext
                 new RH_Habitacion
                 {
                     ID = 1,
-                    TipoHabitacion = "Doble",
-                    Capacidad = 2,
-                    PrecioPorNoche = 50000,
+                    TipoHabitacion = "Suite",
+                    PrecioPorNoche = 120000,
                     Disponible = true
                 },
                 new RH_Habitacion
                 {
                     ID = 2,
-                    TipoHabitacion = "Simple",
-                    Capacidad = 1,
-                    PrecioPorNoche = 30000,
+                    TipoHabitacion = "Doble",
+                    PrecioPorNoche = 60000,
                     Disponible = false
-                }
-            );
-
-            modelBuilder.Entity<RH_Pago>().HasData(
-                new RH_Pago
-                {
-                    ID = 1,
-                    Monto = 50000,
-                    FechaPago = new DateTime(2024, 09, 15),
-                    ReservaID = 1
-
                 },
-                new RH_Pago
+                new RH_Habitacion
                 {
-                    ID = 2,
-                    Monto = 30000,
-                    FechaPago = new DateTime(2024, 08, 13),
-                    ReservaID = 2
+                    ID = 3,
+                    TipoHabitacion = "Simple",
+                    PrecioPorNoche = 35000,
+                    Disponible = true
                 }
             );
+
 
             modelBuilder.Entity<RH_Reserva>().HasData(
                 new RH_Reserva
                 {
                     ID = 1,
-                    FechaReserva = new DateTime(2024, 09, 05),
-                    FechaCheckIn = new DateTime(2024, 09, 10),
-                    FechaCheckOut = new DateTime(2024, 09, 15),
-                    EstadoReserva = "Activa",
+                    FechaReserva = new DateTime(2024, 10, 10),
+                    FechaCheckIn = new DateTime(2024, 10, 15),
+                    FechaCheckOut = new DateTime(2024, 10, 20),
+                    EstadoReserva = "Confirmada",
                     UsuarioID = 1,
                     HabitacionID = 1,
-                    PagoID = 1
                 },
                 new RH_Reserva
                 {
                     ID = 2,
-                    FechaReserva = new DateTime(2024, 08, 03),
-                    FechaCheckIn = new DateTime(2024, 08, 10),
-                    FechaCheckOut = new DateTime(2024, 08, 13),
+                    FechaReserva = new DateTime(2024, 09, 01),
+                    FechaCheckIn = new DateTime(2024, 09, 10),
+                    FechaCheckOut = new DateTime(2024, 09, 12),
                     EstadoReserva = "Cancelada",
                     UsuarioID = 2,
+                    HabitacionID = 3,
+                },
+                new RH_Reserva
+                {
+                    ID = 3,
+                    FechaReserva = new DateTime(2024, 09, 15),
+                    FechaCheckIn = new DateTime(2024, 09, 18),
+                    FechaCheckOut = new DateTime(2024, 09, 20),
+                    EstadoReserva = "Pendiente",
+                    UsuarioID = 3,
                     HabitacionID = 2,
-                    PagoID = 2
                 }
             );
 
@@ -152,35 +146,44 @@ namespace ReservasBackend.DataContext
                 new RH_Servicio
                 {
                     ID = 1,
-                    Nombre = "Desayuno",
-                    Precio = 10000,
-                    Descripcion = "Desayuno completo"
+                    Nombre = "Desayuno Buffet",
+                    Precio = 15000,
                 },
-                 new RH_Servicio
-                 {
-                     ID = 2,
-                     Nombre = "Almuerzo",
-                     Precio = 20000,
-                     Descripcion = "Almuerzo completo"
-                 }
+                new RH_Servicio
+                {
+                    ID = 2,
+                    Nombre = "Spa y Masajes",
+                    Precio = 45000,
+                },
+                new RH_Servicio
+                {
+                    ID = 3,
+                    Nombre = "Servicio de Lavandería",
+                    Precio = 10000,
+                }
             );
 
             modelBuilder.Entity<RH_ServicioAdicional>().HasData(
-               new RH_ServicioAdicional
-               {
-                   ID = 1,
-                   TipoServicio = "Servicio de Habitacion",
-                   FechaSolicitud = new DateTime(2024, 09, 11),
-                   ReservaID = 1
-               },
-               new RH_ServicioAdicional
-               {
-                   ID = 2,
-                   TipoServicio = "Servicio de Lavanderia",
-                   FechaSolicitud = new DateTime(2024, 08, 12),
-                   ReservaID = 2
-               }
+                new RH_ServicioAdicional
+                {
+                    ID = 1,
+                    TipoServicio = "Transporte al aeropuerto",
+                    ReservaID = 1
+                },
+                new RH_ServicioAdicional
+                {
+                    ID = 2,
+                    TipoServicio = "Decoración especial",
+                    ReservaID = 3
+                },
+                new RH_ServicioAdicional
+                {
+                    ID = 3,
+                    TipoServicio = "Limpieza extra",
+                    ReservaID = 2
+                }
             );
+
             #endregion
 
             #region Definición de filtros de eliminación
@@ -191,7 +194,6 @@ namespace ReservasBackend.DataContext
 
             modelBuilder.Entity<RH_Empleado>().HasQueryFilter(m => !m.Eliminado);
             modelBuilder.Entity<RH_Habitacion>().HasQueryFilter(m => !m.Eliminado);
-            modelBuilder.Entity<RH_Pago>().HasQueryFilter(m => !m.Eliminado);
             modelBuilder.Entity<RH_Reserva>().HasQueryFilter(m => !m.Eliminado);
             modelBuilder.Entity<RH_Servicio>().HasQueryFilter(m => !m.Eliminado);
             modelBuilder.Entity<RH_ServicioAdicional>().HasQueryFilter(m => !m.Eliminado);

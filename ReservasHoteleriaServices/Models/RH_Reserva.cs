@@ -19,6 +19,8 @@ namespace ReservasHoteleriaServices.Models
         public int? UsuarioID { get; set; }
 
         public int? HabitacionID { get; set; }
-    
+        public virtual RH_Habitacion? Habitacion { get; set; } = null!;
+
+
     }
 }

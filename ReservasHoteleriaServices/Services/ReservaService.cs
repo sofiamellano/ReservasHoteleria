@@ -21,5 +21,16 @@ namespace ReservasHoteleriaServices.Services
             }
             return JsonSerializer.Deserialize<List<RH_Reserva>>(content, options);
         }
+
+        public async Task<List<RH_Reserva>?> GetAllAsync(string? filtro)
+        {
+            var response = await client.GetAsync($"{_endpoint}?filtro={filtro}");
+            var content = await response.Content.ReadAsStringAsync();
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new ApplicationException(content?.ToString());
+            }
+            return JsonSerializer.Deserialize<List<RH_Reserva>>(content, options);
+        }
     }
 }

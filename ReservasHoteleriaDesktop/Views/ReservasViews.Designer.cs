@@ -33,27 +33,25 @@
             tabControl = new TabControl();
             tabPageLista = new TabPage();
             btnBuscar = new FontAwesome.Sharp.IconButton();
-            txtFIltro = new TextBox();
+            txtFiltro = new TextBox();
             label2 = new Label();
             iconButton2 = new FontAwesome.Sharp.IconButton();
             btnEditar = new FontAwesome.Sharp.IconButton();
             btnAgregar = new FontAwesome.Sharp.IconButton();
             dataGridReservas = new DataGridView();
             tabPageAgregarEditar = new TabPage();
-            txtUsuario = new TextBox();
-            label9 = new Label();
+            dateTimeCheckOut = new DateTimePicker();
+            dateTimeCheckIn = new DateTimePicker();
+            dateTimeFechaReserva = new DateTimePicker();
+            comboHabitacion = new ComboBox();
+            txtEstadoReserva = new TextBox();
             label8 = new Label();
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
-            iconButton3 = new FontAwesome.Sharp.IconButton();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
-            label3 = new Label();
-            comboHabitacion = new ComboBox();
-            comboPago = new ComboBox();
-            comboUsuario = new ComboBox();
-            dateTimePicker1 = new DateTimePicker();
+            btnGuardar = new FontAwesome.Sharp.IconButton();
+            btnCancelar = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
             tabControl.SuspendLayout();
             tabPageLista.SuspendLayout();
@@ -95,7 +93,7 @@
             // tabPageLista
             // 
             tabPageLista.Controls.Add(btnBuscar);
-            tabPageLista.Controls.Add(txtFIltro);
+            tabPageLista.Controls.Add(txtFiltro);
             tabPageLista.Controls.Add(label2);
             tabPageLista.Controls.Add(iconButton2);
             tabPageLista.Controls.Add(btnEditar);
@@ -125,13 +123,14 @@
             btnBuscar.TextAlign = ContentAlignment.BottomCenter;
             btnBuscar.TextImageRelation = TextImageRelation.ImageAboveText;
             btnBuscar.UseVisualStyleBackColor = false;
+            btnBuscar.Click += btnBuscar_Click;
             // 
-            // txtFIltro
+            // txtFiltro
             // 
-            txtFIltro.Location = new Point(158, 49);
-            txtFIltro.Name = "txtFIltro";
-            txtFIltro.Size = new Size(482, 23);
-            txtFIltro.TabIndex = 10;
+            txtFiltro.Location = new Point(158, 49);
+            txtFiltro.Name = "txtFiltro";
+            txtFiltro.Size = new Size(482, 23);
+            txtFiltro.TabIndex = 10;
             // 
             // label2
             // 
@@ -161,6 +160,7 @@
             iconButton2.TextAlign = ContentAlignment.BottomCenter;
             iconButton2.TextImageRelation = TextImageRelation.ImageAboveText;
             iconButton2.UseVisualStyleBackColor = false;
+            iconButton2.Click += iconButton2_Click;
             // 
             // btnEditar
             // 
@@ -211,20 +211,18 @@
             // 
             // tabPageAgregarEditar
             // 
-            tabPageAgregarEditar.Controls.Add(dateTimePicker1);
-            tabPageAgregarEditar.Controls.Add(comboUsuario);
-            tabPageAgregarEditar.Controls.Add(comboPago);
+            tabPageAgregarEditar.Controls.Add(dateTimeCheckOut);
+            tabPageAgregarEditar.Controls.Add(dateTimeCheckIn);
+            tabPageAgregarEditar.Controls.Add(dateTimeFechaReserva);
             tabPageAgregarEditar.Controls.Add(comboHabitacion);
-            tabPageAgregarEditar.Controls.Add(txtUsuario);
-            tabPageAgregarEditar.Controls.Add(label9);
+            tabPageAgregarEditar.Controls.Add(txtEstadoReserva);
             tabPageAgregarEditar.Controls.Add(label8);
             tabPageAgregarEditar.Controls.Add(label7);
             tabPageAgregarEditar.Controls.Add(label6);
             tabPageAgregarEditar.Controls.Add(label5);
             tabPageAgregarEditar.Controls.Add(label4);
-            tabPageAgregarEditar.Controls.Add(iconButton3);
-            tabPageAgregarEditar.Controls.Add(iconButton1);
-            tabPageAgregarEditar.Controls.Add(label3);
+            tabPageAgregarEditar.Controls.Add(btnGuardar);
+            tabPageAgregarEditar.Controls.Add(btnCancelar);
             tabPageAgregarEditar.Location = new Point(4, 24);
             tabPageAgregarEditar.Name = "tabPageAgregarEditar";
             tabPageAgregarEditar.Padding = new Padding(3);
@@ -233,21 +231,45 @@
             tabPageAgregarEditar.Text = "Agregar/Editar";
             tabPageAgregarEditar.UseVisualStyleBackColor = true;
             // 
-            // txtUsuario
+            // dateTimeCheckOut
             // 
-            txtUsuario.Location = new Point(408, 207);
-            txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(231, 23);
-            txtUsuario.TabIndex = 17;
+            dateTimeCheckOut.Format = DateTimePickerFormat.Short;
+            dateTimeCheckOut.Location = new Point(408, 169);
+            dateTimeCheckOut.Name = "dateTimeCheckOut";
+            dateTimeCheckOut.Size = new Size(231, 23);
+            dateTimeCheckOut.TabIndex = 24;
             // 
-            // label9
+            // dateTimeCheckIn
             // 
-            label9.AutoSize = true;
-            label9.Location = new Point(339, 252);
-            label9.Name = "label9";
-            label9.Size = new Size(37, 15);
-            label9.TabIndex = 16;
-            label9.Text = "Pago:";
+            dateTimeCheckIn.Format = DateTimePickerFormat.Short;
+            dateTimeCheckIn.Location = new Point(408, 130);
+            dateTimeCheckIn.Name = "dateTimeCheckIn";
+            dateTimeCheckIn.Size = new Size(231, 23);
+            dateTimeCheckIn.TabIndex = 23;
+            // 
+            // dateTimeFechaReserva
+            // 
+            dateTimeFechaReserva.Format = DateTimePickerFormat.Short;
+            dateTimeFechaReserva.Location = new Point(408, 89);
+            dateTimeFechaReserva.Name = "dateTimeFechaReserva";
+            dateTimeFechaReserva.Size = new Size(231, 23);
+            dateTimeFechaReserva.TabIndex = 22;
+            // 
+            // comboHabitacion
+            // 
+            comboHabitacion.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboHabitacion.FormattingEnabled = true;
+            comboHabitacion.Location = new Point(408, 50);
+            comboHabitacion.Name = "comboHabitacion";
+            comboHabitacion.Size = new Size(231, 23);
+            comboHabitacion.TabIndex = 19;
+            // 
+            // txtEstadoReserva
+            // 
+            txtEstadoReserva.Location = new Point(408, 207);
+            txtEstadoReserva.Name = "txtEstadoReserva";
+            txtEstadoReserva.Size = new Size(231, 23);
+            txtEstadoReserva.TabIndex = 17;
             // 
             // label8
             // 
@@ -294,82 +316,41 @@
             label4.TabIndex = 11;
             label4.Text = "Habitacion:";
             // 
-            // iconButton3
+            // btnGuardar
             // 
-            iconButton3.BackColor = Color.FromArgb(62, 146, 204);
-            iconButton3.ForeColor = Color.White;
-            iconButton3.IconChar = FontAwesome.Sharp.IconChar.Trash;
-            iconButton3.IconColor = Color.White;
-            iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton3.IconSize = 27;
-            iconButton3.Location = new Point(243, 327);
-            iconButton3.Name = "iconButton3";
-            iconButton3.Size = new Size(90, 64);
-            iconButton3.TabIndex = 10;
-            iconButton3.Text = "ELIMINAR";
-            iconButton3.TextAlign = ContentAlignment.BottomCenter;
-            iconButton3.TextImageRelation = TextImageRelation.ImageAboveText;
-            iconButton3.UseVisualStyleBackColor = false;
+            btnGuardar.BackColor = Color.FromArgb(62, 146, 204);
+            btnGuardar.ForeColor = Color.White;
+            btnGuardar.IconChar = FontAwesome.Sharp.IconChar.Save;
+            btnGuardar.IconColor = Color.White;
+            btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnGuardar.IconSize = 27;
+            btnGuardar.Location = new Point(318, 316);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(90, 64);
+            btnGuardar.TabIndex = 10;
+            btnGuardar.Text = "GUARDAR";
+            btnGuardar.TextAlign = ContentAlignment.BottomCenter;
+            btnGuardar.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
             // 
-            // iconButton1
+            // btnCancelar
             // 
-            iconButton1.BackColor = Color.FromArgb(62, 146, 204);
-            iconButton1.ForeColor = Color.White;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.Trash;
-            iconButton1.IconColor = Color.White;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 27;
-            iconButton1.Location = new Point(531, 327);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(90, 64);
-            iconButton1.TabIndex = 9;
-            iconButton1.Text = "ELIMINAR";
-            iconButton1.TextAlign = ContentAlignment.BottomCenter;
-            iconButton1.TextImageRelation = TextImageRelation.ImageAboveText;
-            iconButton1.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(326, 20);
-            label3.Name = "label3";
-            label3.Size = new Size(50, 15);
-            label3.TabIndex = 0;
-            label3.Text = "Usuario:";
-            // 
-            // comboHabitacion
-            // 
-            comboHabitacion.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboHabitacion.FormattingEnabled = true;
-            comboHabitacion.Location = new Point(408, 50);
-            comboHabitacion.Name = "comboHabitacion";
-            comboHabitacion.Size = new Size(231, 23);
-            comboHabitacion.TabIndex = 19;
-            // 
-            // comboPago
-            // 
-            comboPago.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboPago.FormattingEnabled = true;
-            comboPago.Location = new Point(408, 244);
-            comboPago.Name = "comboPago";
-            comboPago.Size = new Size(231, 23);
-            comboPago.TabIndex = 20;
-            // 
-            // comboUsuario
-            // 
-            comboUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboUsuario.FormattingEnabled = true;
-            comboUsuario.Location = new Point(408, 17);
-            comboUsuario.Name = "comboUsuario";
-            comboUsuario.Size = new Size(231, 23);
-            comboUsuario.TabIndex = 21;
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(408, 89);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(231, 23);
-            dateTimePicker1.TabIndex = 22;
+            btnCancelar.BackColor = Color.FromArgb(62, 146, 204);
+            btnCancelar.ForeColor = Color.White;
+            btnCancelar.IconChar = FontAwesome.Sharp.IconChar.Cancel;
+            btnCancelar.IconColor = Color.White;
+            btnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnCancelar.IconSize = 27;
+            btnCancelar.Location = new Point(596, 316);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(90, 64);
+            btnCancelar.TabIndex = 9;
+            btnCancelar.Text = "CANCELAR";
+            btnCancelar.TextAlign = ContentAlignment.BottomCenter;
+            btnCancelar.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // ReservasViews
             // 
@@ -405,20 +386,18 @@
         private DataGridView dataGridReservas;
         private Label label2;
         private FontAwesome.Sharp.IconButton btnBuscar;
-        private TextBox txtFIltro;
-        private Label label9;
+        private TextBox txtFiltro;
         private Label label8;
         private Label label7;
         private Label label6;
         private Label label5;
-        private Label label4;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private Label label3;
-        private TextBox txtUsuario;
-        private DateTimePicker dateTimePicker1;
-        private ComboBox comboUsuario;
-        private ComboBox comboPago;
+        private FontAwesome.Sharp.IconButton btnGuardar;
+        private FontAwesome.Sharp.IconButton btnCancelar;
+        private TextBox txtEstadoReserva;
+        private DateTimePicker dateTimeFechaReserva;
         private ComboBox comboHabitacion;
+        private Label label4;
+        private DateTimePicker dateTimeCheckIn;
+        private DateTimePicker dateTimeCheckOut;
     }
 }

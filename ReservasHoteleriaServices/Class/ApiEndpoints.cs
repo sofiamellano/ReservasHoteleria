@@ -11,11 +11,9 @@ namespace ReservasHoteleriaServices.Class
     {
         public  static string RH_Empleado { get;  set; } = "empleado";
         public  static string RH_Habitacion { get;  set; } = "habitacion";
-        public static string RH_Pago { get;  set; } = "pago";
         public  static string RH_Reserva { get;  set; } = "reserva";
         public static string RH_Servicio { get;  set; } = "servicio";
         public static string RH_ServicioAdicional { get;  set; } = "servicioadicional";
-        public static string RH_Usuario { get;  set; } = "usuario"; 
 
         public static string GetEndpoint(string name)
         {
@@ -23,11 +21,9 @@ namespace ReservasHoteleriaServices.Class
             {
                 "RH_Empleado" => "api/RH_Empleados",
                 "RH_Habitacion" => "api/RH_Habitaciones",
-                "RH_Pago" => "api/RH_Pagos",
                 "RH_Reserva" => "api/RH_Reservas",
                 "RH_Servicio" => "api/RH_Servicios",
                 "RH_ServicioAdicional" => "api/RH_ServiciosAdicionales",
-                "RH_Usuario" => "api/RH_Usuarios",
                 _ => throw new ArgumentException($"Endpoint '{name}' no está definido."),
             };
         }

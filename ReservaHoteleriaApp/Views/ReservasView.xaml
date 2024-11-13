@@ -9,33 +9,33 @@
         <viewModels:ReservasViewModel/>
     </ContentPage.BindingContext>
     <Grid RowDefinitions="Auto, *, Auto, Auto"
-      BackgroundColor="#FFFFFF">
+   BackgroundColor="#FFFFFF">
         <HorizontalStackLayout Grid.Row="0">
             <Label 
-            Text="Buscar:"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" 
-            FontSize="Header"
-            TextColor="#000000" />
+         Text="Buscar:"
+         VerticalOptions="Center" 
+         HorizontalOptions="Center" 
+         FontSize="Header"
+         TextColor="#000000" />
 
             <Entry Placeholder="Buscar reservas..." Text="{Binding FilterReservas}"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"
-               Margin="0,10,0,10" 
-               BackgroundColor="#FFFFFF"
-               TextColor="#000000"
-               Grid.Row="0"/>
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Margin="0,10,0,10" 
+            BackgroundColor="#FFFFFF"
+            TextColor="#000000"
+            Grid.Row="0"/>
         </HorizontalStackLayout>
 
         <ScrollView Grid.Row="1">
             <ListView Grid.Row="1"
-                  ItemsSource="{Binding Reservas}"
-                  SelectedItem="{Binding SelectedReserva}"
-                  SelectionMode="Single"
-                  IsPullToRefreshEnabled="True"
-                  RefreshCommand="{Binding ObtenerReservasCommand}"
-                  BackgroundColor="#FFFFFF"
-                  SelectionColor="#D6E4FF">
+               ItemsSource="{Binding Reservas}"
+               SelectedItem="{Binding SelectedReserva}"
+               SelectionMode="Single"
+               IsPullToRefreshEnabled="True"
+               RefreshCommand="{Binding ObtenerReservasCommand}"
+               BackgroundColor="#FFFFFF"
+               SeparatorColor="#D6E4FF">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -54,22 +54,22 @@
         </ScrollView>
 
         <Button Text="Agregar Reservas"
-            Command="{Binding AgregarReservasCommand}"
-            HorizontalOptions="Center"
-            VerticalOptions="Center"
-            Margin="0,10,0,10"
-            BackgroundColor="#FFFFFF"
-            TextColor="#000000"
-            Grid.Row="2"/>
+         Command="{Binding AgregarReservasCommand}"
+         HorizontalOptions="Center"
+         VerticalOptions="Center"
+         Margin="0,10,0,10"
+         BackgroundColor="#FFFFFF"
+         TextColor="#000000"
+         Grid.Row="2"/>
 
         <Button Text="Editar producto"
-            Command="{Binding EditarReservasCommand}"
-            HorizontalOptions="Center"
-            VerticalOptions="Center"
-            Margin="0,10,0,10"
-            BackgroundColor="#FFFFFF"
-            TextColor="#000000"
-            Grid.Row="3"/>
+         Command="{Binding EditarReservasCommand}"
+         HorizontalOptions="Center"
+         VerticalOptions="Center"
+         Margin="0,10,0,10"
+         BackgroundColor="#FFFFFF"
+         TextColor="#000000"
+         Grid.Row="3"/>
     </Grid>
 
 </ContentPage>

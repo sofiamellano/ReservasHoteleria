@@ -54,27 +54,6 @@ namespace ReservasBackend.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "RH_Reservas",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    FechaReserva = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    FechaCheckIn = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    FechaCheckOut = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    EstadoReserva = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Eliminado = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    UsuarioID = table.Column<int>(type: "int", nullable: true),
-                    HabitacionID = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RH_Reservas", x => x.ID);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
                 name: "RH_Servicios",
                 columns: table => new
                 {
@@ -109,20 +88,27 @@ namespace ReservasBackend.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "RH_Usuarios",
+                name: "RH_Reservas",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Nombre = table.Column<string>(type: "longtext", nullable: false)
+                    FechaReserva = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    FechaCheckIn = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    FechaCheckOut = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    EstadoReserva = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Telefono = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Eliminado = table.Column<bool>(type: "tinyint(1)", nullable: false)
+                    Eliminado = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    HabitacionID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RH_Usuarios", x => x.ID);
+                    table.PrimaryKey("PK_RH_Reservas", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_RH_Reservas_RH_Habitaciones_HabitacionID",
+                        column: x => x.HabitacionID,
+                        principalTable: "RH_Habitaciones",
+                        principalColumn: "ID");
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -147,16 +133,6 @@ namespace ReservasBackend.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "RH_Reservas",
-                columns: new[] { "ID", "Eliminado", "EstadoReserva", "FechaCheckIn", "FechaCheckOut", "FechaReserva", "HabitacionID", "UsuarioID" },
-                values: new object[,]
-                {
-                    { 1, false, "Confirmada", new DateTime(2024, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 10, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 1 },
-                    { 2, false, "Cancelada", new DateTime(2024, 9, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 2 },
-                    { 3, false, "Pendiente", new DateTime(2024, 9, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 3 }
-                });
-
-            migrationBuilder.InsertData(
                 table: "RH_Servicios",
                 columns: new[] { "ID", "Eliminado", "Nombre", "Precio" },
                 values: new object[,]
@@ -177,14 +153,19 @@ namespace ReservasBackend.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "RH_Usuarios",
-                columns: new[] { "ID", "Eliminado", "Nombre", "Telefono" },
+                table: "RH_Reservas",
+                columns: new[] { "ID", "Eliminado", "EstadoReserva", "FechaCheckIn", "FechaCheckOut", "FechaReserva", "HabitacionID" },
                 values: new object[,]
                 {
-                    { 1, false, "Juan", "1145678901" },
-                    { 2, false, "María", "1146543210" },
-                    { 3, false, "Carlos", "1167890123" }
+                    { 1, false, "Confirmada", new DateTime(2024, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 10, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 1 },
+                    { 2, false, "Cancelada", new DateTime(2024, 9, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 3 },
+                    { 3, false, "Pendiente", new DateTime(2024, 9, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 2 }
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RH_Reservas_HabitacionID",
+                table: "RH_Reservas",
+                column: "HabitacionID");
         }
 
         /// <inheritdoc />
@@ -192,9 +173,6 @@ namespace ReservasBackend.Migrations
         {
             migrationBuilder.DropTable(
                 name: "RH_Empleados");
-
-            migrationBuilder.DropTable(
-                name: "RH_Habitaciones");
 
             migrationBuilder.DropTable(
                 name: "RH_Reservas");
@@ -206,7 +184,7 @@ namespace ReservasBackend.Migrations
                 name: "RH_ServiciosAdicionales");
 
             migrationBuilder.DropTable(
-                name: "RH_Usuarios");
+                name: "RH_Habitaciones");
         }
     }
 }

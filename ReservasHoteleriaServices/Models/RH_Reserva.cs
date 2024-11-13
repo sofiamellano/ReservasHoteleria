@@ -16,10 +16,8 @@ namespace ReservasHoteleriaServices.Models
         public bool Eliminado { get; set; } = false;
 
         // Claves foráneas
-        public int? UsuarioID { get; set; }
-
         public int? HabitacionID { get; set; }
-        public virtual RH_Habitacion? Habitacion { get; set; } = null!;
+        public virtual RH_Habitacion? Habitacion { get; set; }
 
 
     }

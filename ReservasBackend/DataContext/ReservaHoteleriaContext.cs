@@ -15,7 +15,6 @@ namespace ReservasBackend.DataContext
         {
         }
 
-        public virtual DbSet<RH_Usuario> RH_Usuarios { get; set; }
         public virtual DbSet<RH_Habitacion> RH_Habitaciones { get; set; }
         public virtual DbSet<RH_Reserva> RH_Reservas { get; set; }
         public virtual DbSet<RH_ServicioAdicional> RH_ServiciosAdicionales { get; set; }
@@ -42,26 +41,6 @@ namespace ReservasBackend.DataContext
 
             #region Datos Semilla 
 
-            modelBuilder.Entity<RH_Usuario>().HasData(
-                new RH_Usuario
-                {
-                    ID = 1,
-                    Nombre = "Juan",
-                    Telefono = "1145678901"
-                },
-                new RH_Usuario
-                {
-                    ID = 2,
-                    Nombre = "María",
-                    Telefono = "1146543210"
-                },
-                new RH_Usuario
-                {
-                    ID = 3,
-                    Nombre = "Carlos",
-                    Telefono = "1167890123"
-                }
-            );
 
             modelBuilder.Entity<RH_Empleado>().HasData(
                 new RH_Empleado
@@ -117,8 +96,8 @@ namespace ReservasBackend.DataContext
                     FechaCheckIn = new DateTime(2024, 10, 15),
                     FechaCheckOut = new DateTime(2024, 10, 20),
                     EstadoReserva = "Confirmada",
-                    UsuarioID = 1,
-                    HabitacionID = 1,
+                    HabitacionID = 1
+                    
                 },
                 new RH_Reserva
                 {
@@ -127,7 +106,6 @@ namespace ReservasBackend.DataContext
                     FechaCheckIn = new DateTime(2024, 09, 10),
                     FechaCheckOut = new DateTime(2024, 09, 12),
                     EstadoReserva = "Cancelada",
-                    UsuarioID = 2,
                     HabitacionID = 3,
                 },
                 new RH_Reserva
@@ -137,7 +115,6 @@ namespace ReservasBackend.DataContext
                     FechaCheckIn = new DateTime(2024, 09, 18),
                     FechaCheckOut = new DateTime(2024, 09, 20),
                     EstadoReserva = "Pendiente",
-                    UsuarioID = 3,
                     HabitacionID = 2,
                 }
             );
@@ -197,8 +174,6 @@ namespace ReservasBackend.DataContext
             modelBuilder.Entity<RH_Reserva>().HasQueryFilter(m => !m.Eliminado);
             modelBuilder.Entity<RH_Servicio>().HasQueryFilter(m => !m.Eliminado);
             modelBuilder.Entity<RH_ServicioAdicional>().HasQueryFilter(m => !m.Eliminado);
-            modelBuilder.Entity<RH_Usuario>().HasQueryFilter(m => !m.Eliminado);
-
             #endregion
         }
         

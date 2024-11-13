@@ -9,5 +9,15 @@ public partial class ReservasView : ContentPage
 		InitializeComponent();
 	}
 
-   
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        var viewmodel = this.BindingContext as ReservasViewModel;
+        //if (viewmodel.NotaSeleccionada != null)
+        //{
+        viewmodel.ObtenerReservas();
+        viewmodel.SelectedReserva = null;
+        //}
+    }
+
 }

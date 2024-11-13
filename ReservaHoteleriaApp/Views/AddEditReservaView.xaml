@@ -25,6 +25,12 @@
                Text="{Binding EstadoReserva}"
                HorizontalOptions="Center"
                VerticalOptions="Center"/>
+        <Picker Title="Tipo de Habitacion"
+        ItemsSource="{Binding Habitaciones}"
+        ItemDisplayBinding="{Binding TipoHabitacion}"
+        SelectedItem="{Binding SelectedHabitacion}"
+        HorizontalOptions="Center"
+        VerticalOptions="Center"/>
         <Button Text="Guardar"
                 Command="{Binding SaveReservaCommand}"
                 HorizontalOptions="Center"

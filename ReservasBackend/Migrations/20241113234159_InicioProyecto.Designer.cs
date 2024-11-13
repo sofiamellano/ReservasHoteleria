@@ -12,7 +12,7 @@ using ReservasBackend.DataContext;
 namespace ReservasBackend.Migrations
 {
     [DbContext(typeof(ReservaHoteleriaContext))]
-    [Migration("20241112132616_InicioProyecto")]
+    [Migration("20241113234159_InicioProyecto")]
     partial class InicioProyecto
     {
         /// <inheritdoc />
@@ -151,10 +151,9 @@ namespace ReservasBackend.Migrations
                     b.Property<int?>("HabitacionID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UsuarioID")
-                        .HasColumnType("int");
-
                     b.HasKey("ID");
+
+                    b.HasIndex("HabitacionID");
 
                     b.ToTable("RH_Reservas");
 
@@ -167,8 +166,7 @@ namespace ReservasBackend.Migrations
                             FechaCheckIn = new DateTime(2024, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FechaCheckOut = new DateTime(2024, 10, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FechaReserva = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            HabitacionID = 1,
-                            UsuarioID = 1
+                            HabitacionID = 1
                         },
                         new
                         {
@@ -178,8 +176,7 @@ namespace ReservasBackend.Migrations
                             FechaCheckIn = new DateTime(2024, 9, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FechaCheckOut = new DateTime(2024, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FechaReserva = new DateTime(2024, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            HabitacionID = 3,
-                            UsuarioID = 2
+                            HabitacionID = 3
                         },
                         new
                         {
@@ -189,8 +186,7 @@ namespace ReservasBackend.Migrations
                             FechaCheckIn = new DateTime(2024, 9, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FechaCheckOut = new DateTime(2024, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FechaReserva = new DateTime(2024, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            HabitacionID = 2,
-                            UsuarioID = 3
+                            HabitacionID = 2
                         });
                 });
 
@@ -286,51 +282,13 @@ namespace ReservasBackend.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ReservasHoteleriaServices.Models.RH_Usuario", b =>
+            modelBuilder.Entity("ReservasHoteleriaServices.Models.RH_Reserva", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.HasOne("ReservasHoteleriaServices.Models.RH_Habitacion", "Habitacion")
+                        .WithMany()
+                        .HasForeignKey("HabitacionID");
 
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("ID"));
-
-                    b.Property<bool>("Eliminado")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Telefono")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("RH_Usuarios");
-
-                    b.HasData(
-                        new
-                        {
-                            ID = 1,
-                            Eliminado = false,
-                            Nombre = "Juan",
-                            Telefono = "1145678901"
-                        },
-                        new
-                        {
-                            ID = 2,
-                            Eliminado = false,
-                            Nombre = "María",
-                            Telefono = "1146543210"
-                        },
-                        new
-                        {
-                            ID = 3,
-                            Eliminado = false,
-                            Nombre = "Carlos",
-                            Telefono = "1167890123"
-                        });
+                    b.Navigation("Habitacion");
                 });
 #pragma warning restore 612, 618
         }

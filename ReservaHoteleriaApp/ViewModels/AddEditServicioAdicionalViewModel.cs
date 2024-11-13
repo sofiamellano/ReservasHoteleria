@@ -24,7 +24,6 @@ namespace ReservaHoteleriaApp.ViewModels
             if (editServicioAdicional != null)
             {
                 TipoServicio = editServicioAdicional.TipoServicio;
-                FechaSolicitud = editServicioAdicional.FechaSolicitud;
             }
         }
 
@@ -61,7 +60,6 @@ namespace ReservaHoteleriaApp.ViewModels
             if (editServicioAdicional != null)
             {
                 editServicioAdicional.TipoServicio = this.TipoServicio;
-                editServicioAdicional.FechaSolicitud = this.FechaSolicitud;
                 await servicioAdicionalService.UpdateAsync(editServicioAdicional);
             }
             else
@@ -69,7 +67,6 @@ namespace ReservaHoteleriaApp.ViewModels
                 var servicioAdicional = new RH_ServicioAdicional()
                 {
                     TipoServicio = this.TipoServicio,
-                    FechaSolicitud = this.FechaSolicitud
                 };
                 await servicioAdicionalService.AddAsync(servicioAdicional);
             }

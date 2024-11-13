@@ -8,56 +8,68 @@
     <ContentPage.BindingContext>
         <viewModels:ReservasViewModel/>
     </ContentPage.BindingContext>
-    <Grid RowDefinitions="Auto, *, Auto, Auto">
+    <Grid RowDefinitions="Auto, *, Auto, Auto"
+      BackgroundColor="#FFFFFF">
         <HorizontalStackLayout Grid.Row="0">
             <Label 
-                Text="Buscar:"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" 
-                FontSize="Header" />
+            Text="Buscar:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            FontSize="Header"
+            TextColor="#000000" />
 
             <Entry Placeholder="Buscar reservas..." Text="{Binding FilterReservas}"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   Margin="0,10,0,10" 
-                   Grid.Row="0"/>
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               Margin="0,10,0,10" 
+               BackgroundColor="#FFFFFF"
+               TextColor="#000000"
+               Grid.Row="0"/>
         </HorizontalStackLayout>
+
         <ScrollView Grid.Row="1">
-        <ListView Grid.Row="1"
-                   ItemsSource="{Binding Reservas}"
-                   SelectedItem="{Binding SelectedReserva}"
-                   SelectionMode="Single"
-                   IsPullToRefreshEnabled="True"
-                   RefreshCommand="{Binding ObtenerReservasCommand}">
-                    <!--IsRefreshing="{Binding IsRefreshing}"-->
-                    <!-- Enlaza IsRefreshing aquí -->
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <Frame BorderColor="LightGray" CornerRadius="5" Padding="10" Margin="5">
-                                    <StackLayout>
-                                        <Label Text="{Binding FechaReserva}" FontSize="Medium" />
-                                        <Label Text="{Binding FechaCheckIn}" FontSize="Small" TextColor="Gray" />
-                                    <Label Text="{Binding FechaCheckOut}"  FontSize="Small" TextColor="Gray" />
-                                    <Label Text="{Binding EstadoReserva}"  FontSize="Small" TextColor="Gray" />
+            <ListView Grid.Row="1"
+                  ItemsSource="{Binding Reservas}"
+                  SelectedItem="{Binding SelectedReserva}"
+                  SelectionMode="Single"
+                  IsPullToRefreshEnabled="True"
+                  RefreshCommand="{Binding ObtenerReservasCommand}"
+                  BackgroundColor="#FFFFFF"
+                  SelectionColor="#D6E4FF">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BorderColor="#DDDDDD" CornerRadius="5" Padding="10" Margin="5" BackgroundColor="#FFFFFF">
+                                <StackLayout>
+                                    <Label Text="{Binding FechaReserva}" FontSize="Medium" TextColor="#000000" />
+                                    <Label Text="{Binding FechaCheckIn}" FontSize="Small" TextColor="Gray" />
+                                    <Label Text="{Binding FechaCheckOut}" FontSize="Small" TextColor="Gray" />
+                                    <Label Text="{Binding EstadoReserva}" FontSize="Small" TextColor="Gray" />
                                 </StackLayout>
-                                </Frame>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </ScrollView>
+
         <Button Text="Agregar Reservas"
-                        Command="{Binding AgregarReservasCommand}"
-                        HorizontalOptions="Center"
-                        VerticalOptions="Center"
-                        Margin="0,10,0,10"
-                        Grid.Row="2"/>
-                <Button Text="Editar producto"
-                    Command="{Binding EditarReservasCommand}"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    Margin="0,10,0,10"
-                    Grid.Row="3"/>
-            </Grid>
+            Command="{Binding AgregarReservasCommand}"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Margin="0,10,0,10"
+            BackgroundColor="#FFFFFF"
+            TextColor="#000000"
+            Grid.Row="2"/>
+
+        <Button Text="Editar producto"
+            Command="{Binding EditarReservasCommand}"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Margin="0,10,0,10"
+            BackgroundColor="#FFFFFF"
+            TextColor="#000000"
+            Grid.Row="3"/>
+    </Grid>
+
 </ContentPage>

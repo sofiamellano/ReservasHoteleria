@@ -96,7 +96,6 @@ namespace ReservaHoteleriaApp.ViewModels
                         EstadoReserva = EstadoReserva,
                         UsuarioID = 1,
                         HabitacionID = 1,
-                        PagoID = 1
                     };
                     await reservaService.AddAsync(reserva);
                 }

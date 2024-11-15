@@ -30,7 +30,7 @@ namespace ReservaHoteleriaApp.ViewModels
                 OnPropertyChanged();
                 if (selectedHabitacion != null)
                 {
-                    HabitacionID = selectedHabitacion.ID; // Actualiza el ID en caso de ser necesario
+                    HabitacionID = selectedHabitacion.ID;
                 }
             }
         }
@@ -51,11 +51,14 @@ namespace ReservaHoteleriaApp.ViewModels
         {
             if (editReserva != null)
             {
+                // Si editReserva está configurada, se asignan los valores
                 FechaReserva = editReserva.FechaReserva;
                 FechaCheckIn = editReserva.FechaCheckIn;
                 FechaCheckOut = editReserva.FechaCheckOut;
                 EstadoReserva = editReserva.EstadoReserva;
-                HabitacionID = editReserva.HabitacionID ?? 0;
+
+                // Verificar que la habitación esté correctamente asignada
+                SelectedHabitacion = Habitaciones?.FirstOrDefault(h => h.ID == editReserva.HabitacionID);
             }
         }
 
@@ -129,39 +132,53 @@ namespace ReservaHoteleriaApp.ViewModels
 
         public AddEditReservaViewModel()
         {
-            
-                FechaReserva = DateTime.Now; // Set the current date when adding a new reservation
-                FechaCheckIn = DateTime.Now;
-                FechaCheckOut = DateTime.Now;
-            LoadHabitaciones();
+            FechaReserva = DateTime.Now;
+            FechaCheckIn = DateTime.Now;
+            FechaCheckOut = DateTime.Now;
             SaveReservaCommand = new Command(async () => await SaveReserva());
+            LoadHabitaciones();
         }
 
         private async void LoadHabitaciones()
         {
+            // Cargar las habitaciones para el combo
             var habitacionService = new GenericService<RH_Habitacion>();
             Habitaciones = new ObservableCollection<RH_Habitacion>(await habitacionService.GetAllAsync());
-            if (editReserva != null)
+
+            // Si ya hay una reserva editando, seleccionar la habitación correcta
+            if (editReserva != null && Habitaciones != null)
             {
                 SelectedHabitacion = Habitaciones.FirstOrDefault(h => h.ID == editReserva.HabitacionID);
             }
         }
+
         private async Task SaveReserva()
         {
             try
             {
-                if (editReserva != null)
+                // Validación de selección de habitación
+                if (SelectedHabitacion == null)
                 {
+                    Console.WriteLine("Debe seleccionar una habitación antes de guardar.");
+                    return;
+                }
+
+                // Si editReserva no es null, es una edición
+                if (editReserva != null && editReserva.ID > 0)
+                {
+                    // Aquí se actualiza la reserva
                     editReserva.FechaReserva = this.FechaReserva;
                     editReserva.FechaCheckIn = this.FechaCheckIn;
                     editReserva.FechaCheckOut = this.FechaCheckOut;
                     editReserva.EstadoReserva = this.EstadoReserva;
                     editReserva.HabitacionID = this.HabitacionID;
-                    editReserva.Habitacion.TipoHabitacion = SelectedHabitacion.TipoHabitacion;
+
+                    // Actualizar la reserva en el servicio
                     await reservaService.UpdateAsync(editReserva);
                 }
                 else
                 {
+                    // Crear una nueva reserva
                     var reserva = new RH_Reserva()
                     {
                         FechaReserva = this.FechaReserva,
@@ -169,17 +186,18 @@ namespace ReservaHoteleriaApp.ViewModels
                         FechaCheckOut = this.FechaCheckOut,
                         EstadoReserva = this.EstadoReserva,
                         HabitacionID = this.HabitacionID,
-                        Habitacion = SelectedHabitacion
                     };
+                    // Agregar la nueva reserva
                     await reservaService.AddAsync(reserva);
                 }
+
+                // Regresar a la lista de reservas
                 await Shell.Current.GoToAsync("//ListaReservas");
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine($"Error al guardar la reserva: {ex.Message}");
             }
         }
-
     }
 }

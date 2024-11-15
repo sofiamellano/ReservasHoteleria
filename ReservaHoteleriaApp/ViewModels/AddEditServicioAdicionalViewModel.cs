@@ -24,6 +24,7 @@ namespace ReservaHoteleriaApp.ViewModels
             if (editServicioAdicional != null)
             {
                 TipoServicio = editServicioAdicional.TipoServicio;
+                ReservaID = editServicioAdicional.ReservaID ?? 0;
             }
         }
 
@@ -48,29 +49,56 @@ namespace ReservaHoteleriaApp.ViewModels
                 OnPropertyChanged();
             }
         }
+        private int reservaID;
+        public int ReservaID
+        {
+            get { return reservaID; }
+            set
+            {
+                reservaID = value;
+                OnPropertyChanged();
+            }
+        }
 
         public Command SaveServicioAdicionalCommand { get; }
         public AddEditServicioAdicionalViewModel()
         {
+            FechaSolicitud = DateTime.Now;
             SaveServicioAdicionalCommand = new Command(async () => await SaveServicioAdicional());
         }
 
         private async Task SaveServicioAdicional()
         {
-            if (editServicioAdicional != null)
+            try
             {
-                editServicioAdicional.TipoServicio = this.TipoServicio;
-                await servicioAdicionalService.UpdateAsync(editServicioAdicional);
-            }
-            else
-            {
-                var servicioAdicional = new RH_ServicioAdicional()
+                if (editServicioAdicional != null)
                 {
-                    TipoServicio = this.TipoServicio,
-                };
-                await servicioAdicionalService.AddAsync(servicioAdicional);
+                    editServicioAdicional.TipoServicio = this.TipoServicio;
+                    editServicioAdicional.ReservaID = this.ReservaID;
+
+                    // Verificación de que Id tenga un valor válido
+                    if (editServicioAdicional.ID == 0)
+                    {
+                        throw new InvalidOperationException("El valor de la propiedad 'Id' no puede ser 0");
+                    }
+
+                    await servicioAdicionalService.UpdateAsync(editServicioAdicional);
+                }
+                else
+                {
+                    var servicioAdicional = new RH_ServicioAdicional()
+                    {
+                        TipoServicio = this.TipoServicio,
+                    };
+                    await servicioAdicionalService.AddAsync(servicioAdicional);
+                }
+                await Shell.Current.GoToAsync("//ListaServiciosAdicionales");
             }
-            await Shell.Current.GoToAsync("//ListaServiciosAdicionales");
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al guardar el servicio adicional: {ex.Message}");
+                throw new InvalidOperationException("Error al guardar el servicio adicional", ex);
+            }
         }
     }
 }

@@ -101,7 +101,7 @@ namespace ReservaHoteleriaApp.ViewModels
             {
                 { "ServicioAdicionalToEdit",  selectedServicioAdicional }
             };
-            await Shell.Current.GoToAsync("//AgregarEditarReserva", navigationParameter);
+            await Shell.Current.GoToAsync("//AgregarEditarServicioAdicional", navigationParameter);
         }
 
         private async Task FiltarServiciosAdicionales()
@@ -109,16 +109,10 @@ namespace ReservaHoteleriaApp.ViewModels
             if (ServicioAdicionalListToFilter != null)
             {
                 var serviciosAdicionalesFiltrados = ServicioAdicionalListToFilter
-            .Where(s => s.TipoServicio != null && s.TipoServicio.ToLower().Contains(FilterServicioAdicional.ToLower()))
-            .ToList();
-            }
-
-            if (ServicioAdicionalListToFilter != null)
-            {
-                // Filtrar los servicios adicionales por el tipo de servicio
-                var serviciosAdicionalesFiltrados = ServicioAdicionalListToFilter
                     .Where(s => s.TipoServicio != null && s.TipoServicio.ToLower().Contains(FilterServicioAdicional.ToLower()))
                     .ToList();
+
+                ServiciosAdicionales = new ObservableCollection<RH_ServicioAdicional>(serviciosAdicionalesFiltrados);
             }
         }
 
@@ -128,13 +122,7 @@ namespace ReservaHoteleriaApp.ViewModels
             ActivityStart = true;
             ServicioAdicionalListToFilter = await servicioAdicionalService.GetAllAsync();
 
-            // Filtrar los tipos de servicios al obtener la lista
-            var serviciosAdicionalesFiltrados = ServicioAdicionalListToFilter
-                .Where(s => s.TipoServicio != null && s.TipoServicio.ToLower().Contains(FilterServicioAdicional.ToLower()))
-                .Where(s => !s.Eliminado)
-                .ToList();
-
-            ServiciosAdicionales = new ObservableCollection<RH_ServicioAdicional>(serviciosAdicionalesFiltrados);
+            ServiciosAdicionales = new ObservableCollection<RH_ServicioAdicional>(ServicioAdicionalListToFilter);
             ActivityStart = false;
         }
     }

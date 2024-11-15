@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "468313242041",
+    "project_id": "reservashoteleria-23a91",
+    "storage_bucket": "reservashoteleria-23a91.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:468313242041:android:e9cbd6f01b4652b1ed5e68",
+        "android_client_info": {
+          "package_name": "com.companyname.reservahoteleriaapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgqbUiW19a2IlttrByRHMNtOy0MajOonI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

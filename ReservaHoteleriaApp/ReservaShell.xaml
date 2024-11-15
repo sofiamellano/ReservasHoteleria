@@ -9,9 +9,8 @@
     xmlns:views="clr-namespace:ReservaHoteleriaApp.Views"
     Shell.FlyoutBehavior="Disabled"
     Title="ReservaHoteleriaApp"
-     FlyoutBackgroundImage="photo.jpg"
-     FlyoutBackgroundImageAspect="AspectFill"
-     FlyoutHeaderBehavior="CollapseOnScroll">
+    FlyoutBackgroundImageAspect="AspectFill"
+    FlyoutHeaderBehavior="CollapseOnScroll">
 
     <Shell.BindingContext>
         <viewmodels:ReservaShellViewModel />
@@ -32,7 +31,7 @@
         <ShellContent Title="Inicio" ContentTemplate="{DataTemplate local:MainPage}" />
 
         <Tab Title="Reservas"
-             Icon="reservas.png">
+             Icon="reserva.png">
 
             <ShellContent 
                 Title="Lista de Reservas"
@@ -46,7 +45,7 @@
         </Tab>
 
         <Tab Title="Servicios Adicionales"
-             Icon="serviciosadicionales.png">
+             Icon="servicio.png">
 
             <ShellContent Title="Lista Servicio Adicional"
                  ContentTemplate="{DataTemplate views:ServiciosAdicionalesView}"

@@ -5,11 +5,11 @@
              x:Class="ReservaHoteleriaApp.ContentViews.FlyoutFooter">
     <StackLayout>
         <Label Text="Instituto N°20"
-       TextColor="GhostWhite"
+       TextColor="Black"
        FontAttributes="Bold"
        HorizontalOptions="Center" />
         <Label Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{0:MMMM dd, yyyy}'}"
-       TextColor="GhostWhite"
+       TextColor="Black"
        HorizontalOptions="Center" />
     </StackLayout>
 </ContentView>

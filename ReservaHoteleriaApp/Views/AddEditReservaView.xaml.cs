@@ -10,9 +10,12 @@ public partial class AddEditReservaView : ContentPage
         {
             var reserva = value;
             var viewModel = this.BindingContext as AddEditReservaViewModel;
-            viewModel.EditReserva = reserva;
+            if (viewModel != null)
+            {
+                viewModel.EditReserva = reserva;  
+            }
         }
-        
+
     }
 	public AddEditReservaView()
 	{
@@ -22,6 +25,9 @@ public partial class AddEditReservaView : ContentPage
     {
         InitializeComponent();
         var viewModel = this.BindingContext as AddEditReservaViewModel;
-        viewModel.EditReserva = reserva;
+        if (viewModel != null)
+        {
+            viewModel.EditReserva = reserva;
+        }
     }
 }

@@ -97,8 +97,16 @@ namespace ReservaHoteleriaApp.ViewModels
 
         private async Task FiltarReservas()
         {
-            var reservasFiltradas = ReservaListToFilter.Where(p => p.FechaReserva.Equals(FilterReservas)).ToList();
-            Reservas = new ObservableCollection<RH_Reserva>(reservasFiltradas);
+            if (DateTime.TryParse(FilterReservas, out DateTime fechaFiltrada))
+            {
+                var reservasFiltradas = ReservaListToFilter.Where(p => p.FechaReserva.Date == fechaFiltrada.Date).ToList();
+                Reservas = new ObservableCollection<RH_Reserva>(reservasFiltradas);
+            }
+            else
+            {
+                // Si el filtro no es una fecha válida, mostramos todas las reservas
+                Reservas = new ObservableCollection<RH_Reserva>(ReservaListToFilter);
+            }
         }
 
         public async Task ObtenerReservas()

@@ -60,13 +60,36 @@ namespace ReservasHoteleriaServices.Services
 
         public async Task UpdateAsync(T? entity)
         {
-            var idValue = entity.GetType().GetProperty("Id").GetValue(entity);
+
+            if (entity == null)
+            {
+                throw new ArgumentNullException(nameof(entity), "Entity cannot be null");
+            }
+
+            var idProperty = entity.GetType().GetProperty("ID"); // Cambiado de "Id" a "ID"
+            if (idProperty == null)
+            {
+                throw new InvalidOperationException("La entidad no tiene una propiedad 'ID'");
+            }
+
+            var idValue = idProperty.GetValue(entity);
+            if (idValue == null || (int)idValue == 0)
+            {
+                throw new InvalidOperationException("El valor de la propiedad 'ID' no puede ser null o 0");
+            }
 
             var response = await client.PutAsJsonAsync($"{_endpoint}/{idValue}", entity);
             if (!response.IsSuccessStatusCode)
             {
                 throw new ApplicationException(response?.ToString());
             }
+            //var idValue = entity.GetType().GetProperty("Id").GetValue(entity);
+
+            //var response = await client.PutAsJsonAsync($"{_endpoint}/{idValue}", entity);
+            //if (!response.IsSuccessStatusCode)
+            //{
+            //    throw new ApplicationException(response?.ToString());
+            //}
         }
 
         public async Task DeleteAsync(int id)

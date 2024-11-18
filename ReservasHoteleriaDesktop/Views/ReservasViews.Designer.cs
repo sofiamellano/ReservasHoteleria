@@ -206,6 +206,7 @@
             dataGridReservas.Location = new Point(158, 88);
             dataGridReservas.Name = "dataGridReservas";
             dataGridReservas.ReadOnly = true;
+            dataGridReservas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridReservas.Size = new Size(746, 312);
             dataGridReservas.TabIndex = 5;
             // 

@@ -20,7 +20,7 @@ namespace ReservasHotelDesktop
 
         private void MenuReservas_Click(object sender, EventArgs e)
         {
-           ReservasViews reservasViews = new ReservasViews();
+            ReservasViews reservasViews = new ReservasViews();
             reservasViews.ShowDialog();
         }
 
@@ -62,6 +62,11 @@ namespace ReservasHotelDesktop
         private void MenuSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

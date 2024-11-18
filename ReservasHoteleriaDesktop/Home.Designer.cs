@@ -49,7 +49,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Showcard Gothic", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(247, 247, 247);
-            label1.Location = new Point(202, 7);
+            label1.Location = new Point(295, 8);
             label1.Name = "label1";
             label1.Size = new Size(406, 46);
             label1.TabIndex = 0;
@@ -57,20 +57,22 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.FromArgb(31, 60, 136);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(0, 1);
             panel1.Name = "panel1";
-            panel1.Size = new Size(824, 65);
+            panel1.Size = new Size(978, 65);
             panel1.TabIndex = 1;
             // 
             // menuStrip1
             // 
+            menuStrip1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             menuStrip1.Dock = DockStyle.None;
             menuStrip1.Items.AddRange(new ToolStripItem[] { MenuReservas, MenuEmpleados, MenuHabitaciones, MenuPagos, MenuServicios, MenuServiciosAdicionales, MenuUsuarios, MenuSalir });
             menuStrip1.Location = new Point(0, 69);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(863, 46);
+            menuStrip1.Size = new Size(973, 46);
             menuStrip1.TabIndex = 8;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -118,51 +120,71 @@
             // 
             // MenuPagos
             // 
-            MenuPagos.IconChar = FontAwesome.Sharp.IconChar.None;
-            MenuPagos.IconColor = Color.Black;
+            MenuPagos.BackColor = Color.FromArgb(31, 60, 136);
+            MenuPagos.ForeColor = Color.White;
+            MenuPagos.IconChar = FontAwesome.Sharp.IconChar.MoneyBills;
+            MenuPagos.IconColor = Color.White;
             MenuPagos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            MenuPagos.IconSize = 38;
+            MenuPagos.ImageScaling = ToolStripItemImageScaling.None;
             MenuPagos.Name = "MenuPagos";
-            MenuPagos.Size = new Size(72, 42);
+            MenuPagos.Size = new Size(94, 42);
             MenuPagos.Text = "PAGOS";
             MenuPagos.Click += MenuPagos_Click;
             // 
             // MenuServicios
             // 
-            MenuServicios.IconChar = FontAwesome.Sharp.IconChar.None;
-            MenuServicios.IconColor = Color.Black;
+            MenuServicios.BackColor = Color.FromArgb(31, 60, 136);
+            MenuServicios.ForeColor = Color.White;
+            MenuServicios.IconChar = FontAwesome.Sharp.IconChar.BellConcierge;
+            MenuServicios.IconColor = Color.White;
             MenuServicios.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            MenuServicios.IconSize = 38;
+            MenuServicios.ImageScaling = ToolStripItemImageScaling.None;
             MenuServicios.Name = "MenuServicios";
-            MenuServicios.Size = new Size(90, 42);
+            MenuServicios.Size = new Size(112, 42);
             MenuServicios.Text = "SERVICIOS";
             MenuServicios.Click += MenuServicios_Click;
             // 
             // MenuServiciosAdicionales
             // 
-            MenuServiciosAdicionales.IconChar = FontAwesome.Sharp.IconChar.None;
-            MenuServiciosAdicionales.IconColor = Color.Black;
+            MenuServiciosAdicionales.BackColor = Color.FromArgb(31, 60, 136);
+            MenuServiciosAdicionales.ForeColor = Color.White;
+            MenuServiciosAdicionales.IconChar = FontAwesome.Sharp.IconChar.Cogs;
+            MenuServiciosAdicionales.IconColor = Color.White;
             MenuServiciosAdicionales.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            MenuServiciosAdicionales.IconSize = 38;
+            MenuServiciosAdicionales.ImageScaling = ToolStripItemImageScaling.None;
             MenuServiciosAdicionales.Name = "MenuServiciosAdicionales";
-            MenuServiciosAdicionales.Size = new Size(167, 42);
+            MenuServiciosAdicionales.Size = new Size(189, 42);
             MenuServiciosAdicionales.Text = "SERVICIOS ADICIONALES";
             MenuServiciosAdicionales.Click += MenuServiciosAdicionales_Click;
             // 
             // MenuUsuarios
             // 
-            MenuUsuarios.IconChar = FontAwesome.Sharp.IconChar.None;
-            MenuUsuarios.IconColor = Color.Black;
+            MenuUsuarios.BackColor = Color.FromArgb(31, 60, 136);
+            MenuUsuarios.ForeColor = Color.White;
+            MenuUsuarios.IconChar = FontAwesome.Sharp.IconChar.User;
+            MenuUsuarios.IconColor = Color.White;
             MenuUsuarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            MenuUsuarios.IconSize = 38;
+            MenuUsuarios.ImageScaling = ToolStripItemImageScaling.None;
             MenuUsuarios.Name = "MenuUsuarios";
-            MenuUsuarios.Size = new Size(90, 42);
+            MenuUsuarios.Size = new Size(112, 42);
             MenuUsuarios.Text = "USUARIOS";
             MenuUsuarios.Click += MenuUsuarios_Click;
             // 
             // MenuSalir
             // 
-            MenuSalir.IconChar = FontAwesome.Sharp.IconChar.None;
-            MenuSalir.IconColor = Color.Black;
+            MenuSalir.BackColor = Color.FromArgb(31, 60, 136);
+            MenuSalir.ForeColor = Color.White;
+            MenuSalir.IconChar = FontAwesome.Sharp.IconChar.DoorOpen;
+            MenuSalir.IconColor = Color.White;
             MenuSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            MenuSalir.IconSize = 38;
+            MenuSalir.ImageScaling = ToolStripItemImageScaling.None;
             MenuSalir.Name = "MenuSalir";
-            MenuSalir.Size = new Size(65, 42);
+            MenuSalir.Size = new Size(87, 42);
             MenuSalir.Text = "SALIR";
             MenuSalir.Click += MenuSalir_Click;
             // 
@@ -171,12 +193,14 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(247, 247, 247);
-            ClientSize = new Size(826, 450);
+            ClientSize = new Size(980, 450);
             Controls.Add(panel1);
             Controls.Add(menuStrip1);
             Name = "Home";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Home";
+            WindowState = FormWindowState.Maximized;
+            Load += Home_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             menuStrip1.ResumeLayout(false);

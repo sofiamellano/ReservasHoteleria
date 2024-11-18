@@ -8,9 +8,8 @@ namespace ReservasHoteleriaDesktop.Views
     public partial class ReservasViews : Form
     {
         IReservaService reservaService = new ReservaService();
-        IGenericService<RH_Habitacion> habitacionService = new GenericService<RH_Habitacion>();
+        IHabitacionService habitacionService = new HabitacionService();
         BindingSource ListReservas = new BindingSource();
-        List<RH_Reserva> ListaFiltro = new List<RH_Reserva>();
 
         RH_Reserva reservaCurrent;
         public ReservasViews()
@@ -24,7 +23,7 @@ namespace ReservasHoteleriaDesktop.Views
         private async Task LoadCombo()
         {
             comboHabitacion.DataSource = await habitacionService.GetAllAsync();
-            comboHabitacion.DisplayMember = "Tipo";
+            comboHabitacion.DisplayMember = "TipoHabitacion";
             comboHabitacion.ValueMember = "ID";
             comboHabitacion.SelectedIndex = -1;
         }
@@ -33,9 +32,11 @@ namespace ReservasHoteleriaDesktop.Views
         {
             var reservas = await reservaService.GetAllAsync(null);
             ListReservas.DataSource = reservas;
+
             dataGridReservas.Columns["ID"].Visible = false;
             dataGridReservas.Columns["HabitacionID"].Visible = false;
             dataGridReservas.Columns["Eliminado"].Visible = false;
+
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -52,6 +53,7 @@ namespace ReservasHoteleriaDesktop.Views
                 reservaCurrent.FechaCheckIn = dateTimeCheckIn.Value;
                 reservaCurrent.FechaCheckOut = dateTimeCheckOut.Value;
                 reservaCurrent.EstadoReserva = txtEstadoReserva.Text;
+                reservaCurrent.Habitacion = (RH_Habitacion)comboHabitacion.SelectedItem;
                 await reservaService.UpdateAsync(reservaCurrent);
                 reservaCurrent = null;
             }
@@ -63,7 +65,8 @@ namespace ReservasHoteleriaDesktop.Views
                     FechaReserva = dateTimeFechaReserva.Value,
                     FechaCheckIn = dateTimeCheckIn.Value,
                     FechaCheckOut = dateTimeCheckOut.Value,
-                    EstadoReserva = txtEstadoReserva.Text
+                    EstadoReserva = txtEstadoReserva.Text,
+                    Habitacion = (RH_Habitacion)comboHabitacion.SelectedItem
                 };
                 await reservaService.AddAsync(reserva);
             }
@@ -72,6 +75,7 @@ namespace ReservasHoteleriaDesktop.Views
             dateTimeFechaReserva.Value = DateTime.Now;
             dateTimeCheckIn.Value = DateTime.Now;
             dateTimeCheckOut.Value = DateTime.Now;
+            comboHabitacion.SelectedIndex = -1;
             tabControl.SelectTab(tabPageLista);
         }
 

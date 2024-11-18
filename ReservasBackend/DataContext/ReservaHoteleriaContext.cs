@@ -1,6 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using System.IO;
 using ReservasHoteleriaServices.Models;
 
 namespace ReservasBackend.DataContext

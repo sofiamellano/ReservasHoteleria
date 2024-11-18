@@ -34,8 +34,8 @@ namespace ReservasHoteleriaDesktop.Views
             var reservas = await reservaService.GetAllAsync(null);
             ListReservas.DataSource = reservas;
             dataGridReservas.Columns["ID"].Visible = false;
-            dataGridReservas.Columns["UsuarioID"].Visible = false;
             dataGridReservas.Columns["HabitacionID"].Visible = false;
+            dataGridReservas.Columns["Eliminado"].Visible = false;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

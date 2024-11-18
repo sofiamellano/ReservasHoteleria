@@ -23,8 +23,12 @@ namespace ReservasBackend.Controllers
 
         // GET: api/RH_Servicios
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<RH_Servicio>>> GetRH_Servicios()
+        public async Task<ActionResult<IEnumerable<RH_Servicio>>> GetRH_Servicios([FromQuery] string? filtro)
         {
+            if (filtro != null)
+            {
+                return await _context.RH_Servicios.Where(x => x.Nombre.Contains(filtro)).ToListAsync();
+            }
             return await _context.RH_Servicios.ToListAsync();
         }
 

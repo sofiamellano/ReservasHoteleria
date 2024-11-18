@@ -23,8 +23,12 @@ namespace ReservasBackend.Controllers
 
         // GET: api/RH_ServiciosAdicionales
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<RH_ServicioAdicional>>> GetRH_ServiciosAdicionales()
+        public async Task<ActionResult<IEnumerable<RH_ServicioAdicional>>> GetRH_ServiciosAdicionales([FromQuery] string? filtro)
         {
+            if (filtro != null)
+            {
+                return await _context.RH_ServiciosAdicionales.Where(s => s.TipoServicio.Contains(filtro)).ToListAsync();
+            }
             return await _context.RH_ServiciosAdicionales.ToListAsync();
         }
 

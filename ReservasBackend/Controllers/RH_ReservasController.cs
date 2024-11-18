@@ -27,7 +27,7 @@ namespace ReservasBackend.Controllers
         {
             if (filtro != null)
             {
-                return await _context.RH_Reservas.Where(r => r.FechaReserva.Equals(filtro)).ToListAsync();
+                return await _context.RH_Reservas.Where(r => r.EstadoReserva.Contains(filtro)).ToListAsync();
             }
 
             return await _context.RH_Reservas.ToListAsync();

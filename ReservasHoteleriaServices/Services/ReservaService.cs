@@ -1,7 +1,6 @@
 ﻿using ReservasHoteleriaServices.Interfaces;
 using ReservasHoteleriaServices.Models;
 using System.Text.Json;
-using Microsoft.EntityFrameworkCore;
 
 namespace ReservasHoteleriaServices.Services
 {

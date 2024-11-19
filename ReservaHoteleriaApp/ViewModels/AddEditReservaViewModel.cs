@@ -51,7 +51,6 @@ namespace ReservaHoteleriaApp.ViewModels
         {
             if (editReserva != null)
             {
-                // Si editReserva está configurada, se asignan los valores
                 FechaReserva = editReserva.FechaReserva;
                 FechaCheckIn = editReserva.FechaCheckIn;
                 FechaCheckOut = editReserva.FechaCheckOut;
@@ -156,29 +155,24 @@ namespace ReservaHoteleriaApp.ViewModels
         {
             try
             {
-                // Validación de selección de habitación
                 if (SelectedHabitacion == null)
                 {
                     Console.WriteLine("Debe seleccionar una habitación antes de guardar.");
                     return;
                 }
 
-                // Si editReserva no es null, es una edición
                 if (editReserva != null && editReserva.ID > 0)
                 {
-                    // Aquí se actualiza la reserva
                     editReserva.FechaReserva = this.FechaReserva;
                     editReserva.FechaCheckIn = this.FechaCheckIn;
                     editReserva.FechaCheckOut = this.FechaCheckOut;
                     editReserva.EstadoReserva = this.EstadoReserva;
                     editReserva.HabitacionID = this.HabitacionID;
 
-                    // Actualizar la reserva en el servicio
                     await reservaService.UpdateAsync(editReserva);
                 }
                 else
                 {
-                    // Crear una nueva reserva
                     var reserva = new RH_Reserva()
                     {
                         FechaReserva = this.FechaReserva,
@@ -187,11 +181,9 @@ namespace ReservaHoteleriaApp.ViewModels
                         EstadoReserva = this.EstadoReserva,
                         HabitacionID = this.HabitacionID,
                     };
-                    // Agregar la nueva reserva
                     await reservaService.AddAsync(reserva);
                 }
 
-                // Regresar a la lista de reservas
                 await Shell.Current.GoToAsync("//ListaReservas");
             }
             catch (Exception ex)

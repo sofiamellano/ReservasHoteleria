@@ -55,13 +55,16 @@ namespace ReservaHoteleriaApp.ViewModels
                 selectedReserva = value;
                 OnPropertyChanged();
                 EditarReservasCommand.ChangeCanExecute();
+                EliminarReservaCommand.ChangeCanExecute();
             }
         }
 
-        public Command ObtenerReservasCommand { get; set; }
-        public Command FiltrarReservasCommand { get; set; }
-        public Command AgregarReservasCommand { get; set; }
-        public Command EditarReservasCommand { get; set; }
+        public Command ObtenerReservasCommand { get; }
+        public Command FiltrarReservasCommand { get; }
+        public Command AgregarReservasCommand { get; }
+        public Command EditarReservasCommand { get; }
+        public Command EliminarReservaCommand { get; }
+
 
         public ReservasViewModel()
         {
@@ -69,7 +72,26 @@ namespace ReservaHoteleriaApp.ViewModels
             FiltrarReservasCommand = new Command(async () =>  await FiltarReservas());
             AgregarReservasCommand = new Command(async () => await AgregarReservas());
             EditarReservasCommand = new Command(async (obj) => await EditarReservas(), PermitirEditar);
+            EliminarReservaCommand = new Command(async (obj) => await EliminarReserva(), PermitirEliminar);
             ObtenerReservas();
+        }
+
+        private bool PermitirEliminar(object arg)
+        {
+            return selectedReserva != null;
+        }
+
+        private async Task EliminarReserva()
+        {
+            if (selectedReserva != null)
+            {
+                await reservaService.DeleteAsync(selectedReserva.ID);
+                await ObtenerReservas();
+            }
+            else
+            {
+                Console.WriteLine("SelectedReserva is null");
+            }
         }
 
         private bool PermitirEditar(object arg)

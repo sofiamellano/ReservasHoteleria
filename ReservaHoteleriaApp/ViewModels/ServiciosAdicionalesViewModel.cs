@@ -1,4 +1,5 @@
 ﻿using ReservaHoteleriaApp.Class;
+using ReservasHoteleriaServices.Interfaces;
 using ReservasHoteleriaServices.Models;
 using ReservasHoteleriaServices.Services;
 using System.Collections.ObjectModel;
@@ -53,6 +54,7 @@ namespace ReservaHoteleriaApp.ViewModels
                 selectedServicioAdicional = value;
                 OnPropertyChanged();
                 EditarServiciosAdicionalesCommand.ChangeCanExecute();
+                EliminarServicioAdicionalCommand.ChangeCanExecute();
             }
         }
 
@@ -67,10 +69,11 @@ namespace ReservaHoteleriaApp.ViewModels
             }
         }
 
-        public Command ObtenerServiciosAdicionalesCommand { get; set; }
-        public Command FiltarServiciosAdicionalesCommand { get; set; }
-        public Command AgregarServiciosAdicionalesCommand { get; set; }
-        public Command EditarServiciosAdicionalesCommand { get; set; }
+        public Command ObtenerServiciosAdicionalesCommand { get; }
+        public Command FiltarServiciosAdicionalesCommand { get; }
+        public Command AgregarServiciosAdicionalesCommand { get; }
+        public Command EditarServiciosAdicionalesCommand { get; }
+        public Command EliminarServicioAdicionalCommand { get; }
 
         public ServiciosAdicionalesViewModel()
         {
@@ -78,7 +81,26 @@ namespace ReservaHoteleriaApp.ViewModels
             FiltarServiciosAdicionalesCommand = new Command(async () => await FiltarServiciosAdicionales());
             AgregarServiciosAdicionalesCommand = new Command(async () => await AgregarServiciosAdicionales());
             EditarServiciosAdicionalesCommand = new Command(async () => await EditarServiciosAdicionales(), PermitirEditar);
+            EliminarServicioAdicionalCommand = new Command(async () => await EliminarServicioAdicional(), PermitirEliminar);
             ObtenerServiciosAdicionales();
+        }
+
+        private bool PermitirEliminar(object arg)
+        {
+            return selectedServicioAdicional != null;
+        }
+
+        private async Task EliminarServicioAdicional()
+        {
+            if (selectedServicioAdicional != null)
+            {
+                await servicioAdicionalService.DeleteAsync(selectedServicioAdicional.ID);
+                await ObtenerServiciosAdicionales();
+            }
+            else
+            {
+                Console.WriteLine("SelectedServicioAdicional is null");
+            }
         }
 
         private bool PermitirEditar()
@@ -99,7 +121,7 @@ namespace ReservaHoteleriaApp.ViewModels
         {
             var navigationParameter = new ShellNavigationQueryParameters
             {
-                { "ServicioAdicionalToEdit",  selectedServicioAdicional }
+                { "ServicioAdicionalToEdit",  null }
             };
             await Shell.Current.GoToAsync("//AgregarEditarServicioAdicional", navigationParameter);
         }

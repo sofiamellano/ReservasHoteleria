@@ -60,7 +60,7 @@
             panel1.Controls.Add(label1);
             panel1.Location = new Point(0, 1);
             panel1.Name = "panel1";
-            panel1.Size = new Size(867, 65);
+            panel1.Size = new Size(875, 65);
             panel1.TabIndex = 1;
             // 
             // menuStrip1
@@ -68,7 +68,7 @@
             menuStrip1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             menuStrip1.Dock = DockStyle.None;
             menuStrip1.Items.AddRange(new ToolStripItem[] { MenuReservas, MenuEmpleados, MenuHabitaciones, MenuServicios, MenuServiciosAdicionales, MenuSalir });
-            menuStrip1.Location = new Point(45, 69);
+            menuStrip1.Location = new Point(0, 69);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(767, 46);
             menuStrip1.TabIndex = 8;
@@ -163,7 +163,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(247, 247, 247);
-            ClientSize = new Size(869, 450);
+            ClientSize = new Size(877, 450);
             Controls.Add(panel1);
             Controls.Add(menuStrip1);
             Name = "Home";

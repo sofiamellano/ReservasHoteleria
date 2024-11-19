@@ -9,7 +9,7 @@
         <viewModels:ReservasViewModel/>
     </ContentPage.BindingContext>
 
-    <Grid RowDefinitions="Auto, *, Auto, Auto"
+    <Grid RowDefinitions="Auto, *, Auto, Auto, Auto"
           BackgroundColor="#F2F6F9"
           Padding="10,20">
 
@@ -103,5 +103,17 @@
                 HeightRequest="50"
                 Grid.Row="3" />
 
+        <!-- Botón para eliminar reservas -->
+        <Button Text="Eliminar Reserva"
+                Command="{Binding EliminarReservaCommand}"
+                 BackgroundColor="#10B981"
+                 TextColor="#FFFFFF"
+                 FontAttributes="Bold"
+                 CornerRadius="8"
+                 HorizontalOptions="Fill"
+                 VerticalOptions="Center"
+                 Margin="20,10"
+                 HeightRequest="50"
+                 Grid.Row="4"/>
     </Grid>
 </ContentPage>

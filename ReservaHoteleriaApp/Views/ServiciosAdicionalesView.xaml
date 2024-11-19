@@ -92,5 +92,18 @@
                 HeightRequest="50"
                 Grid.Row="3" />
 
+        <!-- Botón para eliminar servicios -->
+        <Button Text="Eliminar Servicio"
+                Command="{Binding EliminarServicioAdicionalCommand}"
+                BackgroundColor="#10B981"
+                TextColor="#FFFFFF"
+                FontAttributes="Bold"
+                CornerRadius="8"
+                HorizontalOptions="Fill"
+                VerticalOptions="Center"
+                Margin="20,10"
+                HeightRequest="50"
+                Grid.Row="4"/>
+
     </Grid>
 </ContentPage>

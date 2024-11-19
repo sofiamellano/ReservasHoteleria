@@ -2,7 +2,7 @@ using ReservaHoteleriaApp.ViewModels;
 using ReservasHoteleriaServices.Models;
 
 namespace ReservaHoteleriaApp.Views;
-[QueryProperty(nameof(Reserva), "ReservasToEdit")]
+[QueryProperty(nameof(Reserva), "ReservaToEdit")]
 public partial class AddEditReservaView : ContentPage
 {
     public RH_Reserva Reserva {

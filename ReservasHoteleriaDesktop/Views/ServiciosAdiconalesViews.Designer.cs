@@ -32,14 +32,14 @@
             label1 = new Label();
             tabControl1 = new TabControl();
             Lista = new TabPage();
-            AgregarEditar = new TabPage();
             btnBuscar = new FontAwesome.Sharp.IconButton();
             txtFiltro = new TextBox();
             label2 = new Label();
-            dataGridEmpleados = new DataGridView();
+            dataGridServiciosAdicionales = new DataGridView();
             btnEliminar = new FontAwesome.Sharp.IconButton();
             btnEditar = new FontAwesome.Sharp.IconButton();
             btnAgregar = new FontAwesome.Sharp.IconButton();
+            AgregarEditar = new TabPage();
             btnCancelar = new FontAwesome.Sharp.IconButton();
             btnGuardar = new FontAwesome.Sharp.IconButton();
             txtTipoServicio = new TextBox();
@@ -47,8 +47,8 @@
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             Lista.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridServiciosAdicionales).BeginInit();
             AgregarEditar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridEmpleados).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -86,7 +86,7 @@
             Lista.Controls.Add(btnBuscar);
             Lista.Controls.Add(txtFiltro);
             Lista.Controls.Add(label2);
-            Lista.Controls.Add(dataGridEmpleados);
+            Lista.Controls.Add(dataGridServiciosAdicionales);
             Lista.Controls.Add(btnEliminar);
             Lista.Controls.Add(btnEditar);
             Lista.Controls.Add(btnAgregar);
@@ -97,20 +97,6 @@
             Lista.TabIndex = 0;
             Lista.Text = "LISTA";
             Lista.UseVisualStyleBackColor = true;
-            // 
-            // AgregarEditar
-            // 
-            AgregarEditar.Controls.Add(btnCancelar);
-            AgregarEditar.Controls.Add(btnGuardar);
-            AgregarEditar.Controls.Add(txtTipoServicio);
-            AgregarEditar.Controls.Add(label3);
-            AgregarEditar.Location = new Point(4, 24);
-            AgregarEditar.Name = "AgregarEditar";
-            AgregarEditar.Padding = new Padding(3);
-            AgregarEditar.Size = new Size(878, 424);
-            AgregarEditar.TabIndex = 1;
-            AgregarEditar.Text = "AGREGAR / EDITAR";
-            AgregarEditar.UseVisualStyleBackColor = true;
             // 
             // btnBuscar
             // 
@@ -128,6 +114,7 @@
             btnBuscar.TextAlign = ContentAlignment.BottomCenter;
             btnBuscar.TextImageRelation = TextImageRelation.ImageAboveText;
             btnBuscar.UseVisualStyleBackColor = false;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // txtFiltro
             // 
@@ -148,18 +135,18 @@
             label2.TabIndex = 18;
             label2.Text = "Buscar Empleado:";
             // 
-            // dataGridEmpleados
+            // dataGridServiciosAdicionales
             // 
-            dataGridEmpleados.AllowUserToAddRows = false;
-            dataGridEmpleados.AllowUserToDeleteRows = false;
-            dataGridEmpleados.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridEmpleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridEmpleados.Location = new Point(126, 109);
-            dataGridEmpleados.Name = "dataGridEmpleados";
-            dataGridEmpleados.ReadOnly = true;
-            dataGridEmpleados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridEmpleados.Size = new Size(746, 312);
-            dataGridEmpleados.TabIndex = 17;
+            dataGridServiciosAdicionales.AllowUserToAddRows = false;
+            dataGridServiciosAdicionales.AllowUserToDeleteRows = false;
+            dataGridServiciosAdicionales.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridServiciosAdicionales.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridServiciosAdicionales.Location = new Point(126, 109);
+            dataGridServiciosAdicionales.Name = "dataGridServiciosAdicionales";
+            dataGridServiciosAdicionales.ReadOnly = true;
+            dataGridServiciosAdicionales.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridServiciosAdicionales.Size = new Size(746, 312);
+            dataGridServiciosAdicionales.TabIndex = 17;
             // 
             // btnEliminar
             // 
@@ -178,6 +165,7 @@
             btnEliminar.TextAlign = ContentAlignment.BottomCenter;
             btnEliminar.TextImageRelation = TextImageRelation.ImageAboveText;
             btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnEditar
             // 
@@ -196,6 +184,7 @@
             btnEditar.TextAlign = ContentAlignment.BottomCenter;
             btnEditar.TextImageRelation = TextImageRelation.ImageAboveText;
             btnEditar.UseVisualStyleBackColor = false;
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnAgregar
             // 
@@ -213,6 +202,21 @@
             btnAgregar.TextAlign = ContentAlignment.BottomCenter;
             btnAgregar.TextImageRelation = TextImageRelation.ImageAboveText;
             btnAgregar.UseVisualStyleBackColor = false;
+            btnAgregar.Click += btnAgregar_Click;
+            // 
+            // AgregarEditar
+            // 
+            AgregarEditar.Controls.Add(btnCancelar);
+            AgregarEditar.Controls.Add(btnGuardar);
+            AgregarEditar.Controls.Add(txtTipoServicio);
+            AgregarEditar.Controls.Add(label3);
+            AgregarEditar.Location = new Point(4, 24);
+            AgregarEditar.Name = "AgregarEditar";
+            AgregarEditar.Padding = new Padding(3);
+            AgregarEditar.Size = new Size(878, 424);
+            AgregarEditar.TabIndex = 1;
+            AgregarEditar.Text = "AGREGAR / EDITAR";
+            AgregarEditar.UseVisualStyleBackColor = true;
             // 
             // btnCancelar
             // 
@@ -230,6 +234,7 @@
             btnCancelar.TextAlign = ContentAlignment.BottomCenter;
             btnCancelar.TextImageRelation = TextImageRelation.ImageAboveText;
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnGuardar
             // 
@@ -247,6 +252,7 @@
             btnGuardar.TextAlign = ContentAlignment.BottomCenter;
             btnGuardar.TextImageRelation = TextImageRelation.ImageAboveText;
             btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // txtTipoServicio
             // 
@@ -278,9 +284,9 @@
             tabControl1.ResumeLayout(false);
             Lista.ResumeLayout(false);
             Lista.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridServiciosAdicionales).EndInit();
             AgregarEditar.ResumeLayout(false);
             AgregarEditar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridEmpleados).EndInit();
             ResumeLayout(false);
         }
 
@@ -294,7 +300,7 @@
         private FontAwesome.Sharp.IconButton btnBuscar;
         private TextBox txtFiltro;
         private Label label2;
-        private DataGridView dataGridEmpleados;
+        private DataGridView dataGridServiciosAdicionales;
         private FontAwesome.Sharp.IconButton btnEliminar;
         private FontAwesome.Sharp.IconButton btnEditar;
         private FontAwesome.Sharp.IconButton btnAgregar;

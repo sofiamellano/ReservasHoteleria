@@ -32,25 +32,25 @@
             label1 = new Label();
             tabControl1 = new TabControl();
             Lista = new TabPage();
-            AgregarEditar = new TabPage();
-            btnEliminar = new FontAwesome.Sharp.IconButton();
-            btnEditar = new FontAwesome.Sharp.IconButton();
-            btnAgregar = new FontAwesome.Sharp.IconButton();
             btnBuscar = new FontAwesome.Sharp.IconButton();
             txtFiltro = new TextBox();
             label2 = new Label();
             dataGridServicios = new DataGridView();
-            btnCancelar = new FontAwesome.Sharp.IconButton();
-            btnGuardar = new FontAwesome.Sharp.IconButton();
+            btnEliminar = new FontAwesome.Sharp.IconButton();
+            btnEditar = new FontAwesome.Sharp.IconButton();
+            btnAgregar = new FontAwesome.Sharp.IconButton();
+            AgregarEditar = new TabPage();
+            numericPrecio = new NumericUpDown();
             label3 = new Label();
             txtNombre = new TextBox();
             label8 = new Label();
-            numericPrecio = new NumericUpDown();
+            btnCancelar = new FontAwesome.Sharp.IconButton();
+            btnGuardar = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             Lista.SuspendLayout();
-            AgregarEditar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridServicios).BeginInit();
+            AgregarEditar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericPrecio).BeginInit();
             SuspendLayout();
             // 
@@ -102,75 +102,6 @@
             Lista.Text = "LISTA";
             Lista.UseVisualStyleBackColor = true;
             // 
-            // AgregarEditar
-            // 
-            AgregarEditar.Controls.Add(numericPrecio);
-            AgregarEditar.Controls.Add(label3);
-            AgregarEditar.Controls.Add(txtNombre);
-            AgregarEditar.Controls.Add(label8);
-            AgregarEditar.Controls.Add(btnCancelar);
-            AgregarEditar.Controls.Add(btnGuardar);
-            AgregarEditar.Location = new Point(4, 24);
-            AgregarEditar.Name = "AgregarEditar";
-            AgregarEditar.Padding = new Padding(3);
-            AgregarEditar.Size = new Size(864, 413);
-            AgregarEditar.TabIndex = 1;
-            AgregarEditar.Text = "AGREGAR / EDITAR";
-            AgregarEditar.UseVisualStyleBackColor = true;
-            // 
-            // btnEliminar
-            // 
-            btnEliminar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnEliminar.BackColor = Color.FromArgb(62, 146, 204);
-            btnEliminar.ForeColor = Color.White;
-            btnEliminar.IconChar = FontAwesome.Sharp.IconChar.Trash;
-            btnEliminar.IconColor = Color.White;
-            btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnEliminar.IconSize = 27;
-            btnEliminar.Location = new Point(7, 343);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(90, 64);
-            btnEliminar.TabIndex = 12;
-            btnEliminar.Text = "ELIMINAR";
-            btnEliminar.TextAlign = ContentAlignment.BottomCenter;
-            btnEliminar.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnEliminar.UseVisualStyleBackColor = false;
-            // 
-            // btnEditar
-            // 
-            btnEditar.Anchor = AnchorStyles.Left;
-            btnEditar.BackColor = Color.FromArgb(62, 146, 204);
-            btnEditar.ForeColor = Color.White;
-            btnEditar.IconChar = FontAwesome.Sharp.IconChar.FilePen;
-            btnEditar.IconColor = Color.White;
-            btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnEditar.IconSize = 28;
-            btnEditar.Location = new Point(7, 225);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(90, 64);
-            btnEditar.TabIndex = 11;
-            btnEditar.Text = "EDITAR";
-            btnEditar.TextAlign = ContentAlignment.BottomCenter;
-            btnEditar.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnEditar.UseVisualStyleBackColor = false;
-            // 
-            // btnAgregar
-            // 
-            btnAgregar.BackColor = Color.FromArgb(62, 146, 204);
-            btnAgregar.ForeColor = Color.White;
-            btnAgregar.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
-            btnAgregar.IconColor = Color.White;
-            btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnAgregar.IconSize = 28;
-            btnAgregar.Location = new Point(7, 103);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(90, 64);
-            btnAgregar.TabIndex = 10;
-            btnAgregar.Text = "AGREGAR";
-            btnAgregar.TextAlign = ContentAlignment.BottomCenter;
-            btnAgregar.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnAgregar.UseVisualStyleBackColor = false;
-            // 
             // btnBuscar
             // 
             btnBuscar.BackColor = Color.FromArgb(62, 146, 204);
@@ -195,7 +126,6 @@
             txtFiltro.Name = "txtFiltro";
             txtFiltro.Size = new Size(482, 23);
             txtFiltro.TabIndex = 16;
-            txtFiltro.TextChanged += this.txtFiltro_TextChanged;
             // 
             // label2
             // 
@@ -208,7 +138,6 @@
             label2.Size = new Size(125, 21);
             label2.TabIndex = 15;
             label2.Text = "Buscar Servicios:";
-            label2.Click += this.label2_Click;
             // 
             // dataGridServicios
             // 
@@ -222,41 +151,87 @@
             dataGridServicios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridServicios.Size = new Size(746, 312);
             dataGridServicios.TabIndex = 14;
-            dataGridServicios.CellContentClick += this.dataGridEmpleados_CellContentClick;
             // 
-            // btnCancelar
+            // btnEliminar
             // 
-            btnCancelar.BackColor = Color.FromArgb(62, 146, 204);
-            btnCancelar.ForeColor = Color.White;
-            btnCancelar.IconChar = FontAwesome.Sharp.IconChar.Cancel;
-            btnCancelar.IconColor = Color.White;
-            btnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnCancelar.IconSize = 27;
-            btnCancelar.Location = new Point(509, 333);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(90, 64);
-            btnCancelar.TabIndex = 25;
-            btnCancelar.Text = "CANCELAR";
-            btnCancelar.TextAlign = ContentAlignment.BottomCenter;
-            btnCancelar.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnCancelar.UseVisualStyleBackColor = false;
+            btnEliminar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnEliminar.BackColor = Color.FromArgb(62, 146, 204);
+            btnEliminar.ForeColor = Color.White;
+            btnEliminar.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            btnEliminar.IconColor = Color.White;
+            btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnEliminar.IconSize = 27;
+            btnEliminar.Location = new Point(7, 343);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(90, 64);
+            btnEliminar.TabIndex = 12;
+            btnEliminar.Text = "ELIMINAR";
+            btnEliminar.TextAlign = ContentAlignment.BottomCenter;
+            btnEliminar.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += btnEliminar_Click;
             // 
-            // btnGuardar
+            // btnEditar
             // 
-            btnGuardar.BackColor = Color.FromArgb(62, 146, 204);
-            btnGuardar.ForeColor = Color.White;
-            btnGuardar.IconChar = FontAwesome.Sharp.IconChar.Save;
-            btnGuardar.IconColor = Color.White;
-            btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnGuardar.IconSize = 27;
-            btnGuardar.Location = new Point(279, 333);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(90, 64);
-            btnGuardar.TabIndex = 24;
-            btnGuardar.Text = "GUARDAR";
-            btnGuardar.TextAlign = ContentAlignment.BottomCenter;
-            btnGuardar.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnGuardar.UseVisualStyleBackColor = false;
+            btnEditar.Anchor = AnchorStyles.Left;
+            btnEditar.BackColor = Color.FromArgb(62, 146, 204);
+            btnEditar.ForeColor = Color.White;
+            btnEditar.IconChar = FontAwesome.Sharp.IconChar.FilePen;
+            btnEditar.IconColor = Color.White;
+            btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnEditar.IconSize = 28;
+            btnEditar.Location = new Point(7, 225);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(90, 64);
+            btnEditar.TabIndex = 11;
+            btnEditar.Text = "EDITAR";
+            btnEditar.TextAlign = ContentAlignment.BottomCenter;
+            btnEditar.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnEditar.UseVisualStyleBackColor = false;
+            btnEditar.Click += btnEditar_Click;
+            // 
+            // btnAgregar
+            // 
+            btnAgregar.BackColor = Color.FromArgb(62, 146, 204);
+            btnAgregar.ForeColor = Color.White;
+            btnAgregar.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
+            btnAgregar.IconColor = Color.White;
+            btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnAgregar.IconSize = 28;
+            btnAgregar.Location = new Point(7, 103);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(90, 64);
+            btnAgregar.TabIndex = 10;
+            btnAgregar.Text = "AGREGAR";
+            btnAgregar.TextAlign = ContentAlignment.BottomCenter;
+            btnAgregar.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnAgregar.UseVisualStyleBackColor = false;
+            btnAgregar.Click += btnAgregar_Click;
+            // 
+            // AgregarEditar
+            // 
+            AgregarEditar.Controls.Add(numericPrecio);
+            AgregarEditar.Controls.Add(label3);
+            AgregarEditar.Controls.Add(txtNombre);
+            AgregarEditar.Controls.Add(label8);
+            AgregarEditar.Controls.Add(btnCancelar);
+            AgregarEditar.Controls.Add(btnGuardar);
+            AgregarEditar.Location = new Point(4, 24);
+            AgregarEditar.Name = "AgregarEditar";
+            AgregarEditar.Padding = new Padding(3);
+            AgregarEditar.Size = new Size(864, 413);
+            AgregarEditar.TabIndex = 1;
+            AgregarEditar.Text = "AGREGAR / EDITAR";
+            AgregarEditar.UseVisualStyleBackColor = true;
+            // 
+            // numericPrecio
+            // 
+            numericPrecio.Location = new Point(340, 182);
+            numericPrecio.Maximum = new decimal(new int[] { -1486618624, 232830643, 0, 0 });
+            numericPrecio.Name = "numericPrecio";
+            numericPrecio.Size = new Size(230, 23);
+            numericPrecio.TabIndex = 29;
+            numericPrecio.TextAlign = HorizontalAlignment.Center;
             // 
             // label3
             // 
@@ -283,14 +258,41 @@
             label8.TabIndex = 26;
             label8.Text = "Nombre:";
             // 
-            // numericPrecio
+            // btnCancelar
             // 
-            numericPrecio.Location = new Point(340, 182);
-            numericPrecio.Maximum = new decimal(new int[] { -1486618624, 232830643, 0, 0 });
-            numericPrecio.Name = "numericPrecio";
-            numericPrecio.Size = new Size(230, 23);
-            numericPrecio.TabIndex = 29;
-            numericPrecio.TextAlign = HorizontalAlignment.Center;
+            btnCancelar.BackColor = Color.FromArgb(62, 146, 204);
+            btnCancelar.ForeColor = Color.White;
+            btnCancelar.IconChar = FontAwesome.Sharp.IconChar.Cancel;
+            btnCancelar.IconColor = Color.White;
+            btnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnCancelar.IconSize = 27;
+            btnCancelar.Location = new Point(509, 333);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(90, 64);
+            btnCancelar.TabIndex = 25;
+            btnCancelar.Text = "CANCELAR";
+            btnCancelar.TextAlign = ContentAlignment.BottomCenter;
+            btnCancelar.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
+            // btnGuardar
+            // 
+            btnGuardar.BackColor = Color.FromArgb(62, 146, 204);
+            btnGuardar.ForeColor = Color.White;
+            btnGuardar.IconChar = FontAwesome.Sharp.IconChar.Save;
+            btnGuardar.IconColor = Color.White;
+            btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnGuardar.IconSize = 27;
+            btnGuardar.Location = new Point(279, 333);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(90, 64);
+            btnGuardar.TabIndex = 24;
+            btnGuardar.Text = "GUARDAR";
+            btnGuardar.TextAlign = ContentAlignment.BottomCenter;
+            btnGuardar.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // ServiciosViews
             // 
@@ -306,9 +308,9 @@
             tabControl1.ResumeLayout(false);
             Lista.ResumeLayout(false);
             Lista.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridServicios).EndInit();
             AgregarEditar.ResumeLayout(false);
             AgregarEditar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridServicios).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericPrecio).EndInit();
             ResumeLayout(false);
         }

@@ -63,6 +63,7 @@ namespace ReservaHoteleriaApp.ViewModels
         public AddEditServicioAdicionalViewModel()
         {
             FechaSolicitud = DateTime.Now;
+            editServicioAdicional = null;
             SaveServicioAdicionalCommand = new Command(async () => await SaveServicioAdicional());
         }
 

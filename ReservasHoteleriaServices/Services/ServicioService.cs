@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace ReservasHoteleriaServices.Services
 {
-    public class ServicioAdicionalService : GenericService<RH_ServicioAdicional>, IServicioAdicionalService
+    public class ServicioService : GenericService<RH_Servicio>, IServicioService
     {
-        public async Task<List<RH_ServicioAdicional>?> GetAllAsync(string? filtro)
+        public async Task<List<RH_Servicio>?> GetAllAsync(string? filtro)
         {
             var response = await client.GetAsync($"{_endpoint}?filtro={filtro}");
             var content = await response.Content.ReadAsStringAsync();
@@ -19,7 +19,7 @@ namespace ReservasHoteleriaServices.Services
             {
                 throw new ApplicationException(content?.ToString());
             }
-            return JsonSerializer.Deserialize<List<RH_ServicioAdicional>>(content, options);
+            return JsonSerializer.Deserialize<List<RH_Servicio>>(content, options);
         }
     }
 }

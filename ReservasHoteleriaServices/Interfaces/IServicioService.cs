@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace ReservasHoteleriaServices.Interfaces
 {
-    public interface IServicioAdicionalService : IGenericService<RH_ServicioAdicional>
+    public interface IServicioService : IGenericService<RH_Servicio>
     {
-        public Task<List<RH_ServicioAdicional>?> GetAllAsync(string? filtro);
+        public Task<List<RH_Servicio>?> GetAllAsync(string? filtro);
     }
 }

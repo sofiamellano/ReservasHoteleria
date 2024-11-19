@@ -11,8 +11,6 @@ namespace ReservasHoteleriaServices.Models
         public int ID { get; set; }
         public string TipoServicio { get; set; } // (Comida, Transporte, etc.)
         public bool Eliminado { get; set; } = false;
-
-        // Clave foránea
-        public int? ReservaID { get; set; }
+       
     }
 }

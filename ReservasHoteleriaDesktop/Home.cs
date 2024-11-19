@@ -36,12 +36,6 @@ namespace ReservasHotelDesktop
             habitacionesViews.ShowDialog();
         }
 
-        private void MenuPagos_Click(object sender, EventArgs e)
-        {
-            PagosViews pagosViews = new PagosViews();
-            pagosViews.ShowDialog();
-        }
-
         private void MenuServicios_Click(object sender, EventArgs e)
         {
             ServiciosViews serviciosViews = new ServiciosViews();
@@ -54,11 +48,6 @@ namespace ReservasHotelDesktop
             serviciosAdiconalesViews.ShowDialog();
         }
 
-        private void MenuUsuarios_Click(object sender, EventArgs e)
-        {
-            UsuariosViews usuariosViews = new UsuariosViews();
-            usuariosViews.ShowDialog();
-        }
         private void MenuSalir_Click(object sender, EventArgs e)
         {
             this.Close();

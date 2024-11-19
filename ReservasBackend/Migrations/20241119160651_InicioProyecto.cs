@@ -78,8 +78,7 @@ namespace ReservasBackend.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     TipoServicio = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Eliminado = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    ReservaID = table.Column<int>(type: "int", nullable: true)
+                    Eliminado = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -144,12 +143,12 @@ namespace ReservasBackend.Migrations
 
             migrationBuilder.InsertData(
                 table: "RH_ServiciosAdicionales",
-                columns: new[] { "ID", "Eliminado", "ReservaID", "TipoServicio" },
+                columns: new[] { "ID", "Eliminado", "TipoServicio" },
                 values: new object[,]
                 {
-                    { 1, false, 1, "Transporte al aeropuerto" },
-                    { 2, false, 3, "Decoración especial" },
-                    { 3, false, 2, "Limpieza extra" }
+                    { 1, false, "Transporte al aeropuerto" },
+                    { 2, false, "Decoración especial" },
+                    { 3, false, "Limpieza extra" }
                 });
 
             migrationBuilder.InsertData(

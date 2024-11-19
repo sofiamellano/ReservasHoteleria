@@ -24,7 +24,6 @@ namespace ReservaHoteleriaApp.ViewModels
             if (editServicioAdicional != null)
             {
                 TipoServicio = editServicioAdicional.TipoServicio;
-                ReservaID = editServicioAdicional.ReservaID ?? 0;
             }
         }
 
@@ -74,7 +73,6 @@ namespace ReservaHoteleriaApp.ViewModels
                 if (editServicioAdicional != null)
                 {
                     editServicioAdicional.TipoServicio = this.TipoServicio;
-                    editServicioAdicional.ReservaID = this.ReservaID;
 
                     // Verificación de que Id tenga un valor válido
                     if (editServicioAdicional.ID == 0)

@@ -34,10 +34,8 @@
             MenuReservas = new FontAwesome.Sharp.IconMenuItem();
             MenuEmpleados = new FontAwesome.Sharp.IconMenuItem();
             MenuHabitaciones = new FontAwesome.Sharp.IconMenuItem();
-            MenuPagos = new FontAwesome.Sharp.IconMenuItem();
             MenuServicios = new FontAwesome.Sharp.IconMenuItem();
             MenuServiciosAdicionales = new FontAwesome.Sharp.IconMenuItem();
-            MenuUsuarios = new FontAwesome.Sharp.IconMenuItem();
             MenuSalir = new FontAwesome.Sharp.IconMenuItem();
             panel1.SuspendLayout();
             menuStrip1.SuspendLayout();
@@ -62,17 +60,17 @@
             panel1.Controls.Add(label1);
             panel1.Location = new Point(0, 1);
             panel1.Name = "panel1";
-            panel1.Size = new Size(978, 65);
+            panel1.Size = new Size(867, 65);
             panel1.TabIndex = 1;
             // 
             // menuStrip1
             // 
             menuStrip1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             menuStrip1.Dock = DockStyle.None;
-            menuStrip1.Items.AddRange(new ToolStripItem[] { MenuReservas, MenuEmpleados, MenuHabitaciones, MenuPagos, MenuServicios, MenuServiciosAdicionales, MenuUsuarios, MenuSalir });
-            menuStrip1.Location = new Point(0, 69);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { MenuReservas, MenuEmpleados, MenuHabitaciones, MenuServicios, MenuServiciosAdicionales, MenuSalir });
+            menuStrip1.Location = new Point(45, 69);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(973, 46);
+            menuStrip1.Size = new Size(767, 46);
             menuStrip1.TabIndex = 8;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -118,20 +116,6 @@
             MenuHabitaciones.Text = "HABITACIONES";
             MenuHabitaciones.Click += MenuHabitaciones_Click;
             // 
-            // MenuPagos
-            // 
-            MenuPagos.BackColor = Color.FromArgb(31, 60, 136);
-            MenuPagos.ForeColor = Color.White;
-            MenuPagos.IconChar = FontAwesome.Sharp.IconChar.MoneyBills;
-            MenuPagos.IconColor = Color.White;
-            MenuPagos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            MenuPagos.IconSize = 38;
-            MenuPagos.ImageScaling = ToolStripItemImageScaling.None;
-            MenuPagos.Name = "MenuPagos";
-            MenuPagos.Size = new Size(94, 42);
-            MenuPagos.Text = "PAGOS";
-            MenuPagos.Click += MenuPagos_Click;
-            // 
             // MenuServicios
             // 
             MenuServicios.BackColor = Color.FromArgb(31, 60, 136);
@@ -160,20 +144,6 @@
             MenuServiciosAdicionales.Text = "SERVICIOS ADICIONALES";
             MenuServiciosAdicionales.Click += MenuServiciosAdicionales_Click;
             // 
-            // MenuUsuarios
-            // 
-            MenuUsuarios.BackColor = Color.FromArgb(31, 60, 136);
-            MenuUsuarios.ForeColor = Color.White;
-            MenuUsuarios.IconChar = FontAwesome.Sharp.IconChar.User;
-            MenuUsuarios.IconColor = Color.White;
-            MenuUsuarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            MenuUsuarios.IconSize = 38;
-            MenuUsuarios.ImageScaling = ToolStripItemImageScaling.None;
-            MenuUsuarios.Name = "MenuUsuarios";
-            MenuUsuarios.Size = new Size(112, 42);
-            MenuUsuarios.Text = "USUARIOS";
-            MenuUsuarios.Click += MenuUsuarios_Click;
-            // 
             // MenuSalir
             // 
             MenuSalir.BackColor = Color.FromArgb(31, 60, 136);
@@ -193,7 +163,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(247, 247, 247);
-            ClientSize = new Size(980, 450);
+            ClientSize = new Size(869, 450);
             Controls.Add(panel1);
             Controls.Add(menuStrip1);
             Name = "Home";
@@ -217,10 +187,8 @@
         private FontAwesome.Sharp.IconMenuItem MenuReservas;
         private FontAwesome.Sharp.IconMenuItem MenuEmpleados;
         private FontAwesome.Sharp.IconMenuItem MenuHabitaciones;
-        private FontAwesome.Sharp.IconMenuItem MenuPagos;
         private FontAwesome.Sharp.IconMenuItem MenuServicios;
         private FontAwesome.Sharp.IconMenuItem MenuServiciosAdicionales;
-        private FontAwesome.Sharp.IconMenuItem MenuUsuarios;
         private FontAwesome.Sharp.IconMenuItem MenuSalir;
     }
 }

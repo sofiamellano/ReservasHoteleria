@@ -143,19 +143,16 @@ namespace ReservasBackend.DataContext
                 {
                     ID = 1,
                     TipoServicio = "Transporte al aeropuerto",
-                    ReservaID = 1
                 },
                 new RH_ServicioAdicional
                 {
                     ID = 2,
                     TipoServicio = "Decoración especial",
-                    ReservaID = 3
                 },
                 new RH_ServicioAdicional
                 {
                     ID = 3,
                     TipoServicio = "Limpieza extra",
-                    ReservaID = 2
                 }
             );
 

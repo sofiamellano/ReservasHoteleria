@@ -12,7 +12,7 @@ using ReservasBackend.DataContext;
 namespace ReservasBackend.Migrations
 {
     [DbContext(typeof(ReservaHoteleriaContext))]
-    [Migration("20241113234159_InicioProyecto")]
+    [Migration("20241119160651_InicioProyecto")]
     partial class InicioProyecto
     {
         /// <inheritdoc />
@@ -247,9 +247,6 @@ namespace ReservasBackend.Migrations
                     b.Property<bool>("Eliminado")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<int?>("ReservaID")
-                        .HasColumnType("int");
-
                     b.Property<string>("TipoServicio")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -263,21 +260,18 @@ namespace ReservasBackend.Migrations
                         {
                             ID = 1,
                             Eliminado = false,
-                            ReservaID = 1,
                             TipoServicio = "Transporte al aeropuerto"
                         },
                         new
                         {
                             ID = 2,
                             Eliminado = false,
-                            ReservaID = 3,
                             TipoServicio = "Decoración especial"
                         },
                         new
                         {
                             ID = 3,
                             Eliminado = false,
-                            ReservaID = 2,
                             TipoServicio = "Limpieza extra"
                         });
                 });

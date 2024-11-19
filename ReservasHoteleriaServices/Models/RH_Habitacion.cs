@@ -13,5 +13,7 @@ namespace ReservasHoteleriaServices.Models
         public decimal PrecioPorNoche { get; set; }
         public bool Disponible { get; set; }
         public bool Eliminado { get; set; } = false;
+
+        public override string ToString() => TipoHabitacion;
     }
 }

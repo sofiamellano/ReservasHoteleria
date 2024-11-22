@@ -90,6 +90,7 @@ namespace ReservasBackend.DataContext
                 new RH_Reserva
                 {
                     ID = 1,
+                    NombreCliente = "Juan Pérez",
                     FechaReserva = new DateTime(2024, 10, 10),
                     FechaCheckIn = new DateTime(2024, 10, 15),
                     FechaCheckOut = new DateTime(2024, 10, 20),
@@ -100,6 +101,7 @@ namespace ReservasBackend.DataContext
                 new RH_Reserva
                 {
                     ID = 2,
+                    NombreCliente = "María Gómez",
                     FechaReserva = new DateTime(2024, 09, 01),
                     FechaCheckIn = new DateTime(2024, 09, 10),
                     FechaCheckOut = new DateTime(2024, 09, 12),
@@ -109,6 +111,7 @@ namespace ReservasBackend.DataContext
                 new RH_Reserva
                 {
                     ID = 3,
+                    NombreCliente = "Pedro Rodríguez",
                     FechaReserva = new DateTime(2024, 09, 15),
                     FechaCheckIn = new DateTime(2024, 09, 18),
                     FechaCheckOut = new DateTime(2024, 09, 20),

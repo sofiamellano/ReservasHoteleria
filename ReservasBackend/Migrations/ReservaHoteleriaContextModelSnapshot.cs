@@ -86,11 +86,16 @@ namespace ReservasBackend.Migrations
                     b.Property<decimal>("PrecioPorNoche")
                         .HasColumnType("decimal(65,30)");
 
+                    b.Property<int?>("RH_ReservaID")
+                        .HasColumnType("int");
+
                     b.Property<string>("TipoHabitacion")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("RH_ReservaID");
 
                     b.ToTable("RH_Habitaciones");
 
@@ -148,6 +153,10 @@ namespace ReservasBackend.Migrations
                     b.Property<int?>("HabitacionID")
                         .HasColumnType("int");
 
+                    b.Property<string>("NombreCliente")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.HasKey("ID");
 
                     b.HasIndex("HabitacionID");
@@ -163,7 +172,8 @@ namespace ReservasBackend.Migrations
                             FechaCheckIn = new DateTime(2024, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FechaCheckOut = new DateTime(2024, 10, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FechaReserva = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            HabitacionID = 1
+                            HabitacionID = 1,
+                            NombreCliente = "Juan Pérez"
                         },
                         new
                         {
@@ -173,7 +183,8 @@ namespace ReservasBackend.Migrations
                             FechaCheckIn = new DateTime(2024, 9, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FechaCheckOut = new DateTime(2024, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FechaReserva = new DateTime(2024, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            HabitacionID = 3
+                            HabitacionID = 3,
+                            NombreCliente = "María Gómez"
                         },
                         new
                         {
@@ -183,7 +194,8 @@ namespace ReservasBackend.Migrations
                             FechaCheckIn = new DateTime(2024, 9, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FechaCheckOut = new DateTime(2024, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FechaReserva = new DateTime(2024, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            HabitacionID = 2
+                            HabitacionID = 2,
+                            NombreCliente = "Pedro Rodríguez"
                         });
                 });
 
@@ -273,6 +285,13 @@ namespace ReservasBackend.Migrations
                         });
                 });
 
+            modelBuilder.Entity("ReservasHoteleriaServices.Models.RH_Habitacion", b =>
+                {
+                    b.HasOne("ReservasHoteleriaServices.Models.RH_Reserva", null)
+                        .WithMany("Habitaciones")
+                        .HasForeignKey("RH_ReservaID");
+                });
+
             modelBuilder.Entity("ReservasHoteleriaServices.Models.RH_Reserva", b =>
                 {
                     b.HasOne("ReservasHoteleriaServices.Models.RH_Habitacion", "Habitacion")
@@ -280,6 +299,11 @@ namespace ReservasBackend.Migrations
                         .HasForeignKey("HabitacionID");
 
                     b.Navigation("Habitacion");
+                });
+
+            modelBuilder.Entity("ReservasHoteleriaServices.Models.RH_Reserva", b =>
+                {
+                    b.Navigation("Habitaciones");
                 });
 #pragma warning restore 612, 618
         }

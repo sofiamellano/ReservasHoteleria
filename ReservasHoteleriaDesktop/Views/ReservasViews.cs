@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Diagnostics;
+using ReservasHoteleriaDesktop.ViewReports;
 using ReservasHoteleriaServices.Interfaces;
 using ReservasHoteleriaServices.Models;
 using ReservasHoteleriaServices.Services;
@@ -130,7 +131,12 @@ namespace ReservasHoteleriaDesktop.Views
             ListReservas.DataSource = reservasFiltradas;
         }
 
-
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            reservaCurrent = (RH_Reserva)ListReservas.Current;
+            ReservasViewReport reservasViewReport = new ReservasViewReport(reservaCurrent);
+            reservasViewReport.ShowDialog();
+        }
     }
 }
     

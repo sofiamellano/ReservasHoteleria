@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ReservasHoteleriaDataSet" targetNamespace="http://tempuri.org/ReservasHoteleriaDataSet.xsd" xmlns:mstns="http://tempuri.org/ReservasHoteleriaDataSet.xsd" xmlns="http://tempuri.org/ReservasHoteleriaDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ReservasHoteleriaDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ReservasHoteleriaDataSet" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ReservasHoteleriaDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DSReservas" msprop:Generator_RowEvHandlerName="DSReservasRowChangeEventHandler" msprop:Generator_RowDeletedName="DSReservasRowDeleted" msprop:Generator_RowDeletingName="DSReservasRowDeleting" msprop:Generator_RowEvArgName="DSReservasRowChangeEvent" msprop:Generator_TablePropName="DSReservas" msprop:Generator_RowChangedName="DSReservasRowChanged" msprop:Generator_UserTableName="DSReservas" msprop:Generator_RowChangingName="DSReservasRowChanging" msprop:Generator_RowClassName="DSReservasRow" msprop:Generator_TableClassName="DSReservasDataTable" msprop:Generator_TableVarName="tableDSReservas">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnVarNameInTable="columnID" type="xs:int" minOccurs="0" />
+              <xs:element name="FechaReserva" msprop:Generator_ColumnPropNameInTable="FechaReservaColumn" msprop:Generator_ColumnPropNameInRow="FechaReserva" msprop:Generator_UserColumnName="FechaReserva" msprop:Generator_ColumnVarNameInTable="columnFechaReserva" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FechaCheckIn" msprop:Generator_ColumnPropNameInTable="FechaCheckInColumn" msprop:Generator_ColumnPropNameInRow="FechaCheckIn" msprop:Generator_UserColumnName="FechaCheckIn" msprop:Generator_ColumnVarNameInTable="columnFechaCheckIn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FechaCheckOut" msprop:Generator_ColumnPropNameInTable="FechaCheckOutColumn" msprop:Generator_ColumnPropNameInRow="FechaCheckOut" msprop:Generator_UserColumnName="FechaCheckOut" msprop:Generator_ColumnVarNameInTable="columnFechaCheckOut" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="EstadoReserva" msprop:Generator_ColumnPropNameInTable="EstadoReservaColumn" msprop:Generator_ColumnPropNameInRow="EstadoReserva" msprop:Generator_UserColumnName="EstadoReserva" msprop:Generator_ColumnVarNameInTable="columnEstadoReserva" type="xs:string" minOccurs="0" />
+              <xs:element name="TipoHabitacion" msprop:Generator_UserColumnName="TipoHabitacion" msprop:Generator_ColumnPropNameInTable="TipoHabitacionColumn" msprop:Generator_ColumnPropNameInRow="TipoHabitacion" msprop:Generator_ColumnVarNameInTable="columnTipoHabitacion" type="xs:string" minOccurs="0" />
+              <xs:element name="NombreCliente" msprop:Generator_ColumnPropNameInRow="NombreCliente" msprop:Generator_ColumnPropNameInTable="NombreClienteColumn" msprop:Generator_ColumnVarNameInTable="columnNombreCliente" msprop:Generator_UserColumnName="NombreCliente" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

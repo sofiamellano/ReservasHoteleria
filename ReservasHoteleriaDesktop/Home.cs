@@ -1,4 +1,5 @@
-﻿using ReservasHoteleriaDesktop.Views;
+﻿using ReservasHoteleriaDesktop.ViewReports;
+using ReservasHoteleriaDesktop.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,9 +54,10 @@ namespace ReservasHotelDesktop
             this.Close();
         }
 
-        private void Home_Load(object sender, EventArgs e)
+        private void menuReservasReportes_Click(object sender, EventArgs e)
         {
-
+            ReservasViewReport reservasViewReport = new ReservasViewReport();
+            reservasViewReport.ShowDialog();
         }
     }
 }

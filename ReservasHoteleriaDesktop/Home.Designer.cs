@@ -43,6 +43,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Showcard Gothic", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -60,7 +61,7 @@
             panel1.Controls.Add(label1);
             panel1.Location = new Point(0, 1);
             panel1.Name = "panel1";
-            panel1.Size = new Size(875, 65);
+            panel1.Size = new Size(899, 65);
             panel1.TabIndex = 1;
             // 
             // menuStrip1
@@ -68,8 +69,9 @@
             menuStrip1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             menuStrip1.Dock = DockStyle.None;
             menuStrip1.Items.AddRange(new ToolStripItem[] { MenuReservas, MenuEmpleados, MenuHabitaciones, MenuServicios, MenuServiciosAdicionales, MenuSalir });
-            menuStrip1.Location = new Point(0, 69);
+            menuStrip1.Location = new Point(-3, 69);
             menuStrip1.Name = "menuStrip1";
+            menuStrip1.RenderMode = ToolStripRenderMode.Professional;
             menuStrip1.Size = new Size(767, 46);
             menuStrip1.TabIndex = 8;
             menuStrip1.Text = "menuStrip1";
@@ -163,14 +165,13 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(247, 247, 247);
-            ClientSize = new Size(877, 450);
+            ClientSize = new Size(901, 487);
             Controls.Add(panel1);
             Controls.Add(menuStrip1);
             Name = "Home";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Home";
             WindowState = FormWindowState.Maximized;
-            Load += Home_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             menuStrip1.ResumeLayout(false);

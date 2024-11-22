@@ -52,6 +52,7 @@
             label4 = new Label();
             btnGuardar = new FontAwesome.Sharp.IconButton();
             btnCancelar = new FontAwesome.Sharp.IconButton();
+            btnImprimir = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
             tabControl.SuspendLayout();
             tabPageLista.SuspendLayout();
@@ -92,6 +93,7 @@
             // 
             // tabPageLista
             // 
+            tabPageLista.Controls.Add(btnImprimir);
             tabPageLista.Controls.Add(btnBuscar);
             tabPageLista.Controls.Add(txtFiltro);
             tabPageLista.Controls.Add(label2);
@@ -152,7 +154,7 @@
             iconButton2.IconColor = Color.White;
             iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton2.IconSize = 27;
-            iconButton2.Location = new Point(29, 336);
+            iconButton2.Location = new Point(29, 228);
             iconButton2.Name = "iconButton2";
             iconButton2.Size = new Size(90, 64);
             iconButton2.TabIndex = 8;
@@ -170,7 +172,7 @@
             btnEditar.IconColor = Color.White;
             btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEditar.IconSize = 28;
-            btnEditar.Location = new Point(29, 214);
+            btnEditar.Location = new Point(29, 158);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(90, 64);
             btnEditar.TabIndex = 7;
@@ -353,6 +355,24 @@
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
+            // btnImprimir
+            // 
+            btnImprimir.BackColor = Color.FromArgb(62, 146, 204);
+            btnImprimir.ForeColor = Color.White;
+            btnImprimir.IconChar = FontAwesome.Sharp.IconChar.FilePen;
+            btnImprimir.IconColor = Color.White;
+            btnImprimir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnImprimir.IconSize = 28;
+            btnImprimir.Location = new Point(29, 298);
+            btnImprimir.Name = "btnImprimir";
+            btnImprimir.Size = new Size(90, 64);
+            btnImprimir.TabIndex = 12;
+            btnImprimir.Text = "IMPRIMIR";
+            btnImprimir.TextAlign = ContentAlignment.BottomCenter;
+            btnImprimir.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnImprimir.UseVisualStyleBackColor = false;
+            btnImprimir.Click += btnImprimir_Click;
+            // 
             // ReservasViews
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -400,5 +420,6 @@
         private Label label4;
         private DateTimePicker dateTimeCheckIn;
         private DateTimePicker dateTimeCheckOut;
+        private FontAwesome.Sharp.IconButton btnImprimir;
     }
 }

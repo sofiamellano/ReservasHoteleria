@@ -51,6 +51,7 @@ namespace ReservaHoteleriaApp.ViewModels
         {
             if (editReserva != null)
             {
+                NombreCliente = editReserva.NombreCliente;
                 FechaReserva = editReserva.FechaReserva;
                 FechaCheckIn = editReserva.FechaCheckIn;
                 FechaCheckOut = editReserva.FechaCheckOut;
@@ -116,13 +117,13 @@ namespace ReservaHoteleriaApp.ViewModels
             }
         }
 
-        private int usuarioID;
-        public int UsuarioID
+        private string nombreCliente;
+        public string NombreCliente
         {
-            get { return usuarioID; }
+            get { return nombreCliente; }
             set
             {
-                usuarioID = value;
+                nombreCliente = value;
                 OnPropertyChanged();
             }
         }
@@ -163,6 +164,7 @@ namespace ReservaHoteleriaApp.ViewModels
 
                 if (editReserva != null && editReserva.ID > 0)
                 {
+                    editReserva.NombreCliente = this.NombreCliente;
                     editReserva.FechaReserva = this.FechaReserva;
                     editReserva.FechaCheckIn = this.FechaCheckIn;
                     editReserva.FechaCheckOut = this.FechaCheckOut;
@@ -175,6 +177,7 @@ namespace ReservaHoteleriaApp.ViewModels
                 {
                     var reserva = new RH_Reserva()
                     {
+                        NombreCliente = this.NombreCliente,
                         FechaReserva = this.FechaReserva,
                         FechaCheckIn = this.FechaCheckIn,
                         FechaCheckOut = this.FechaCheckOut,

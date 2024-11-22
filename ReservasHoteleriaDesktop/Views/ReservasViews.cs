@@ -38,6 +38,7 @@ namespace ReservasHoteleriaDesktop.Views
             dataGridReservas.Columns["ID"].Visible = false;
             dataGridReservas.Columns["HabitacionID"].Visible = false;
             dataGridReservas.Columns["Eliminado"].Visible = false;
+            dataGridReservas.Columns["Habitaciones"].Visible = false;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -50,6 +51,7 @@ namespace ReservasHoteleriaDesktop.Views
             if (reservaCurrent != null)
             {
                 reservaCurrent.HabitacionID = (int)comboHabitacion.SelectedValue;
+                reservaCurrent.NombreCliente = txtNombreCliente.Text;
                 reservaCurrent.FechaReserva = dateTimeFechaReserva.Value;
                 reservaCurrent.FechaCheckIn = dateTimeCheckIn.Value;
                 reservaCurrent.FechaCheckOut = dateTimeCheckOut.Value;
@@ -62,6 +64,7 @@ namespace ReservasHoteleriaDesktop.Views
                 var reserva = new RH_Reserva
                 {
                     HabitacionID = (int)comboHabitacion.SelectedValue,
+                    NombreCliente = txtNombreCliente.Text,
                     FechaReserva = dateTimeFechaReserva.Value,
                     FechaCheckIn = dateTimeCheckIn.Value,
                     FechaCheckOut = dateTimeCheckOut.Value,
@@ -70,6 +73,7 @@ namespace ReservasHoteleriaDesktop.Views
                 await reservaService.AddAsync(reserva);
             }
             await LoadData();
+            txtNombreCliente.Text = string.Empty;
             txtEstadoReserva.Text = string.Empty;
             dateTimeFechaReserva.Value = DateTime.Now;
             dateTimeCheckIn.Value = DateTime.Now;
@@ -80,6 +84,7 @@ namespace ReservasHoteleriaDesktop.Views
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             reservaCurrent = null;
+            txtNombreCliente.Text = string.Empty;
             txtEstadoReserva.Text = string.Empty;
             dateTimeFechaReserva.Value = DateTime.Now;
             dateTimeCheckIn.Value = DateTime.Now;
@@ -91,6 +96,7 @@ namespace ReservasHoteleriaDesktop.Views
         private void btnEditar_Click(object sender, EventArgs e)
         {
             reservaCurrent = (RH_Reserva)ListReservas.Current;
+            txtNombreCliente.Text = reservaCurrent.NombreCliente;
             txtEstadoReserva.Text = reservaCurrent.EstadoReserva;
             dateTimeFechaReserva.Value = reservaCurrent.FechaReserva;
             dateTimeCheckIn.Value = reservaCurrent.FechaCheckIn;

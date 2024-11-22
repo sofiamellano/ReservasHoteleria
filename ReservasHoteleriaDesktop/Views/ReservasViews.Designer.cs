@@ -32,6 +32,7 @@
             label1 = new Label();
             tabControl = new TabControl();
             tabPageLista = new TabPage();
+            btnImprimir = new FontAwesome.Sharp.IconButton();
             btnBuscar = new FontAwesome.Sharp.IconButton();
             txtFiltro = new TextBox();
             label2 = new Label();
@@ -52,7 +53,8 @@
             label4 = new Label();
             btnGuardar = new FontAwesome.Sharp.IconButton();
             btnCancelar = new FontAwesome.Sharp.IconButton();
-            btnImprimir = new FontAwesome.Sharp.IconButton();
+            txtNombreCliente = new TextBox();
+            label3 = new Label();
             panel1.SuspendLayout();
             tabControl.SuspendLayout();
             tabPageLista.SuspendLayout();
@@ -108,6 +110,24 @@
             tabPageLista.TabIndex = 0;
             tabPageLista.Text = "LISTA";
             tabPageLista.UseVisualStyleBackColor = true;
+            // 
+            // btnImprimir
+            // 
+            btnImprimir.BackColor = Color.FromArgb(62, 146, 204);
+            btnImprimir.ForeColor = Color.White;
+            btnImprimir.IconChar = FontAwesome.Sharp.IconChar.FilePen;
+            btnImprimir.IconColor = Color.White;
+            btnImprimir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnImprimir.IconSize = 28;
+            btnImprimir.Location = new Point(29, 298);
+            btnImprimir.Name = "btnImprimir";
+            btnImprimir.Size = new Size(90, 64);
+            btnImprimir.TabIndex = 12;
+            btnImprimir.Text = "IMPRIMIR";
+            btnImprimir.TextAlign = ContentAlignment.BottomCenter;
+            btnImprimir.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnImprimir.UseVisualStyleBackColor = false;
+            btnImprimir.Click += btnImprimir_Click;
             // 
             // btnBuscar
             // 
@@ -214,6 +234,8 @@
             // 
             // tabPageAgregarEditar
             // 
+            tabPageAgregarEditar.Controls.Add(txtNombreCliente);
+            tabPageAgregarEditar.Controls.Add(label3);
             tabPageAgregarEditar.Controls.Add(dateTimeCheckOut);
             tabPageAgregarEditar.Controls.Add(dateTimeCheckIn);
             tabPageAgregarEditar.Controls.Add(dateTimeFechaReserva);
@@ -262,7 +284,7 @@
             // 
             comboHabitacion.DropDownStyle = ComboBoxStyle.DropDownList;
             comboHabitacion.FormattingEnabled = true;
-            comboHabitacion.Location = new Point(408, 50);
+            comboHabitacion.Location = new Point(408, 262);
             comboHabitacion.Name = "comboHabitacion";
             comboHabitacion.Size = new Size(231, 23);
             comboHabitacion.TabIndex = 19;
@@ -313,7 +335,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(308, 53);
+            label4.Location = new Point(308, 265);
             label4.Name = "label4";
             label4.Size = new Size(68, 15);
             label4.TabIndex = 11;
@@ -355,23 +377,21 @@
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
-            // btnImprimir
+            // txtNombreCliente
             // 
-            btnImprimir.BackColor = Color.FromArgb(62, 146, 204);
-            btnImprimir.ForeColor = Color.White;
-            btnImprimir.IconChar = FontAwesome.Sharp.IconChar.FilePen;
-            btnImprimir.IconColor = Color.White;
-            btnImprimir.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnImprimir.IconSize = 28;
-            btnImprimir.Location = new Point(29, 298);
-            btnImprimir.Name = "btnImprimir";
-            btnImprimir.Size = new Size(90, 64);
-            btnImprimir.TabIndex = 12;
-            btnImprimir.Text = "IMPRIMIR";
-            btnImprimir.TextAlign = ContentAlignment.BottomCenter;
-            btnImprimir.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnImprimir.UseVisualStyleBackColor = false;
-            btnImprimir.Click += btnImprimir_Click;
+            txtNombreCliente.Location = new Point(408, 47);
+            txtNombreCliente.Name = "txtNombreCliente";
+            txtNombreCliente.Size = new Size(231, 23);
+            txtNombreCliente.TabIndex = 26;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(264, 50);
+            label3.Name = "label3";
+            label3.Size = new Size(112, 15);
+            label3.TabIndex = 25;
+            label3.Text = "Nomble del Cliente:";
             // 
             // ReservasViews
             // 
@@ -421,5 +441,7 @@
         private DateTimePicker dateTimeCheckIn;
         private DateTimePicker dateTimeCheckOut;
         private FontAwesome.Sharp.IconButton btnImprimir;
+        private TextBox txtNombreCliente;
+        private Label label3;
     }
 }

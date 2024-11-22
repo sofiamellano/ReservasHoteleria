@@ -53,8 +53,13 @@
                                    BackgroundColor="#FFFFFF"
                                    HasShadow="True">
                                 <StackLayout>
+                                    <Label
+                                        Text="{Binding NombreCliente}"
+                                        FontSize="Medium"
+                                        TextColor="#111827"
+                                        FontAttributes="Bold"/>
                                     <Label Text="{Binding FechaReserva}"
-                                           FontSize="Medium"
+                                           FontSize="Small"
                                            TextColor="#111827"
                                            FontAttributes="Bold"/>
                                     <Label Text="{Binding FechaCheckIn}"
@@ -65,10 +70,15 @@
                                            FontSize="Small"
                                            TextColor="#6B7280"
                                            Margin="0,2,0,0"/>
+                                    <Label Text="{Binding Habitacion}"
+                                           FontSize="Small"
+                                           TextColor="#6B7280"
+                                           Margin="0,2,0,0"/>
                                     <Label Text="{Binding EstadoReserva}"
                                            FontSize="Small"
                                            TextColor="#3B82F6"
                                            Margin="0,2,0,0"/>
+                                    
                                 </StackLayout>
                             </Frame>
                         </ViewCell>

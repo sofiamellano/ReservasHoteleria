@@ -12,6 +12,10 @@
                FontSize="Header"
                HorizontalOptions="Center"
                VerticalOptions="Center"/>
+        <Entry Placeholder="Nombre del Cliente"
+                Text="{Binding NombreCliente}"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
         <DatePicker Date="{Binding FechaReserva}"
             HorizontalOptions="Center"
             VerticalOptions="Center"/>

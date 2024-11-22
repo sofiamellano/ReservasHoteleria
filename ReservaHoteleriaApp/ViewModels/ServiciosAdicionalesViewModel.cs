@@ -80,8 +80,8 @@ namespace ReservaHoteleriaApp.ViewModels
             ObtenerServiciosAdicionalesCommand = new Command(async () => await ObtenerServiciosAdicionales());
             FiltarServiciosAdicionalesCommand = new Command(async () => await FiltarServiciosAdicionales());
             AgregarServiciosAdicionalesCommand = new Command(async () => await AgregarServiciosAdicionales());
-            EditarServiciosAdicionalesCommand = new Command(async () => await EditarServiciosAdicionales(), PermitirEditar);
-            EliminarServicioAdicionalCommand = new Command(async () => await EliminarServicioAdicional(), PermitirEliminar);
+            EditarServiciosAdicionalesCommand = new Command(async (obj) => await EditarServiciosAdicionales(), PermitirEditar);
+            EliminarServicioAdicionalCommand = new Command(async (obj) => await EliminarServicioAdicional(), PermitirEliminar);
             ObtenerServiciosAdicionales();
         }
 
@@ -103,7 +103,7 @@ namespace ReservaHoteleriaApp.ViewModels
             }
         }
 
-        private bool PermitirEditar()
+        private bool PermitirEditar(object arg)
         {
             return selectedServicioAdicional != null;
         }

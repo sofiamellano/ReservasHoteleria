@@ -48,22 +48,22 @@
                     <DataTemplate>
                         <ViewCell>
                             <Frame BorderColor="#CBD5E1"
-                                   CornerRadius="8"
-                                   Padding="15"
-                                   Margin="10"
-                                   BackgroundColor="#FFFFFF"
-                                   HasShadow="True"
-                                   InputTransparent="True">
+                   CornerRadius="4"
+                   Padding="10"
+                   Margin="5"
+                   BackgroundColor="#FFFFFF"
+                   HasShadow="False">
                                 <StackLayout>
                                     <Label Text="{Binding TipoServicio}"
-                                           FontSize="Medium"
-                                           TextColor="#111827"
-                                           FontAttributes="Bold"/>
+                           FontSize="Small"
+                           TextColor="#111827"
+                           FontAttributes="Bold"/>
                                 </StackLayout>
                             </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
+
             </ListView>
         </ScrollView>
 

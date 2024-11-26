@@ -47,44 +47,43 @@
                     <DataTemplate>
                         <ViewCell>
                             <Frame BorderColor="#CBD5E1"
-                                   CornerRadius="8"
-                                   Padding="15"
-                                   Margin="10"
-                                   BackgroundColor="#FFFFFF"
-                                   HasShadow="True"
-                                   InputTransparent="True" >
+                   CornerRadius="4"
+                   Padding="10"
+                   Margin="5"
+                   BackgroundColor="#FFFFFF"
+                   HasShadow="False">
                                 <StackLayout>
-                                    <Label
-                                        Text="{Binding NombreCliente}"
-                                        FontSize="Medium"
-                                        TextColor="#111827"
-                                        FontAttributes="Bold"/>
+                         
                                     <Label Text="{Binding FechaReserva}"
-                                           FontSize="Small"
-                                           TextColor="#111827"
-                                           FontAttributes="Bold"/>
+                           FontSize="Small"
+                           TextColor="#111827"/>
+                                    <Label
+                                    Text="{Binding NombreCliente}"
+                                    FontSize="Small"
+                                    TextColor="#111827"
+                                    FontAttributes="Bold"/>
                                     <Label Text="{Binding FechaCheckIn}"
-                                           FontSize="Small"
+                                           FontSize="Micro"
                                            TextColor="#6B7280"
-                                           Margin="0,2,0,0"/>
+                                           Margin="0,1,0,0"/>
                                     <Label Text="{Binding FechaCheckOut}"
-                                           FontSize="Small"
+                                           FontSize="Micro"
                                            TextColor="#6B7280"
-                                           Margin="0,2,0,0"/>
+                                           Margin="0,1,0,0"/>
                                     <Label Text="{Binding Habitacion}"
-                                           FontSize="Small"
+                                           FontSize="Micro"
                                            TextColor="#6B7280"
-                                           Margin="0,2,0,0"/>
+                                           Margin="0,1,0,0"/>
                                     <Label Text="{Binding EstadoReserva}"
                                            FontSize="Small"
                                            TextColor="#3B82F6"
-                                           Margin="0,2,0,0"/>
-                                    
+                                           Margin="0,1,0,0"/>
                                 </StackLayout>
                             </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
+
             </ListView>
         </ScrollView>
 

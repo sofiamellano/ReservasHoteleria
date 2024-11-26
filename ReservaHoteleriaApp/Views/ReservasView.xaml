@@ -51,7 +51,8 @@
                                    Padding="15"
                                    Margin="10"
                                    BackgroundColor="#FFFFFF"
-                                   HasShadow="True">
+                                   HasShadow="True"
+                                   InputTransparent="True" >
                                 <StackLayout>
                                     <Label
                                         Text="{Binding NombreCliente}"

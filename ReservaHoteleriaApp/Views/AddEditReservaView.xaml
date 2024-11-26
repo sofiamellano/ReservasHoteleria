@@ -3,41 +3,122 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:ReservaHoteleriaApp.ViewModels"
              x:Class="ReservaHoteleriaApp.Views.AddEditReservaView"
-             Title="EDITAR / AGREGAR RESERVA">
+             Title="EDITAR / AGREGAR RESERVA"
+             BackgroundColor="#F2F6F9"
+             Padding="20,30">
+
     <ContentPage.BindingContext>
         <viewModels:AddEditReservaViewModel/>
     </ContentPage.BindingContext>
-    <VerticalStackLayout>
-        <Label Text="Agregar o editar reserva"
-               FontSize="Header"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"/>
-        <Entry Placeholder="Nombre del Cliente"
-                Text="{Binding NombreCliente}"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"/>
-        <DatePicker Date="{Binding FechaReserva}"
-            HorizontalOptions="Center"
-            VerticalOptions="Center"/>
-        <DatePicker Date="{Binding FechaCheckIn}"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"/>
-        <DatePicker Date="{Binding FechaCheckOut}"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"/>
-        <Entry Placeholder="Estado de la Reserva"
-               Text="{Binding EstadoReserva}"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"/>
-        <Picker Title="Tipo de Habitacion"
-        ItemsSource="{Binding Habitaciones}"
-        ItemDisplayBinding="{Binding TipoHabitacion}"
-        SelectedItem="{Binding SelectedHabitacion}"
-        HorizontalOptions="Center"
-        VerticalOptions="Center"/>
-        <Button Text="Guardar"
-                Command="{Binding SaveReservaCommand}"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"/>
-    </VerticalStackLayout>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20"
+                             Padding="20"
+                             BackgroundColor="#FFFFFF"
+                             VerticalOptions="CenterAndExpand"
+                             HorizontalOptions="FillAndExpand">
+
+            <Label Text="AGREGAR O EDITAR RESERVA"
+                   FontSize="Large"
+                   TextColor="#374151"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <!-- Grupo Nombre del Cliente -->
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Nombre del Cliente:"
+                       FontSize="Small"
+                       TextColor="#374151" />
+                <Entry Placeholder="Escribe el nombre del cliente"
+                       Text="{Binding NombreCliente}"
+                       BackgroundColor="#F3F4F6"
+                       TextColor="#111827"
+                       PlaceholderColor="#9CA3AF"
+                       FontSize="Small"
+                       HeightRequest="50" />
+            </VerticalStackLayout>
+
+            <!-- Grupo Fecha de Reserva -->
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Fecha de Reserva:"
+                       FontSize="Small"
+                       TextColor="#374151" 
+                       HorizontalOptions="Center"/>
+                <DatePicker Date="{Binding FechaReserva}"
+                            BackgroundColor="#F3F4F6"
+                            TextColor="#111827"
+                            FontSize="Small"
+                            HeightRequest="50" 
+                            HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+
+            <!-- Grupo Fecha Check-In -->
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Fecha Check-In:"
+                       FontSize="Small"
+                       TextColor="#374151" 
+                       HorizontalOptions="Center"/>
+                <DatePicker Date="{Binding FechaCheckIn}"
+                            BackgroundColor="#F3F4F6"
+                            TextColor="#111827"
+                            FontSize="Small"
+                            HeightRequest="50"
+                            HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+
+            <!-- Grupo Fecha Check-Out -->
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Fecha Check-Out:"
+                       FontSize="Small"
+                       TextColor="#374151"
+                       HorizontalOptions="Center"/>
+                <DatePicker Date="{Binding FechaCheckOut}"
+                            BackgroundColor="#F3F4F6"
+                            TextColor="#111827"
+                            FontSize="Small"
+                            HeightRequest="50"
+                            HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+
+            <!-- Grupo Estado de la Reserva -->
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Estado de la Reserva:"
+                       FontSize="Small"
+                       TextColor="#374151" />
+                <Entry Placeholder="Escribe el estado de la reserva"
+                       Text="{Binding EstadoReserva}"
+                       BackgroundColor="#F3F4F6"
+                       TextColor="#111827"
+                       PlaceholderColor="#9CA3AF"
+                       FontSize="Small"
+                       HeightRequest="50" />
+            </VerticalStackLayout>
+
+            <!-- Grupo Tipo de Habitación -->
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Tipo de Habitación:"
+                       FontSize="Small"
+                       TextColor="#374151" />
+                <Picker Title="Selecciona una habitación"
+                        ItemsSource="{Binding Habitaciones}"
+                        ItemDisplayBinding="{Binding TipoHabitacion}"
+                        SelectedItem="{Binding SelectedHabitacion}"
+                        BackgroundColor="#F3F4F6"
+                        TextColor="#111827"
+                        FontSize="Small"
+                        HeightRequest="70" />
+            </VerticalStackLayout>
+
+            <!-- Botón Guardar -->
+            <Button Text="Guardar"
+                    Command="{Binding SaveReservaCommand}"
+                    BackgroundColor="#3B82F6"
+                    TextColor="#FFFFFF"
+                    FontAttributes="Bold"
+                    CornerRadius="8"
+                    Padding="10"
+                    HeightRequest="50"
+                    HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

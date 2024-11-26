@@ -1,0 +1,67 @@
+﻿
+@page "/NuevoEditarEmpleado"
+@inject IEmpleadosService EmpleadosService
+@inject NavigationManager NavigationManager
+@inject SweetAlertService SweetAlert
+
+<HeaderPage TitlePage="Nuevo Empleado" />
+@if (empleado == null)
+{
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <EditForm Model="empleado" OnValidSubmit="Guardar">
+        <DataAnnotationsValidator />
+
+        <div class="form-group mb-2">
+            <label for="Nombre">Nombre:</label>
+            <InputText id="Nombre" class="form-control" @bind-Value="empleado.Nombre" />
+        </div>
+
+        <div class="form-group mb-2">
+            <label for="Cargo">Cargo:</label>
+            <InputText id="Cargo" class="form-control" @bind-Value="empleado.Cargo" />
+        </div>
+
+        <button type="submit" class="btn btn-primary mb-2">Guardar</button>
+        <ValidationSummary />
+    </EditForm>
+}
+
+@code {
+    [SupplyParameterFromQuery]
+    [Parameter]
+    public int IdEmpleadoEditado { get; set; }
+
+    private RH_Empleado empleado;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (IdEmpleadoEditado != 0)
+        {
+            empleado = await EmpleadosService.GetByIdAsync(IdEmpleadoEditado) ?? new RH_Empleado();
+        }
+        else
+        {
+            empleado = new RH_Empleado();
+        }
+    }
+
+    private async Task Guardar()
+    {
+        if (empleado != null)
+        {
+            if (IdEmpleadoEditado == 0)
+            {
+                await EmpleadosService.AddAsync(empleado);
+            }
+            else
+            {
+                await EmpleadosService.UpdateAsync(empleado);
+            }
+
+            NavigationManager.NavigateTo("/Empleados");
+        }
+    }
+}

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class= "ReservaHoteleriaApp.Views.IniciarSesionView"
              xmlns:viewModels="clr-namespace:ReservaHoteleriaApp.ViewModels"
-             Title="IniciarSesionView"
+             Title="Iniciar Sesion"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.BindingContext>
         <viewModels:IniciarSesionViewModel/>
@@ -11,9 +11,13 @@
     
     <ScrollView>
         <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Image Source="photo.png"
+                   HeightRequest="150"
+                   Aspect="AspectFit" 
+                   HorizontalOptions="Center"/>
             <Label 
                 FontSize="36"
-                Text="Inicio de sesión a Reservas Hoteleria App"
+                Text="INICIO DE SESION EN RESERVAS HOTELERIA APP"
                 VerticalOptions="Center" 
                 HorizontalOptions="Center" />
             <Grid RowDefinitions="2*,2*,2*,*,*,*" ColumnDefinitions="*,*">

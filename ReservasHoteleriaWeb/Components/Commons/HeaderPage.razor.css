@@ -1,0 +1,13 @@
+﻿h1 {
+    color: #374151; /* Gris oscuro elegante */
+    font-size: 2.5em; /* Tamaño un poco más grande para impacto */
+    font-weight: 600; /* Semibold para un toque moderno */
+    text-align: center;
+    margin: 0.5em 0;
+    padding: 0.5em 1em;
+    background: linear-gradient(90deg, rgb(31, 60, 136), rgb(34, 193, 195)); /* Degradado azul a verde */
+    color: white; /* Contraste sobre fondo azul */
+    border-radius: 0.75em; /* Bordes redondeados más marcados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave y moderna */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}

@@ -1,0 +1,81 @@
+﻿@page "/Reservas"
+@inject IReservaService ReservaService
+@inject NavigationManager NavigationManager
+@inject SweetAlertService SweetAlert
+
+<HeaderPage TitlePage="RESERVAS"/>
+@if (reservas == null)
+{
+    <p><em>Obteniendo lista de reservas...</em></p>
+}
+else
+{
+    <button class="btn btn-success" @onclick="AgregarReserva">Agregar Nueva Reserva</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NombreCliente</th>
+                <th>FechaReserva</th>
+                <th>FechaCheckIn</th>
+                <th>FechaCheckOut</th>
+                <th>EstadoReserva</th>
+                <th>Habitacion</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var reserva in reservas)
+            {
+                <tr>
+                    <td>@reserva.ID</td>
+                    <td>@reserva.NombreCliente</td>
+                    <td>@reserva.FechaReserva</td>
+                    <td>@reserva.FechaCheckIn</td>
+                    <td>@reserva.FechaCheckOut</td>
+                    <td>@reserva.EstadoReserva</td>
+                    <td>@reserva.Habitacion</td>
+                    <td>
+                        <a href="/NuevaEditarReserva?IdReservaEditada=@reserva.ID">Editar</a>
+                    </td>
+                    <td>
+                        <button title="Eliminar" class="btn btn-danger" @onclick="@(()=>Eliminar(reserva))">Eliminar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@code {
+    private List<RH_Reserva>? reservas;
+
+    protected override async Task OnInitializedAsync()
+    {
+        reservas = await ReservaService.GetAllAsync();
+    }
+    private void AgregarReserva()
+    {
+        // Redirigir a la página para agregar una nueva localidad
+        NavigationManager.NavigateTo("/NuevaEditarReserva");
+    
+    }
+    private async Task Eliminar(RH_Reserva reserva)
+    {
+        SweetAlertResult result = await SweetAlert.FireAsync(new SweetAlertOptions{
+            Title = "Borrando Reserva",
+                Text = "¿Está seguro que desea borrar esta Reserva?",
+                Icon = SweetAlertIcon.Warning,
+                ShowCancelButton = true,
+                ConfirmButtonText = "Sí, quiero borrarla",
+                CancelButtonText = "No, esperar"
+            });
+
+        if (result.IsConfirmed)
+        {
+            await ReservaService.DeleteAsync(reserva.ID);
+            reservas = await ReservaService.GetAllAsync();
+            StateHasChanged();
+        }
+    }
+}

@@ -1,0 +1,73 @@
+﻿@page "/Empleados"
+@inject IEmpleadosService EmpleadosService
+@inject NavigationManager NavigationManager
+@inject SweetAlertService SweetAlert
+
+<HeaderPage TitlePage="EMPLEADOS    " />
+@if (empleados == null)
+{
+    <p><em>Obteniendo lista de empleados...</em></p>
+}
+else
+{
+    <button class="btn btn-success" @onclick="AgregarEmpleado">Agregar Nuevo Empleado</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Cargo</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var empleado in empleados)
+            {
+                <tr>
+                    <td>@empleado.ID</td>
+                    <td>@empleado.Nombre</td>
+                    <td>@empleado.Cargo</td>
+                    <td>
+                        <a href="/NuevoEditarEmpleado?IdEmpleadoEditado=@empleado.ID">Editar</a>
+                    </td>
+                    <td>
+                        <button title="Eliminar" class="btn btn-danger" @onclick="@(()=>Eliminar(empleado))">Eliminar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@code {
+    private List<RH_Empleado>? empleados;
+
+    protected override async Task OnInitializedAsync()
+    {
+        empleados = await EmpleadosService.GetAllAsync();
+    }
+    private void AgregarEmpleado()
+    {
+        // Redirigir a la página para agregar un nuevo empleado
+        NavigationManager.NavigateTo("/NuevoEditarEmpleado");
+    }
+    private async Task Eliminar(RH_Empleado empleado)
+    {
+        SweetAlertResult result = await SweetAlert.FireAsync(new SweetAlertOptions
+            {
+                Title = "Borrando Empleado",
+                Text = $"¿Está seguro que desea borrar el empleado {empleado.Nombre}?",
+                Icon = SweetAlertIcon.Warning,
+                ShowCancelButton = true,
+                ConfirmButtonText = "Sí, quiero borrarlo",
+                CancelButtonText = "No, esperar"
+            });
+
+        if (result.IsConfirmed)
+        {
+            await EmpleadosService.DeleteAsync(empleado.ID);
+            empleados = await EmpleadosService.GetAllAsync();
+            StateHasChanged();
+        }
+    }
+}

@@ -1,0 +1,76 @@
+﻿@page "/NuevaEditarHabitacion"
+@inject IHabitacionService HabitacionService
+@inject NavigationManager NavigationManager
+@inject SweetAlertService SweetAlert
+
+<HeaderPage TitlePage="Nueva Habitacion" />
+@if (habitacion == null)
+{
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <EditForm Model="habitacion" OnValidSubmit="Guardar">
+        <DataAnnotationsValidator />
+
+        <div class="form-group mb-2">
+            <label for="TipoHabitacion">Tipo de Habitacion:</label>
+            <InputText id="TipoHabitacion" class="form-control" @bind-Value="habitacion.TipoHabitacion" />
+        </div>
+
+        <div class="form-group mb-2">
+            <label for="PrecioPorNoche">Precio por Noche:</label>
+            <InputNumber id="PrecioPorNoche" class="form-control" @bind-Value="habitacion.PrecioPorNoche" />
+        </div>
+
+        <div class="form-group mb-2">
+            <label for="Disponible">Disponible:</label>
+            <div class="form-check">
+                <InputCheckbox id="Disponible" class="form-check-input" @bind-Value="habitacion.Disponible" />
+                <label class="form-check-label" for="Disponible">
+                    <span>@(habitacion.Disponible ? "Sí" : "No")</span>
+                </label>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mb-2">Guardar</button>
+        <ValidationSummary />
+    </EditForm>
+}
+
+@code {
+    [SupplyParameterFromQuery]
+    [Parameter]
+    public int IdHabitacionEditada { get; set; }
+
+    private RH_Habitacion habitacion;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (IdHabitacionEditada != 0)
+        {
+            habitacion = await HabitacionService.GetByIdAsync(IdHabitacionEditada) ?? new RH_Habitacion();
+        }
+        else
+        {
+            habitacion = new RH_Habitacion();
+        }
+    }
+
+    private async Task Guardar()
+    {
+        if (habitacion != null)
+        {
+            if (IdHabitacionEditada == 0)
+            {
+                await HabitacionService.AddAsync(habitacion);
+            }
+            else
+            {
+                await HabitacionService.UpdateAsync(habitacion);
+            }
+
+            NavigationManager.NavigateTo("/Habitaciones");
+        }
+    }
+}

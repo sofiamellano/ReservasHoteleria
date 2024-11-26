@@ -1,0 +1,100 @@
+﻿@page "/NuevaEditarReserva"
+@inject IReservaService ReservaService
+@inject IHabitacionService HabitacionService
+@inject NavigationManager NavigationManager
+@inject SweetAlertService SweetAlert
+
+<HeaderPage TitlePage="Nueva Reserva" />
+@if (reserva == null || habitaciones == null)
+{
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <EditForm Model="reserva" OnValidSubmit="Guardar">
+        <DataAnnotationsValidator />
+
+        <div class="form-group mb-2">
+            <label for="NombreCliente">Nombre del Cliente:</label>
+            <InputText id="NombreCliente" class="form-control" @bind-Value="reserva.NombreCliente" />
+        </div>
+
+        <div class="form-group mb-2">
+            <label for="FechaReserva">Fecha de la Reserva:</label>
+            <InputDate id="FechaReserva" class="form-control" @bind-Value="reserva.FechaReserva" />
+        </div>
+
+        <div class="form-group mb-2">
+            <label for="FechaCheckIn">Fecha Check In:</label>
+            <InputDate id="FechaCheckIn" class="form-control" @bind-Value="reserva.FechaCheckIn" />
+        </div>
+
+        <div class="form-group mb-2">
+            <label for="FechaCheckOut">Fecha Check Out:</label>
+            <InputDate id="FechaCheckOut" class="form-control" @bind-Value="reserva.FechaCheckOut" />
+        </div>
+
+        <div class="form-group mb-2">
+            <label for="EstadoReserva">Estado de la Reserva:</label>
+            <InputText id="EstadoReserva" class="form-control" @bind-Value="reserva.EstadoReserva" />
+        </div>
+
+        <div class="form-group mb-2">
+            <label for="IDHabitacion">Habitacion:</label>
+            <InputSelect id="IDHabitacion" class="form-control" @bind-Value="reserva.HabitacionID">
+                <option value="">Seleccione una Habitacion</option>
+                @foreach (var habitacion in habitaciones)
+                {
+                    <option value="@habitacion.ID">@habitacion.TipoHabitacion</option>
+                }
+            </InputSelect>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Guardar</button>
+        <ValidationSummary />
+    </EditForm>
+}
+
+@code {
+    [SupplyParameterFromQuery]
+    [Parameter]
+    public int IdReservaEditada { get; set; }
+
+    private RH_Reserva reserva;
+    List<RH_Habitacion> habitaciones = new List<RH_Habitacion>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (IdReservaEditada != 0)
+        {
+            reserva = await ReservaService.GetByIdAsync(IdReservaEditada) ?? new RH_Reserva();
+        }
+        else
+        {
+            reserva = new RH_Reserva
+            {
+                FechaReserva = DateTime.Now,
+                FechaCheckIn = DateTime.Now,
+                FechaCheckOut = DateTime.Now
+            };
+        }
+        habitaciones = await HabitacionService.GetAllAsync();
+    }
+
+    private async Task Guardar()
+    {
+
+        if (reserva != null)
+        {
+            if (IdReservaEditada == 0)
+            {
+                await ReservaService.AddAsync(reserva);
+            }
+            else
+            {
+                await ReservaService.UpdateAsync(reserva);
+            }
+
+            NavigationManager.NavigateTo("/Reservas");
+        }
+    }
+}

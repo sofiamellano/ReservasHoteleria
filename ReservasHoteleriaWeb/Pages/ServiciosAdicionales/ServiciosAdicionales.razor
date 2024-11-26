@@ -1,0 +1,71 @@
+﻿@page "/ServiciosAdicionales"
+@inject IServicioAdicionalService ServicioAdicionalService
+@inject NavigationManager NavigationManager
+@inject SweetAlertService SweetAlert
+
+<HeaderPage TitlePage="SERVICIOS ADICIONALES" />
+@if (serviciosAdicionales == null)
+{
+    <p><em>Obteniendo lista de servicios adicionales...</em></p>
+}
+else
+{
+    <button class="btn btn-success" @onclick="AgregarServicioAdicional">Agregar Nuevo Servicio Adicional</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>TipoServicio</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var servicioAdicional in serviciosAdicionales)
+            {
+                <tr>
+                    <td>@servicioAdicional.ID</td>
+                    <td>@servicioAdicional.TipoServicio</td>
+                    <td>
+                        <a href="/NuevoEditarServicioAdicional?IdServicioAdicionalEditado=@servicioAdicional.ID">Editar</a>
+                    </td>
+                    <td>
+                        <button title="Eliminar" class="btn btn-danger" @onclick="@(()=>Eliminar(servicioAdicional))">Eliminar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@code {
+    private List<RH_ServicioAdicional>? serviciosAdicionales;
+
+    protected override async Task OnInitializedAsync()
+    {
+        serviciosAdicionales = await ServicioAdicionalService.GetAllAsync();
+    }
+    private void AgregarServicioAdicional()
+    {
+        // Redirigir a la página para agregar un nuevo servicio adicional
+        NavigationManager.NavigateTo("/NuevoEditarServicioAdicional");
+    }
+    private async Task Eliminar(RH_ServicioAdicional servicioAdicional)
+    {
+        SweetAlertResult result = await SweetAlert.FireAsync(new SweetAlertOptions
+            {
+                Title = "Borrando Servicio Adicional",
+                Text = "¿Está seguro que desea borrar este servicio adicional?",
+                Icon = SweetAlertIcon.Warning,
+                ShowCancelButton = true,
+                ConfirmButtonText = "Sí, quiero borrarlo",
+                CancelButtonText = "No, esperar"
+            });
+
+        if (result.IsConfirmed)
+        {
+            await ServicioAdicionalService.DeleteAsync(servicioAdicional.ID);
+            serviciosAdicionales = await ServicioAdicionalService.GetAllAsync();
+            StateHasChanged();
+        }
+    }
+}

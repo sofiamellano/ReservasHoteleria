@@ -54,10 +54,28 @@ namespace ReservasHotelDesktop
             this.Close();
         }
 
-        private void menuReservasReportes_Click(object sender, EventArgs e)
+        private void iconMenuEmpleados_Click(object sender, EventArgs e)
         {
-            ReservasViewReport reservasViewReport = new ReservasViewReport();
-            reservasViewReport.ShowDialog();
+            EmpleadosViewReport empleadosViewReport = new EmpleadosViewReport();
+            empleadosViewReport.ShowDialog();
+        }
+
+        private void iconMenuHabitaciones_Click(object sender, EventArgs e)
+        {
+            HabitacionesViewReport habitacionesViewReport = new HabitacionesViewReport();
+            habitacionesViewReport.ShowDialog();
+        }
+
+        private void iconMenuServicios_Click(object sender, EventArgs e)
+        {
+            ServiciosViewReport serviciosViewReport = new ServiciosViewReport();
+            serviciosViewReport.ShowDialog();
+        }
+
+        private void iconMenuServiciosAdicionales_Click(object sender, EventArgs e)
+        {
+            ServiciosAdicionalesViewReport serviciosAdicionalesViewReport = new ServiciosAdicionalesViewReport();
+            serviciosAdicionalesViewReport.ShowDialog();
         }
     }
 }

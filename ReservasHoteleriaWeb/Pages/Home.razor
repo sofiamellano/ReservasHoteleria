@@ -1,7 +1,58 @@
 ﻿@page "/"
+@inject NavigationManager NavigationManager
 
-<PageTitle>Home</PageTitle>
+<HeaderPage TitlePage="Bienvenido a Reservas Hoteleria" />
 
-<h1>Hello, world!</h1>
+    <div class="row mt-4">
+        <!-- Reservas -->
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Reservas</h5>
+                    <p class="card-text text-center">Haga y revise sus reservas.</p>
+                </div>
+            </div>
+        </div>
 
-Welcome to your new app.
+        <!-- Servicios -->
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Servicios</h5>
+                    <p class="card-text text-center">Gestione los servicios adicionales disponibles.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Servicios Adicionales -->
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Servicios Adicionales</h5>
+                    <p class="card-text text-center">Revise y actualice los servicios adicionales.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Empleados -->
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Empleados</h5>
+                    <p class="card-text text-center">Administre la información de los empleados.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Habitaciones -->
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Habitaciones</h5>
+                    <p class="card-text text-center">Revise y actualice las habitaciones disponibles.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+

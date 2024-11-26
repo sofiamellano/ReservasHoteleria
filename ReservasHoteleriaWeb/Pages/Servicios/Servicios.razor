@@ -1,0 +1,75 @@
+﻿@page "/Servicios"
+@inject IServicioService ServicioService
+@inject NavigationManager NavigationManager
+@inject SweetAlertService SweetAlert
+
+
+<HeaderPage TitlePage="SERVICIOS" />
+
+@if (servicios == null)
+{
+    <p><em>Obteniendo lista de servicios...</em></p>
+}
+else
+{
+    <button class="btn btn-success" @onclick="AgregarServicio">Agregar Nuevo Servicio</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var servicio in servicios)
+            {
+                <tr>
+                    <td>@servicio.ID</td>
+                    <td>@servicio.Nombre</td>
+                    <td>@servicio.Precio.ToString("F2")</td>
+                    <td>
+                        <a href="/NuevoEditarServicio?IdServicioEditado=@servicio.ID">Editar</a>
+                    </td>
+                    <td>
+                        <button title="Eliminar" class="btn btn-danger" @onclick="@(()=>Eliminar(servicio))">Eliminar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<RH_Servicio>? servicios;
+
+    protected override async Task OnInitializedAsync()
+    {
+        servicios = await ServicioService.GetAllAsync();
+    }
+    private void AgregarServicio()
+    {
+        // Redirigir a la página para agregar una nueva localidad
+        NavigationManager.NavigateTo("/NuevoEditarServicio");
+
+    }
+    private async Task Eliminar(RH_Servicio servicio)
+    {
+        SweetAlertResult respuesta = await SweetAlert.FireAsync(new SweetAlertOptions
+            {
+                Title = "Borrando Servicio",
+                Text = $"¿Está seguro que desea borrar este Servicio?",
+                Icon = SweetAlertIcon.Warning,
+                ShowCancelButton = true,
+                ConfirmButtonText = "Sí, quiero borrarlo",
+                CancelButtonText = "No, esperar"
+            });
+
+        if (respuesta.IsConfirmed)
+        {
+            await ServicioService.DeleteAsync(servicio.ID);
+            servicios = await ServicioService.GetAllAsync();
+            StateHasChanged();
+        }
+    }
+}

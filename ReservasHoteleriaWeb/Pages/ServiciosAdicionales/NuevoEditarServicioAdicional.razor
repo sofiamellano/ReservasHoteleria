@@ -1,0 +1,63 @@
+﻿
+@page "/NuevoEditarServicioAdicional"
+@inject IServicioAdicionalService ServicioAdicionalService
+@inject NavigationManager NavigationManager
+@inject SweetAlertService SweetAlert
+
+<HeaderPage TitlePage="Nuevo Servicio Adicional" />
+@if (servicioAdicional == null)
+{
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <EditForm Model="servicioAdicional" OnValidSubmit="Guardar">
+        <DataAnnotationsValidator />
+
+        <div class="form-group mb-2">
+            <label for="TipoServicio">Tipo de Servicio:</label>
+            <InputText id="TipoServicio" class="form-control" @bind-Value="servicioAdicional.TipoServicio" />
+        </div>
+
+        <button type="submit" class="btn btn-primary mb-2">Guardar</button>
+
+        <ValidationSummary />
+    </EditForm>
+}
+
+@code {
+    [SupplyParameterFromQuery]
+    [Parameter]
+    public int IdServicioAdicionalEditado { get; set; }
+
+    private RH_ServicioAdicional servicioAdicional;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (IdServicioAdicionalEditado != 0)
+        {
+            servicioAdicional = await ServicioAdicionalService.GetByIdAsync(IdServicioAdicionalEditado) ?? new RH_ServicioAdicional();
+        }
+        else
+        {
+            servicioAdicional = new RH_ServicioAdicional();
+        }
+    }
+
+    private async Task Guardar()
+    {
+        if (servicioAdicional != null)
+        {
+            if (IdServicioAdicionalEditado == 0)
+            {
+                await ServicioAdicionalService.AddAsync(servicioAdicional);
+            }
+            else
+            {
+                await ServicioAdicionalService.UpdateAsync(servicioAdicional);
+            }
+
+            NavigationManager.NavigateTo("/ServiciosAdicionales");
+        }
+    }
+}

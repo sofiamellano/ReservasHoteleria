@@ -1,0 +1,69 @@
+﻿@page "/signup"
+@inject NavigationManager NavigationManager
+@inject FirebaseAuthService AuthService
+@inject SweetAlertService SweetAlert
+
+<HeaderPage TitlePage="SignUp" />
+
+<div class="card text-center">
+   
+    <div class="card-body">
+        <form>
+
+            <div class="form-group mb-2 d-flex align-items-center justify-content-center">
+                <label class="form-label me-2" for="Nombre">Nombre:</label>
+                <InputText id="Nombre" class="form-control" @bind-Value="name" placeholder="Name" />
+            </div>
+
+            <div class="form-group mb-2 d-flex align-items-center justify-content-center">
+                <label class="form-label me-2" for="email">Email:</label>
+                <InputText id="email" class="form-control" @bind-Value="email" placeholder="Email" />
+            </div>
+
+            <div class="form-group mb-2 d-flex align-items-center justify-content-center">
+                <label class="form-label me-2" for="password">Password:</label>
+                <InputText id="password" class="form-control" @bind-Value="password" type="password" placeholder="Password" />
+            </div>
+
+            <div class="form-group mb-2 d-flex align-items-center justify-content-center">
+                <label class="form-label me-2" for="passwordVerify">PasswordVerify:</label>
+                <InputText id="passwordVerify" class="form-control" @bind-Value="passwordVerify" type="password" placeholder="PasswordVerify" />
+            </div>
+
+            <button type="button" class="btn btn-primary mb-2" @onclick="Register">Enviar</button>
+        </form>
+    </div>
+    <div class="card-footer text-body-secondary">
+        ReservasHoteleria Web
+    </div>
+</div>
+
+
+@code {
+
+    private string name;
+    private string email;
+    private string password;
+    private string passwordVerify;
+
+    private async Task Register()
+    {
+        if (password != passwordVerify)
+        {
+            await SweetAlert.FireAsync("Error", "Las contraseñas no coinciden", SweetAlertIcon.Error);
+            return;
+        }
+
+        var userId = await AuthService.createUserWithEmailAndPassword(email, password, name);
+        if (userId != null)
+        {
+            await SweetAlert.FireAsync("Registro Exitoso", "Usuario registrado correctamente, bienvenido", SweetAlertIcon.Success);
+            NavigationManager.NavigateTo($"/");
+        }
+        else
+        {
+            await SweetAlert.FireAsync("Error", "Error al registrar el usuario", SweetAlertIcon.Error);
+        }
+        StateHasChanged();
+    }
+}

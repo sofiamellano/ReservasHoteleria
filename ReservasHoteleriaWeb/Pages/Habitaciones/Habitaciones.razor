@@ -1,0 +1,78 @@
+﻿@page "/Habitaciones"
+@inject IHabitacionService HabitacionService
+@inject NavigationManager NavigationManager
+@inject SweetAlertService SweetAlert
+
+<HeaderPage TitlePage="HABITACIONES" />
+@if (habitaciones == null)
+{
+    <p><em>Obteniendo lista de habitaciones...</em></p>
+}
+else
+{
+    <button class="btn btn-success" @onclick="AgregarHabitacion">Agregar Nueva Habitación</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>TipoHabitacion</th>
+                <th>PrecioPorNoche</th>
+                <th>Disponible</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var habitacion in habitaciones)
+            {
+                <tr>
+                    <td>@habitacion.ID</td>
+                    <td>@habitacion.TipoHabitacion</td>
+                    <td>@habitacion.PrecioPorNoche.ToString("F2")</td>
+                    <td>
+                        <InputCheckbox class="form-check-input" @bind-Value="habitacion.Disponible" disabled />
+                    </td>
+                    <td>
+                        <a href="/NuevaEditarHabitacion?IdHabitacionEditada=@habitacion.ID">Editar</a>
+                    </td>
+                    <td>
+                        <button title="Eliminar" class="btn btn-danger" @onclick="@(()=>Eliminar(habitacion))">Eliminar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@code {
+    private List<RH_Habitacion>? habitaciones;
+
+    protected override async Task OnInitializedAsync()
+    {
+        habitaciones = await HabitacionService.GetAllAsync();
+    }
+
+    private void AgregarHabitacion()
+    {
+        NavigationManager.NavigateTo("/NuevaEditarHabitacion");
+    }
+
+    private async Task Eliminar(RH_Habitacion habitacion)
+    {
+        SweetAlertResult result = await SweetAlert.FireAsync(new SweetAlertOptions
+            {
+                Title = "Borrando Habitación",
+                Text = "¿Está seguro que desea borrar esta Habitación?",
+                Icon = SweetAlertIcon.Warning,
+                ShowCancelButton = true,
+                ConfirmButtonText = "Sí, quiero borrarla",
+                CancelButtonText = "No, esperar"
+            });
+
+        if (result.IsConfirmed)
+        {
+            await HabitacionService.DeleteAsync(habitacion.ID);
+            habitaciones = await HabitacionService.GetAllAsync();
+            StateHasChanged();
+        }
+    }
+}

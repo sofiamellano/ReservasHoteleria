@@ -13,6 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Reports\HabitacionesReport.rdlc" />
+    <EmbeddedResource Include="Reports\ServiciosAdicionales.rdlc" />
+    <EmbeddedResource Include="Reports\Servicios.rdlc" />
+    <EmbeddedResource Include="Reports\EmpleadosReport.rdlc" />
     <EmbeddedResource Include="Reports\ReservasReport.rdlc" />
   </ItemGroup>
 

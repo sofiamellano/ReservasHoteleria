@@ -2,25 +2,53 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:ReservaHoteleriaApp.ViewModels"
-             xmlns:views="clr-namespace:ReservaHoteleriaApp.Views"
              x:Class="ReservaHoteleriaApp.Views.AddEditServicioAdicionalView"
-             Title="SERVICIOS ADICIONALES">
+             Title="EDITAR / AGREGAR SERVICIO ADICIONAL"
+             BackgroundColor="#F2F6F9"
+             Padding="20,30">
+
     <ContentPage.BindingContext>
         <viewModels:AddEditServicioAdicionalViewModel/>
     </ContentPage.BindingContext>
-    
-    <VerticalStackLayout>
-        <Label Text="Agregar o editar servicio adicional"
-               FontSize="Header"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"/>
-        <Entry Placeholder="Tipo de Servicio Adicional"
-               Text="{Binding TipoServicio}"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"/>
-        <Button Text="Guardar"
-                Command="{Binding SaveServicioAdicionalCommand}"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"/>
-    </VerticalStackLayout>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20"
+                             Padding="20"
+                             BackgroundColor="#FFFFFF"
+                             VerticalOptions="CenterAndExpand"
+                             HorizontalOptions="FillAndExpand">
+
+            <Label Text="AGREGAR O EDITAR SERVICIO ADICIONAL"
+                   FontSize="Large"
+                   TextColor="#374151"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <!-- Grupo Tipo de Servicio -->
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Tipo de Servicio Adicional:"
+                       FontSize="Small"
+                       TextColor="#374151" />
+                <Entry Placeholder="Escribe el tipo de servicio adicional"
+                       Text="{Binding TipoServicio}"
+                       BackgroundColor="#F3F4F6"
+                       TextColor="#111827"
+                       PlaceholderColor="#9CA3AF"
+                       FontSize="Small"
+                       HeightRequest="50" />
+            </VerticalStackLayout>
+
+            <!-- Botón Guardar -->
+            <Button Text="Guardar"
+                    Command="{Binding SaveServicioAdicionalCommand}"
+                    BackgroundColor="#3B82F6"
+                    TextColor="#FFFFFF"
+                    FontAttributes="Bold"
+                    CornerRadius="8"
+                    Padding="10"
+                    HeightRequest="50"
+                    HorizontalOptions="Center"
+                    WidthRequest="200" /> <!-- Aumentado el ancho del botón -->
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

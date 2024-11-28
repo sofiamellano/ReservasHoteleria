@@ -133,7 +133,8 @@ namespace ReservaHoteleriaApp.ViewModels
 
         public async Task ObtenerReservas()
         {
-            FilterReservas = string.Empty;
+            Reservas = null;
+            //FilterReservas = string.Empty;
             IsRefreshing = true;
             ReservaListToFilter = await reservaService.GetAllAsync();
             Reservas = new ObservableCollection<RH_Reserva>(ReservaListToFilter);

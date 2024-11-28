@@ -18,7 +18,11 @@ namespace ReservaHoteleriaApp.ViewModels
             {
                 filterServicioAdicional = value;
                 OnPropertyChanged();
-                FiltarServiciosAdicionales();
+                if ( filterServicioAdicional != string.Empty)
+                {
+                    FiltarServiciosAdicionales();
+                }
+
             }
         }
 

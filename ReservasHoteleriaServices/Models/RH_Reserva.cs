@@ -20,7 +20,9 @@ namespace ReservasHoteleriaServices.Models
         // Claves foráneas
         public int? HabitacionID { get; set; }
         public virtual RH_Habitacion? Habitacion { get; set; }
-
+        
         public virtual ICollection<RH_Habitacion> Habitaciones { get; set; } = new List<RH_Habitacion>();
+        public override string ToString() => NombreCliente;
+        
     }
 }

@@ -11,7 +11,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.79649cm</Height>
+              <Height>1.09389cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -136,7 +136,7 @@
         </TablixRowHierarchy>
         <DataSetName>DSServicios</DataSetName>
         <Top>0.10555cm</Top>
-        <Height>0.79649cm</Height>
+        <Height>1.09389cm</Height>
         <Width>15.103cm</Width>
         <Style>
           <Border>
@@ -145,13 +145,13 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.42708in</Height>
+    <Height>0.54166in</Height>
     <Style />
   </Body>
   <Width>6.06243in</Width>
   <Page>
     <PageHeader>
-      <Height>2.96636cm</Height>
+      <Height>3.17802cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -174,7 +174,6 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>0cm</Top>
           <Left>4.24986cm</Left>
           <Height>1.86972cm</Height>
           <Width>9.3527cm</Width>
@@ -200,7 +199,7 @@
         <Line Name="Line2">
           <Top>2.89306cm</Top>
           <Height>0cm</Height>
-          <Width>15.39857cm</Width>
+          <Width>15.39856cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>

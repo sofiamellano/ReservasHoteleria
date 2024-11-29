@@ -37,11 +37,11 @@
             MenuServicios = new FontAwesome.Sharp.IconMenuItem();
             MenuServiciosAdicionales = new FontAwesome.Sharp.IconMenuItem();
             iconMenuListados = new FontAwesome.Sharp.IconMenuItem();
-            MenuSalir = new FontAwesome.Sharp.IconMenuItem();
             iconMenuEmpleados = new FontAwesome.Sharp.IconMenuItem();
             iconMenuHabitaciones = new FontAwesome.Sharp.IconMenuItem();
             iconMenuServicios = new FontAwesome.Sharp.IconMenuItem();
             iconMenuServiciosAdicionales = new FontAwesome.Sharp.IconMenuItem();
+            MenuSalir = new FontAwesome.Sharp.IconMenuItem();
             panel1.SuspendLayout();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -165,6 +165,54 @@
             iconMenuListados.Size = new Size(108, 42);
             iconMenuListados.Text = "LISTADOS";
             // 
+            // iconMenuEmpleados
+            // 
+            iconMenuEmpleados.BackColor = Color.FromArgb(31, 60, 136);
+            iconMenuEmpleados.ForeColor = Color.White;
+            iconMenuEmpleados.IconChar = FontAwesome.Sharp.IconChar.PeopleGroup;
+            iconMenuEmpleados.IconColor = Color.White;
+            iconMenuEmpleados.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconMenuEmpleados.Name = "iconMenuEmpleados";
+            iconMenuEmpleados.Size = new Size(237, 22);
+            iconMenuEmpleados.Text = "LISTA EMPLEADOS";
+            iconMenuEmpleados.Click += iconMenuEmpleados_Click;
+            // 
+            // iconMenuHabitaciones
+            // 
+            iconMenuHabitaciones.BackColor = Color.FromArgb(31, 60, 136);
+            iconMenuHabitaciones.ForeColor = Color.White;
+            iconMenuHabitaciones.IconChar = FontAwesome.Sharp.IconChar.Bed;
+            iconMenuHabitaciones.IconColor = Color.White;
+            iconMenuHabitaciones.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconMenuHabitaciones.Name = "iconMenuHabitaciones";
+            iconMenuHabitaciones.Size = new Size(237, 22);
+            iconMenuHabitaciones.Text = "LISTA HABITACIONES";
+            iconMenuHabitaciones.Click += iconMenuHabitaciones_Click;
+            // 
+            // iconMenuServicios
+            // 
+            iconMenuServicios.BackColor = Color.FromArgb(31, 60, 136);
+            iconMenuServicios.ForeColor = Color.White;
+            iconMenuServicios.IconChar = FontAwesome.Sharp.IconChar.BellConcierge;
+            iconMenuServicios.IconColor = Color.White;
+            iconMenuServicios.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconMenuServicios.Name = "iconMenuServicios";
+            iconMenuServicios.Size = new Size(237, 22);
+            iconMenuServicios.Text = "LISTA SERVICIOS";
+            iconMenuServicios.Click += iconMenuServicios_Click;
+            // 
+            // iconMenuServiciosAdicionales
+            // 
+            iconMenuServiciosAdicionales.BackColor = Color.FromArgb(31, 60, 136);
+            iconMenuServiciosAdicionales.ForeColor = Color.White;
+            iconMenuServiciosAdicionales.IconChar = FontAwesome.Sharp.IconChar.Cogs;
+            iconMenuServiciosAdicionales.IconColor = Color.White;
+            iconMenuServiciosAdicionales.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconMenuServiciosAdicionales.Name = "iconMenuServiciosAdicionales";
+            iconMenuServiciosAdicionales.Size = new Size(237, 22);
+            iconMenuServiciosAdicionales.Text = "LISTA SERVICIOS ADICIONALES";
+            iconMenuServiciosAdicionales.Click += iconMenuServiciosAdicionales_Click;
+            // 
             // MenuSalir
             // 
             MenuSalir.BackColor = Color.FromArgb(31, 60, 136);
@@ -178,46 +226,6 @@
             MenuSalir.Size = new Size(87, 42);
             MenuSalir.Text = "SALIR";
             MenuSalir.Click += MenuSalir_Click;
-            // 
-            // iconMenuEmpleados
-            // 
-            iconMenuEmpleados.IconChar = FontAwesome.Sharp.IconChar.None;
-            iconMenuEmpleados.IconColor = Color.Black;
-            iconMenuEmpleados.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconMenuEmpleados.Name = "iconMenuEmpleados";
-            iconMenuEmpleados.Size = new Size(237, 22);
-            iconMenuEmpleados.Text = "LISTA EMPLEADOS";
-            iconMenuEmpleados.Click += iconMenuEmpleados_Click;
-            // 
-            // iconMenuHabitaciones
-            // 
-            iconMenuHabitaciones.IconChar = FontAwesome.Sharp.IconChar.None;
-            iconMenuHabitaciones.IconColor = Color.Black;
-            iconMenuHabitaciones.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconMenuHabitaciones.Name = "iconMenuHabitaciones";
-            iconMenuHabitaciones.Size = new Size(237, 22);
-            iconMenuHabitaciones.Text = "LISTA HABITACIONES";
-            iconMenuHabitaciones.Click += iconMenuHabitaciones_Click;
-            // 
-            // iconMenuServicios
-            // 
-            iconMenuServicios.IconChar = FontAwesome.Sharp.IconChar.None;
-            iconMenuServicios.IconColor = Color.Black;
-            iconMenuServicios.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconMenuServicios.Name = "iconMenuServicios";
-            iconMenuServicios.Size = new Size(237, 22);
-            iconMenuServicios.Text = "LISTA SERVICIOS";
-            iconMenuServicios.Click += iconMenuServicios_Click;
-            // 
-            // iconMenuServiciosAdicionales
-            // 
-            iconMenuServiciosAdicionales.IconChar = FontAwesome.Sharp.IconChar.None;
-            iconMenuServiciosAdicionales.IconColor = Color.Black;
-            iconMenuServiciosAdicionales.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconMenuServiciosAdicionales.Name = "iconMenuServiciosAdicionales";
-            iconMenuServiciosAdicionales.Size = new Size(237, 22);
-            iconMenuServiciosAdicionales.Text = "LISTA SERVICIOS ADICIONALES";
-            iconMenuServiciosAdicionales.Click += iconMenuServiciosAdicionales_Click;
             // 
             // Home
             // 

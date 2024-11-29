@@ -11,7 +11,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.89986cm</Height>
+              <Height>1.35847cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -36,6 +36,36 @@
                           <Left>10.04762cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="ID">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!ID.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>ID</rd:DefaultName>
+                          <Top>0.07084cm</Top>
+                          <Left>2.43417cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>2.5cm</Width>
+                          <ZIndex>1</ZIndex>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -74,7 +104,7 @@
         </TablixRowHierarchy>
         <DataSetName>DSServiciosAdicionales</DataSetName>
         <Top>0.10555cm</Top>
-        <Height>0.89986cm</Height>
+        <Height>1.35847cm</Height>
         <Width>15.103cm</Width>
         <Style>
           <Border>
@@ -82,44 +112,14 @@
           </Border>
         </Style>
       </Tablix>
-      <Textbox Name="ID">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Fields!ID.Value</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>ID</rd:DefaultName>
-        <Top>0.14111cm</Top>
-        <Left>2.43417cm</Left>
-        <Height>0.6cm</Height>
-        <Width>2.5cm</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
     </ReportItems>
-    <Height>0.48958in</Height>
+    <Height>0.64583in</Height>
     <Style />
   </Body>
   <Width>6.06243in</Width>
   <Page>
     <PageHeader>
-      <Height>2.96636cm</Height>
+      <Height>3.20448cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>

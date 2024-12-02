@@ -95,7 +95,7 @@ namespace ReservasBackend.DataContext
                     FechaReserva = new DateTime(2024, 10, 10),
                     FechaCheckIn = new DateTime(2024, 10, 15),
                     FechaCheckOut = new DateTime(2024, 10, 20),
-                    EstadoReserva = EstadoReservaEnum.Confirmada,
+                    EstadoReserva = "Confirmada",
                     HabitacionID = 1
                     
                 },
@@ -106,7 +106,7 @@ namespace ReservasBackend.DataContext
                     FechaReserva = new DateTime(2024, 09, 01),
                     FechaCheckIn = new DateTime(2024, 09, 10),
                     FechaCheckOut = new DateTime(2024, 09, 12),
-                    EstadoReserva = EstadoReservaEnum.Cancelada,
+                    EstadoReserva = "Cancelada",
                     HabitacionID = 3,
                 },
                 new RH_Reserva
@@ -116,7 +116,7 @@ namespace ReservasBackend.DataContext
                     FechaReserva = new DateTime(2024, 09, 15),
                     FechaCheckIn = new DateTime(2024, 09, 18),
                     FechaCheckOut = new DateTime(2024, 09, 20),
-                    EstadoReserva = EstadoReservaEnum.Pendiente,
+                    EstadoReserva = "Pendiente",
                     HabitacionID = 2,
                 }
             );

@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ReservasHoteleriaServices.Enums;
 using ReservasHoteleriaServices.Models;
 
 namespace ReservasBackend.DataContext

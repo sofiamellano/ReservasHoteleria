@@ -27,7 +27,7 @@ namespace ReservasBackend.Controllers
         {
             var reservas = await _context.RH_Reservas
          .Include(r => r.Habitacion)
-         .Where(r => filtro == null || r.EstadoReserva.Contains(filtro))
+         .Where(r => filtro == null || r.NombreCliente.Contains(filtro))
          .ToListAsync();
 
             return Ok(reservas);

@@ -41,6 +41,8 @@
             btnAgregar = new FontAwesome.Sharp.IconButton();
             dataGridReservas = new DataGridView();
             tabPageAgregarEditar = new TabPage();
+            txtNombreCliente = new TextBox();
+            label3 = new Label();
             dateTimeCheckOut = new DateTimePicker();
             dateTimeCheckIn = new DateTimePicker();
             dateTimeFechaReserva = new DateTimePicker();
@@ -53,8 +55,6 @@
             label4 = new Label();
             btnGuardar = new FontAwesome.Sharp.IconButton();
             btnCancelar = new FontAwesome.Sharp.IconButton();
-            txtNombreCliente = new TextBox();
-            label3 = new Label();
             panel1.SuspendLayout();
             tabControl.SuspendLayout();
             tabPageLista.SuspendLayout();
@@ -256,6 +256,22 @@
             tabPageAgregarEditar.Text = "Agregar/Editar";
             tabPageAgregarEditar.UseVisualStyleBackColor = true;
             // 
+            // txtNombreCliente
+            // 
+            txtNombreCliente.Location = new Point(408, 47);
+            txtNombreCliente.Name = "txtNombreCliente";
+            txtNombreCliente.Size = new Size(231, 23);
+            txtNombreCliente.TabIndex = 26;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(264, 50);
+            label3.Name = "label3";
+            label3.Size = new Size(112, 15);
+            label3.TabIndex = 25;
+            label3.Text = "Nomble del Cliente:";
+            // 
             // dateTimeCheckOut
             // 
             dateTimeCheckOut.Format = DateTimePickerFormat.Short;
@@ -291,7 +307,7 @@
             // 
             // txtEstadoReserva
             // 
-            txtEstadoReserva.Location = new Point(408, 207);
+            txtEstadoReserva.Location = new Point(408, 210);
             txtEstadoReserva.Name = "txtEstadoReserva";
             txtEstadoReserva.Size = new Size(231, 23);
             txtEstadoReserva.TabIndex = 17;
@@ -376,22 +392,6 @@
             btnCancelar.TextImageRelation = TextImageRelation.ImageAboveText;
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
-            // 
-            // txtNombreCliente
-            // 
-            txtNombreCliente.Location = new Point(408, 47);
-            txtNombreCliente.Name = "txtNombreCliente";
-            txtNombreCliente.Size = new Size(231, 23);
-            txtNombreCliente.TabIndex = 26;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(264, 50);
-            label3.Name = "label3";
-            label3.Size = new Size(112, 15);
-            label3.TabIndex = 25;
-            label3.Text = "Nomble del Cliente:";
             // 
             // ReservasViews
             // 

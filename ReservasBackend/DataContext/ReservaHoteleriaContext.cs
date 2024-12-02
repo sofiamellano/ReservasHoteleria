@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ReservasHoteleriaServices.Enums;
 using ReservasHoteleriaServices.Models;
 
 namespace ReservasBackend.DataContext
@@ -94,7 +95,7 @@ namespace ReservasBackend.DataContext
                     FechaReserva = new DateTime(2024, 10, 10),
                     FechaCheckIn = new DateTime(2024, 10, 15),
                     FechaCheckOut = new DateTime(2024, 10, 20),
-                    EstadoReserva = "Confirmada",
+                    EstadoReserva = EstadoReservaEnum.Confirmada,
                     HabitacionID = 1
                     
                 },
@@ -105,7 +106,7 @@ namespace ReservasBackend.DataContext
                     FechaReserva = new DateTime(2024, 09, 01),
                     FechaCheckIn = new DateTime(2024, 09, 10),
                     FechaCheckOut = new DateTime(2024, 09, 12),
-                    EstadoReserva = "Cancelada",
+                    EstadoReserva = EstadoReservaEnum.Cancelada,
                     HabitacionID = 3,
                 },
                 new RH_Reserva
@@ -115,7 +116,7 @@ namespace ReservasBackend.DataContext
                     FechaReserva = new DateTime(2024, 09, 15),
                     FechaCheckIn = new DateTime(2024, 09, 18),
                     FechaCheckOut = new DateTime(2024, 09, 20),
-                    EstadoReserva = "Pendiente",
+                    EstadoReserva = EstadoReservaEnum.Pendiente,
                     HabitacionID = 2,
                 }
             );
